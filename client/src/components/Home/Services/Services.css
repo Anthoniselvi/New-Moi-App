@@ -1,0 +1,90 @@
+.carousel-container {
+    background-color: #fff;
+        width: 100vw;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+.carousel-heading{
+    color: #101a34;
+          font-weight: 600;
+          font-family: Poppins;
+          font-size: 30px;
+  }
+  .carousel-slider-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 400px;
+    width: 100%;
+    margin: 15px;  
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 rgba(8,18,53,.25);
+  }
+  .carousel-image{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+  }
+  .carousel-text{
+    width: 100%; height: 35% ;
+  }
+  .carousel-title{
+    font-family: Poppins;
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: #101a34;
+                    text-align: center;
+  }
+  .carousel-description{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #5e6577;
+    text-align: center;
+  }
+  .carousel-btn-box{
+    width: 100%;
+     height: 15% ;
+  }
+  .carousel-btn{
+    background-color: #fff;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #0d5577;
+    border: 1px solid #0d5577;
+    border-radius: 20px;
+    padding: 5px 20px;
+    width: 60%;
+    margin: 0% 20%;
+  }
+  .seperator {
+    width: 100%;
+  }
+  
+  .controls-wrapper {
+    width: 100%;
+  
+  }
+  
+  .carousel-wrapper {
+    width: 100%;
+
+  }
+  
+  .rec-carousel-item:focus {
+    outline: none;
+    box-shadow: inset 0 0 1px 0px violet;
+  }
+  

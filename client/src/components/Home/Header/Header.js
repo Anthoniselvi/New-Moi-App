@@ -1,34 +1,27 @@
 import React from "react";
+// import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import Navbar from "../Navbar/Navbar";
 
-const Header = () => {
-  return (
-    <div className="header flex flex-col" id="header">
-      <Navbar />
+export default function FirstPage() {
+  //   const navigate = useNavigate();
 
-      <div className="container flex">
-        <div className="header-content">
-          <h2 className="text-uppercase text-white op-07 fw-6 ls-2">
-            web design, branding, graphic
-          </h2>
-          <h1 className="text-white fw-6 header-title">
-            Hello, I'm{" "}
-            <span className="text-brown">Web & Graphic Designer</span> living in
-            Melbourne, Australia
-          </h1>
-          <div className="btn-groups flex">
-            <button type="button" className="btn-item bg-brown fw-4 ls-2">
-              See Works
-            </button>
-            <button type="button" className="btn-item bg-dark fw-4 ls-2">
-              Contact Me
-            </button>
-          </div>
-        </div>
+  const navigateToSignUp = () => {
+    // navigate("/signup");
+  };
+  return (
+    <div className="firstpage-container flex flex-col" id="home">
+      {/* <Navbar /> */}
+      <div className="home-text-section">
+        <h1 className="primary-heading">Gift Management made easy</h1>
+        <p className="primary-text">
+          GiftBook is the easiest way to record all the gifts you receive for
+          your birthday, wedding, housewarming, and more.
+        </p>
+        <button onClick={navigateToSignUp} className="secondary-button">
+          Get Started
+        </button>
       </div>
     </div>
   );
-};
-
-export default Header;
+}
