@@ -26,9 +26,14 @@
   .subworks-text-box{
     padding-left: 0;
   }
-
+.subworks-content-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
   .subworks-img-box {
- background-color: #b7e5fc;
+    background: linear-gradient(129.86deg,#50bcd9 -41.94%,rgba(80,188,217,0) 111.06%);
+ /* background-color: #b7e5fc; */
  height: 100%;
  width: 40%;
     display: flex;

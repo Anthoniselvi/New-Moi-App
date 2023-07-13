@@ -14,22 +14,22 @@ export default function SubWorks() {
       <Box className="subworks-inner-box">
         <Box className="subworks-text-box">
           <h2 className="subworks-heading">Easily track your gifts</h2>
+          <div className="subworks-content-container">
+            <div className="subworks-content-box">
+              <img className="subworks-img" src="/img/check.png" />
+              <h4 className="subworks-content-text">
+                Track your full history of received gifts.
+              </h4>
+            </div>
+            <div className="subworks-content-box">
+              {/* <CheckCircleOutlineIcon sx={{ color: "#50bcd9" }} />  */}
+              <img className="subworks-img" src="/img/check.png" />
 
-          <div className="subworks-content-box">
-            <img className="subworks-img" src="/img/check.png" />
-            <h4 className="subworks-content-text">
-              Track your full history of received gifts.
-            </h4>
+              <h4 className="subworks-content-text">
+                Never miss someone from the giftbook.
+              </h4>
+            </div>
           </div>
-          <div className="subworks-content-box">
-            {/* <CheckCircleOutlineIcon sx={{ color: "#50bcd9" }} />  */}
-            <img className="subworks-img" src="/img/check.png" />
-
-            <h4 className="subworks-content-text">
-              Never miss someone from the giftbook.
-            </h4>
-          </div>
-
           <button className="subworks-button" onClick={navigateToSignUp}>
             Get Started
           </button>
