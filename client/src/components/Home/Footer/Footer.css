@@ -1,0 +1,123 @@
+.footer-container{
+    background-color: #22222a;
+    width: 100vw;
+    padding: 5%;
+  
+}
+.footer-inner{
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10%;
+    align-items: top;
+}
+.footer-firstcolumn{
+    padding: 0;
+    border: 1px solid white; 
+}
+.footer-subhead{
+    font-weight: 600;
+            font-family: Poppins;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: left;
+            color: #fff;
+}
+.footer-bottom-text{
+    font-weight: 400;
+    font-family: Poppins;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: left;
+    color: #fff;
+}
+.footer-outer-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    /* padding-top: 1%; */
+}
+.footer-logo-container {
+    max-width: 110px;
+  }
+  .footer-icons {
+    margin-top: 2.5rem;
+  }
+  .footer-icons svg {
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+    color: #585858;
+  }
+  /* .footer-section-one {
+    border: 2px solid blue;
+  } */
+  .footer-section-two {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-section-columns {
+    display: flex;
+    flex-direction: column;
+    min-width: 190px;
+  }
+  .footer-section-columns span {
+    margin: 0.25rem 0rem;
+    font-weight: 600;
+    color: #4c4c4c;
+    cursor: pointer;
+  }
+  .footer-button {
+    /* padding: 0.5rem 2rem;
+    background-color: #fff;
+    color:#101a34;  
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    width: 100%; */
+    width: 170px;
+    height: 40px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 0 0 8px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: #21201f;
+  }
+
+  .footer-button:hover {
+    background-color: #50bcd9;
+    color: #101a34;
+  }
+  .footer1-button {
+    /* padding: 0.5rem 2rem; */
+    background: #50bcd9;
+    color: #fff;
+    /* font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%; */
+    width: 170px;
+    height: 40px;
+    border-radius: 8px;
+    margin: 0 0 8px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+  }

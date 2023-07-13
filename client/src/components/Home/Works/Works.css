@@ -1,6 +1,7 @@
 .works-container{
     width: 100vw;
     height: 100vh;
+    padding:5%;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -22,9 +23,10 @@
 }
 .works-inner-box{
   display: flex;
+  justify-content: space-between;
   height: 90%;
   width: 100%;
-  padding: 2% 10%;
+  /* padding: 2% 10%; */
 }
 .works-text-box{
   padding-left: 10%;

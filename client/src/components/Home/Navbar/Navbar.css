@@ -632,35 +632,4 @@ border: 1px solid #101a34;
     }
   }
   
-  .footer-button {
-    padding: 0.5rem 2rem;
-    background-color: #fff;
-    color:#101a34;  
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-    width: 100%;
-  }
-
-  .footer-button:hover {
-    background-color: #50bcd9;
-    color: #101a34;
-  }
-  .footer1-button {
-    padding: 0.5rem 2rem;
-    background: #50bcd9;
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: 0.2s;
-    width: 100%;
-  }
+  
