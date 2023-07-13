@@ -6,6 +6,7 @@ import Works from "./Works/Works";
 import Testimonal from "./Testimonal/Testimonal";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
+import SubWorks from "./SubWorks/SubWorks";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <About />
       <Services />
       <Works />
+      <SubWorks />
       <Testimonal />
       <Footer />
     </div>
