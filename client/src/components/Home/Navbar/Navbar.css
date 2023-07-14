@@ -4,6 +4,7 @@
    html{
     scroll-behavior: smooth;
    }
+
   nav {
     display: flex;
     align-items: center;
@@ -21,6 +22,77 @@
     padding-right: 5%;
     padding-left: 5%;
   }
+  .navbar-links-container a {
+    /* margin-right: 3rem; */
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Poppins";
+    color: #101a34;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    
+  }
+  
+  .navbar-links-container a:hover,
+  .navbar-links-container a:active,
+  .navbar-links-container a:focus {
+    /* background-color: #50bcd9; */
+    color: #50bcd9;
+  }
+  
+  .primary-button {
+    border-radius: 8px;
+    padding: 10px 24px;
+    background-color: #101a34;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-family: "Poppins";
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    height: 46px;
+    width: 106px;
+  }
+  .navbar-cart-icon {
+    font-size: 1.15rem;
+  }
+  .primary-button:hover {
+    /* background-color: rgb(234, 234, 234); */
+    background-color: #50bcd9;
+    color: #fff;
+  }
+  .primary1-button {
+    border-radius: 8px;
+    padding: 10px 24px;
+    background-color: #fff;
+    color: #50bcd9;
+    border: 1px solid #50bcd9;
+    outline: none;
+    border: none;
+    font-family: "Poppins";
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+    height: 46px;
+    width: 106px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .primary1-button:hover {
+    background-color: #50bcd9;
+    color: #fff;
+  }
+  .navbar-menu-container svg {
+    font-size: 1.5rem;
+    cursor: pointer;
+
+  }
+ 
   @media (max-width: 1000px) {
     nav{
       height: 50px;
@@ -125,88 +197,39 @@
   }
 }
  
+  
  
- 
-  
-  .body-button {
-    padding: 1rem 2.5rem;
-    background-color: #101a34;
-    outline: none;
-    border: none;
-    width: 30%;
-    border-radius: 0.5rem;
-    font-size: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #fff;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .body-button:hover{
-    background-color: #fff;
- color: #101a34;
-border: 1px solid #101a34;
-  }
-  /* // style={{
-    //   backgroundColor: "#101a34",
-    //   color: "#fff",
-    //   width: "30%",
-    //   marginTop: "20px",
-    //   fontWeight: 600,
-    //   fontSize: "15px",
-    //   lineHeight: "22px",
-    //   fontFamily: "Poppins",
-    //   borderRadius: "7px",
-    //   border: "1px solid #101a34",
-    //   "&:hover": {
-    //     backgroundColor: "#fff",
-    //     color: "#101a34",
-    //     border: "1px solid #101a34",
-    //   },
-    // }} */
-  
-  .contact-page-wrapper h1 {
-    max-width: 900px !important;
-  }
-  .contact-page-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 6rem 0rem;
-  }
-  .contact-form-container {
-    background-color: white;
-    max-width: 700px;
-    width: 100%;
-    margin-top: 3rem;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 5rem;
-  }
-  .contact-form-container input {
-    flex: 1;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 1.3rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  @media (max-width: 1000px) {
-    .navbar-links-container a {
-      margin-right: 1rem;
-      font-size: 1rem;
+  @media only screen and (max-width: 1000px) {
+    .navbar-menu-container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
     }
   
-    .home-bannerImage-container {
-      max-width: 600px;
+    .mobile-menu-icon {
+      display: block;
+    }
+  
+    .navbar-links-container {
+      display: none;
     }
   }
   
-   
+  @media only screen and (min-width: 1001px) {
+    .navbar-menu-container {
+      display: none;
+    }
+  
+    .mobile-menu-icon {
+      display: none;
+    }
+  
+    .navbar-links-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  
   
   

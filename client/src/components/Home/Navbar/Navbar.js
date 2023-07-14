@@ -67,15 +67,17 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar-menu-container">
-        {!openMenu ? (
-          <RiMenu2Line
-            onClick={handleMenuClicked}
-            style={{ fontSize: "25px" }}
-            className="Icon"
-          />
-        ) : (
-          <ImCross onClick={handleMenuClicked} className="Icon" />
-        )}
+        <div className="mobile-menu-icon">
+          {!openMenu ? (
+            <RiMenu2Line
+              onClick={handleMenuClicked}
+              style={{ fontSize: "25px" }}
+              className="Icon"
+            />
+          ) : (
+            <ImCross onClick={handleMenuClicked} className="Icon" />
+          )}
+        </div>
       </div>
       <Drawer
         open={openMenu}
