@@ -67,114 +67,24 @@ function Services() {
   ];
 
   return (
-    <div
-      id="services"
-      className="carousel-container"
-      //   style={{
-      //     backgroundColor: "#fff",
-      //     width: "100vw",
-      //   }}
-    >
-      <h1
-        className="carousel-heading"
-        style={
-          {
-            //   color: "#101a34",
-            //   fontWeight: 600,
-            //   fontFamily: "Poppins",
-            //   fontSize: "30px",
-          }
-        }
-      >
-        Giftbook for any occassion
-      </h1>
+    <div id="services" className="services-container">
+      <h1 className="services-heading">Giftbook for any occassion</h1>
       {/* <hr className="seperator" /> */}
-      <div className="carousel-wrapper">
+      <div className="services-wrapper">
         <Carousel breakPoints={breakPoints}>
           {items.map((item) => (
-            <div
-              className="carousel-slider-container"
-              style={
-                {
-                  // display: "flex",
-                  // flexDirection: "column",
-                  // justifyContent: "center",
-                  // alignItems: "center",
-                  // height: "400px",
-                  // width: "100%",
-                  // margin: "15px",
-                  // // border: "1px solid grey",
-                  // borderRadius: "8px",
-                  // boxShadow: "0 0 8px 0 rgba(8,18,53,.25)",
-                }
-              }
-              key={item.title}
-            >
+            <div className="services-slider-container" key={item.title}>
               <img
-                className="carousel-image"
+                className="services-image"
                 src={item.image}
                 alt={item.title}
-                // style={{ width: "100%", height: "50%", overflow: "hidden" }}
               />
-              <div
-                className="carousel-text"
-                //   style={{ width: "100%", height: "35%" }}
-              >
-                <p
-                  className="carousel-title"
-                  style={
-                    {
-                      // fontFamily: "Poppins",
-                      // fontWeight: 600,
-                      // fontSize: "15px",
-                      // color: "#101a34",
-                      // textAlign: "center",
-                    }
-                  }
-                >
-                  {item.title}
-                </p>
-                <p
-                  className="carousel-description"
-                  style={
-                    {
-                      // fontFamily: "Poppins",
-                      // fontWeight: 400,
-                      // fontSize: "12px",
-                      // lineHeight: "20px",
-                      // color: "#5e6577",
-                      // textAlign: "center",
-                    }
-                  }
-                >
-                  {item.description}
-                </p>
+              <div className="services-text">
+                <p className="services-title">{item.title}</p>
+                <p className="services-description">{item.description}</p>
               </div>
-              <div
-                className="carousel-btn-box"
-                //   style={{ width: "100%", height: "15%" }}
-              >
-                <button
-                  className="carousel-btn"
-                  style={
-                    {
-                      // backgroundColor: "#fff",
-                      // fontFamily: "Poppins",
-                      // fontWeight: 600,
-                      // fontSize: "12px",
-                      // lineHeight: "20px",
-                      // textAlign: "center",
-                      // color: "#0d5577",
-                      // border: "1px solid #0d5577",
-                      // borderRadius: "20px",
-                      // padding: "5px 20px",
-                      // width: "60%",
-                      // margin: "0% 20%",
-                    }
-                  }
-                >
-                  Create Event
-                </button>
+              <div className="services-btn-box">
+                <button className="services-btn">Create Event</button>
               </div>
             </div>
           ))}

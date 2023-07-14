@@ -14,6 +14,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import { ImCross } from "react-icons/im";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RiMenu2Line } from "react-icons/ri";
 // import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -58,38 +61,30 @@ const Navbar = () => {
       link: "#footer",
     },
   ];
+  const handleMenuClicked = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <nav>
-      <div className="nav-logo-container">
-        <h1>MOI APP</h1>
-      </div>
-      <div className="navbar-links-container">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#works">How to Works</a>
-        <a href="#testimonal">Testimonials</a>
-        <a href="#footer">Contact</a>
-
-        <button className="primary1-button" onClick={navigateToLogin}>
-          Login
-        </button>
-        <button className="primary-button" onClick={navigateToSignUp}>
-          Sign Up
-        </button>
-      </div>
-
       <div className="navbar-menu-container">
-        <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
+        {!openMenu ? (
+          <RiMenu2Line
+            onClick={handleMenuClicked}
+            style={{ fontSize: "25px" }}
+            className="Icon"
+          />
+        ) : (
+          <ImCross onClick={handleMenuClicked} className="Icon" />
+        )}
       </div>
       <Drawer
         open={openMenu}
         onClose={() => setOpenMenu(false)}
-        anchor="right"
+        anchor="left"
         sx={{ zIndex: 4000 }}
       >
         <Box
-          sx={{ width: 250 }}
+          sx={{ width: 250, paddingTop: "70px" }}
           role="presentation"
           onClick={() => setOpenMenu(false)}
           onKeyDown={() => setOpenMenu(false)}
@@ -132,6 +127,24 @@ const Navbar = () => {
           </div>
         </Box>
       </Drawer>
+      <div className="nav-logo-container">
+        <h1>MOI APP</h1>
+      </div>
+      <div className="navbar-links-container">
+        <a href="/">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#works">How to Works</a>
+        <a href="#testimonal">Testimonials</a>
+        <a href="#footer">Contact</a>
+
+        <button className="primary1-button" onClick={navigateToLogin}>
+          Login
+        </button>
+        <button className="primary-button" onClick={navigateToSignUp}>
+          Sign Up
+        </button>
+      </div>
     </nav>
   );
 };

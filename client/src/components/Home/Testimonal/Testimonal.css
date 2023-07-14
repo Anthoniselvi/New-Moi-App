@@ -18,9 +18,8 @@
     
   }
   
-  @media (max-width: 1110px) {
+  @media (max-width: 1000px) {
     .carousel-container{
-      margin-top: 60%;
       background-color: #fff;
     }
   }

@@ -5,7 +5,7 @@
   
 }
 .footer-inner{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -13,8 +13,19 @@
     align-items: top;
 }
 .footer-firstcolumn{
-    padding: 0;
-    border: 1px solid white; 
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+.footer-secondcolumn{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-thirdcolumn{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .footer-subhead{
     font-weight: 600;

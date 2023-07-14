@@ -12,7 +12,6 @@ export default function Works() {
   return (
     <div className="works-container" id="works">
       <div className="works-title-container">
-        {" "}
         <h1 className="works-title">How It Works</h1>
       </div>
 

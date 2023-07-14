@@ -10,8 +10,7 @@ export default function FirstPage() {
     // navigate("/signup");
   };
   return (
-    <div className="firstpage-container flex flex-col" id="home">
-      {/* <Navbar /> */}
+    <div className="firstpage-container" id="home">
       <div className="home-text-section">
         <h1 className="primary-heading">Gift Management made easy</h1>
         <p className="primary-text">

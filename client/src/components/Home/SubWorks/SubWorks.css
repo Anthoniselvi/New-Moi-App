@@ -86,3 +86,41 @@
                 color: #101a34;
                 border: 1px solid #101a34;
   }
+  
+@media (max-width: 1000px) {
+  .subworks-container{
+      height: 100%;
+  }
+  .subworks-title{
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 46px;
+  color: #101a34;
+  }
+  .subworks-inner-box{
+      display: flex;
+      flex-direction: column;
+      padding: 5%;
+      gap: 30px;
+  }
+  .subworks-text-box{
+    order: 1;
+    width: 100%;
+
+  }
+  .subworks-img-box{
+      order:2;
+      width: 100%;
+  }
+  .subworks-heading{
+      font-size: 20px!important;
+      line-height: 26px!important;
+      width: 100%;
+  }
+  .subworks-text-box{
+      gap: 20px;
+  }
+  .subworks-button{
+      width: 100%;
+  }
+}
