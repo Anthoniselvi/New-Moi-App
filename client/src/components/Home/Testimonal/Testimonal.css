@@ -13,24 +13,11 @@
   .carousel-heading{
     color: #101a34;
     font-weight: 600;
-    font-family: Poppins;
+    font-family: "Poppins";
     font-size: 30px;
     
   }
   
-  @media (max-width: 1000px) {
-    .carousel-container{
-      background-color: #fff;
-    }
-  }
-  .seperator {
-    width: 100%;
-  }
-  
-  .controls-wrapper {
-    width: 100%;
-    
-  }
   
   .carousel-wrapper {
     width: 100%;
@@ -126,4 +113,18 @@
   .card__btn:hover {
     background-color: #1e4da9;
   }
-  
+ 
+  @media (max-width: 1000px) {
+    .carousel-container{
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      padding: 10% 5%;
+    }
+    .card{
+      padding: 0;
+      margin: 0;
+      height: 500px;
+      width: 350px;
+    }
+  }

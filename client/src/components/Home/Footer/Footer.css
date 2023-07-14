@@ -6,16 +6,20 @@
 }
 .footer-inner{
     /* border: 1px solid red; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* justify-content: space-between; */
     gap: 10%;
     align-items: top;
 }
-.footer-firstcolumn{
-    display: flex;
-    flex-direction: column;
+.footer-leftcolumn{
+    /* display: flex;
+    flex-direction: column; */
     /* gap: 10px; */
+}
+.footer-rightcolumn{
+  display: flex;
+  justify-content: space-between;
 }
 .footer-secondcolumn{
     display: flex;
@@ -81,17 +85,7 @@
     cursor: pointer;
   }
   .footer-button {
-    /* padding: 0.5rem 2rem;
-    background-color: #fff;
-    color:#101a34;  
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-    width: 100%; */
+   
     width: 170px;
     height: 40px;
     background: #fff;
@@ -110,18 +104,10 @@
     color: #101a34;
   }
   .footer1-button {
-    /* padding: 0.5rem 2rem; */
+  
     background: #50bcd9;
     color: #fff;
-    /* font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: 0.2s;
-    width: 100%; */
+ 
     width: 170px;
     height: 40px;
     border-radius: 8px;
@@ -132,3 +118,42 @@
     line-height: 20px;
     text-align: center;
   }
+  @media (max-width: 800px) {
+  
+    .footer-outer-button{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+
+    }
+    .footer-outer-button{
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+    .footer-button, .footer1-button{
+
+      width: 100%;
+    }
+    .footer1-button{
+      margin-top: 10px;
+    }
+    .footer-rightcolumn{
+      display: flex;
+      flex-wrap: wrap;
+      /* flex-direction: column; */
+      gap: 30px;
+    }
+  }
+  @media (max-width: 1000px) {
+  
+   
+    .footer-inner{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: top;
+  }
+  }
+  
