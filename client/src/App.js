@@ -5,6 +5,7 @@ import { ColorModeContext } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useMode } from "./theme";
 import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </ThemeProvider>

@@ -11,9 +11,7 @@ import { useUserAuth } from "../../auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import { FcGoogle } from "react-icons/fc";
-import GoogleIcon from "@mui/icons-material/Google";
 import "./Login.css";
 import { IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -265,7 +263,7 @@ const LoginForm = () => {
             width: "100%",
             height: "44px",
             padding: "8px 15px",
-            fontWeight: 400,
+            fontWeight: 600,
             borderRadius: "7px",
             fontSize: "16px",
             lineHeight: "20px",
@@ -275,7 +273,7 @@ const LoginForm = () => {
           }}
           onMouseEnter={(e) => {
             e.target.style.border = "1px solid #50bcd9";
-            e.target.style.backgroundColor = "#ffffff";
+            e.target.style.backgroundColor = "#f0f2f5";
             e.target.style.color = "#50bcd9";
           }}
           onMouseLeave={(e) => {
