@@ -13,9 +13,9 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import { useUserAuth } from "../../auth";
 import { FcGoogle } from "react-icons/fc";
-
+import "./Signup.css";
 const SignupForm = () => {
-  const isNonMobile = useMediaQuery("(min-width:600px)");
+  const isNonMobile = useMediaQuery("(max-width:1000px)");
   // const {role, setRole, isLoggedIn, setIsLoggedIn, logout} = useAuthContext()
   const { googleSignIn, user } = useUserAuth();
   const theme = useTheme();
@@ -116,13 +116,21 @@ const SignupForm = () => {
   };
   return (
     <div className="signup-form-container">
-      <h4 className="login-form-title">Sign up for MoiList</h4>
+      <h4 className="signup-form-title">Sign up for MoiList</h4>
 
       <Typography sx={{ color: "#5e6577" }}>It’s quick and easy.</Typography>
 
-      <Box display="flex" justifyContent="space-between" mt="20px" width="100%">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        mt="20px"
+        width="100%"
+        flexDirection={isNonMobile ? "column" : "row"}
+        gap={isNonMobile ? "10px" : "undefined"}
+      >
         <Button
-          className="login-form-button"
+          width={isNonMobile ? "100%" : "49%"}
+          className="signup-form-button"
           onClick={handleClick}
           type="submit"
           // variant="contained"s
@@ -134,7 +142,6 @@ const SignupForm = () => {
             fontWeight: 500,
             fontSize: "14px",
             display: "flex",
-            width: "49%",
             alignItems: "center",
             gap: "10px",
             color: "#292929",
@@ -143,6 +150,8 @@ const SignupForm = () => {
           <FcGoogle style={{ fontSize: 20 }} /> Login with Google
         </Button>
         <Button
+          width={isNonMobile ? "100%" : "49%"}
+          className="signup-form-button"
           onClick={handleClick}
           type="submit"
           // variant="contained"
@@ -151,7 +160,6 @@ const SignupForm = () => {
             border: "1px solid #50bcd9",
             borderRadius: "4px",
             padding: "10px 17px",
-            width: "49%",
             fontWeight: 500,
             fontSize: "14px",
             display: "flex",
@@ -166,7 +174,6 @@ const SignupForm = () => {
           ></i>
           Login with Facebook
         </Button>
-        {/* </Box> */}
       </Box>
       <Box
         sx={{

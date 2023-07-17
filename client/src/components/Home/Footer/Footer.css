@@ -117,6 +117,10 @@
     text-align: center;
   }
   @media (max-width: 800px) {
+    .footer-container{
+      width: 100%;
+      margin: 0;
+    }
   
     .footer-outer-button{
       width: 100%;
@@ -145,7 +149,10 @@
     }
   }
   @media (max-width: 1000px) {
-  
+  .footer-container{
+    width: 100%;
+    margin: 0;
+  }
    
     .footer-inner{
       display: flex;

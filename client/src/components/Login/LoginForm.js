@@ -17,7 +17,7 @@ import { IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const LoginForm = () => {
-  const isNonMobile = useMediaQuery("(min-width:600px)");
+  const isNonMobile = useMediaQuery("(max-width:1000px)");
   // const {role, setRole, isLoggedIn, setIsLoggedIn, logout} = useAuthContext()
 
   const theme = useTheme();
@@ -87,8 +87,16 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       <h4 className="login-form-title">Login to MoiList</h4>
-      <Box display="flex" justifyContent="space-between" mt="20px" width="100%">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        mt="20px"
+        width="100%"
+        flexDirection={isNonMobile ? "column" : "row"}
+        gap={isNonMobile ? "10px" : "undefined"}
+      >
         <Button
+          width={isNonMobile ? "100%" : "49%"}
           className="login-form-button"
           onClick={handleClick}
           type="submit"
@@ -101,7 +109,6 @@ const LoginForm = () => {
             fontWeight: 500,
             fontSize: "14px",
             display: "flex",
-            width: "49%",
             alignItems: "center",
             gap: "10px",
             color: "#292929",
@@ -110,6 +117,7 @@ const LoginForm = () => {
           <FcGoogle style={{ fontSize: 20 }} /> Login with Google
         </Button>
         <Button
+          width={isNonMobile ? "100%" : "49%"}
           onClick={handleClick}
           type="submit"
           // variant="contained"
@@ -118,7 +126,6 @@ const LoginForm = () => {
             border: "1px solid #50bcd9",
             borderRadius: "4px",
             padding: "10px 17px",
-            width: "49%",
             fontWeight: 500,
             fontSize: "14px",
             display: "flex",
@@ -237,7 +244,7 @@ const LoginForm = () => {
             value={signinData.password}
             placeholder="Enter your Password"
           />
-          <InputAdornment
+          {/* <InputAdornment
             sx={{ position: "absolute", paddingTop: 6, paddingLeft: 57 }}
           >
             <IconButton
@@ -251,7 +258,7 @@ const LoginForm = () => {
                 <VisibilityOff style={{ color: "#101a34", opacity: 1 }} />
               )}
             </IconButton>
-          </InputAdornment>
+          </InputAdornment> */}
         </div>
 
         <button
