@@ -12,10 +12,8 @@
     gap: 10%;
     align-items: top;
 }
-.footer-leftcolumn{
-    /* display: flex;
-    flex-direction: column; */
-    /* gap: 10px; */
+.footer-leftcolumn h1, .footer-leftcolumn h3{
+   color: #fff;
 }
 .footer-rightcolumn{
   display: flex;

@@ -176,8 +176,12 @@ export const themeSettings = (mode) => {
           }),
     },
     typography: {
-      fontFamily: ["Montserrat", "sans-serif"].join(","),
-      fontSize: 12,
+      fontFamily: ["Poppins", "sans-serif"].join(","),
+      fontWeight: 600,
+      fontSize: 20,
+      lineHeight: 24,
+      color: "#101a34",
+      // },
       h1: {
         fontFamily: ["Montserrat", "sans-serif"].join(","),
         fontSize: 40,
