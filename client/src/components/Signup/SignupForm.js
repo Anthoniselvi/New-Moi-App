@@ -145,6 +145,7 @@ const SignupForm = () => {
             alignItems: "center",
             gap: "10px",
             color: "#292929",
+            textTransform: "none",
           }}
         >
           <FcGoogle style={{ fontSize: 20 }} /> Login with Google
@@ -166,6 +167,7 @@ const SignupForm = () => {
             alignItems: "center",
             gap: "10px",
             color: "#292929",
+            textTransform: "none",
           }}
         >
           <i
@@ -388,7 +390,7 @@ const SignupForm = () => {
                 </Link>
               </Grid> */}
           <Grid item>
-            <Link href="/login" to="/login" sx={{ color: "black" }}>
+            <Link href="/login" to="/login" sx={{ color: "#5e6577" }}>
               Already have an account?{" "}
               <span style={{ color: "rgb(80, 188, 217)", fontWeight: 400 }}>
                 Login

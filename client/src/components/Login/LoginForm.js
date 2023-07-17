@@ -112,6 +112,7 @@ const LoginForm = () => {
             alignItems: "center",
             gap: "10px",
             color: "#292929",
+            textTransform: "none",
           }}
         >
           <FcGoogle style={{ fontSize: 20 }} /> Login with Google
@@ -132,6 +133,7 @@ const LoginForm = () => {
             alignItems: "center",
             gap: "10px",
             color: "#292929",
+            textTransform: "none",
           }}
         >
           <i
@@ -178,7 +180,7 @@ const LoginForm = () => {
             for="email"
             style={{
               fontFamily: "Poppins",
-              fontSize: "13px",
+              fontSize: "15px",
               lineHeight: "18px",
               color: "#101a34",
               fontWeight: 600,
@@ -213,7 +215,7 @@ const LoginForm = () => {
             for="password"
             style={{
               fontFamily: "Poppins",
-              fontSize: "13px",
+              fontSize: "15px",
               lineHeight: "18px",
               color: "#101a34",
               fontWeight: 600,
@@ -303,14 +305,14 @@ const LoginForm = () => {
       >
         <Grid container>
           <Grid item xs>
-            <Link href="#" sx={{ color: "blue" }}>
+            <Link href="#" sx={{ color: "rgb(80, 188, 217)" }}>
               Forgot password?
             </Link>
           </Grid>
           <Grid item>
-            <Link href="signup" to="/signup" sx={{ color: "black" }}>
+            <Link href="signup" to="/signup" sx={{ color: "#5e6577" }}>
               Need to create an account?{" "}
-              <span style={{ color: "blue" }}>Sign Up</span>
+              <span style={{ color: "rgb(80, 188, 217)" }}>Sign Up</span>
             </Link>
           </Grid>
         </Grid>
