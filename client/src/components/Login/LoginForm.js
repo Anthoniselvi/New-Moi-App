@@ -54,9 +54,9 @@ const LoginForm = () => {
     signInWithEmailAndPassword(auth, signinData.email, signinData.password)
       .then(async (res) => {
         console.log(res);
-        // navigate(`/dashboard?profile=${res.user.uid}`);
+        navigate(`/dashboard?profile=${res.user.uid}`);
 
-        navigate(`/newdashboard?profile=${res.user.uid}`);
+        // navigate(`/newdashboard?profile=${res.user.uid}`);
       })
       .catch((err) => {
         setError(err.message);
@@ -77,8 +77,8 @@ const LoginForm = () => {
           console.log(response);
           console.log(response.data);
           console.log(response.data.profileId);
-          // navigate(`/dashboard?profile=${user.uid}`);
-          navigate(`/newhome?profile=${user.uid}`);
+          navigate(`/dashboard?profile=${user.uid}`);
+          // navigate(`/newhome?profile=${user.uid}`);
         });
     } catch (error) {
       console.log(error.message);

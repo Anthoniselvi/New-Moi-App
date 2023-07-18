@@ -17,17 +17,17 @@ import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiMenu2Line } from "react-icons/ri";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const navigateToLogin = () => {
-    // navigate("/login");
+    navigate("/login");
   };
   const navigateToSignUp = () => {
-    // navigate("/signup");
+    navigate("/signup");
   };
   const menuOptions = [
     {

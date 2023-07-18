@@ -11,6 +11,7 @@ import { getFirestore } from "firebase/firestore";
 //   storageBucket: process.env.REACT_APP_FB_STORAGEBUCKET,
 //   messagingSenderId: process.env.REACT_APP_FB_MESSAGINGSENDERID,
 //   appId: process.env.REACT_APP_FB_APPID,
+//   measurementId: process.env.REACT_APP_FB_MEASUREMENTID,
 // };
 // console.log("APIKEY:" + process.env.REACT_APP_FB_APIKEY);
 // console.log("base url:" + process.env.REACT_APP_BASE_URL);

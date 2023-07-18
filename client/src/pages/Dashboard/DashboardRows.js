@@ -1,4 +1,7 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios";
 import {
   Box,
   Button,
@@ -15,12 +18,70 @@ import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import StatBox1 from "../../components/StatBox/StatBox1";
 import StatBox2 from "../../components/StatBox/StatBox2";
 import StatBox3 from "../../components/StatBox/StatBox3";
-
+import NewBar from "../../components/Chart/Newbar";
+import Example from "../../components/Chart/BarChart";
+import NewSearch from "../../components/Chart/NewSearch";
 export default function DashboardRows() {
+  const isNonMobile = useMediaQuery("(max-width:1000px)");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
+  const [searchParam] = useSearchParams();
+  // const profileId = searchParam.get("profile");
+  const profileId = "GIPs7KywHfYmlbZuT9UMCuFwixl1";
+  const [eventsList, setEventsList] = useState([]);
+  const [allEntries, setAllEntries] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchName, setSearchName] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [totalGift, setTotalGift] = useState(0);
+  const [maxAmount, setMaxAmount] = useState({});
+  const [maxAmountEvent, setMaxAmountEvent] = useState({});
+  const [inputValue, setInputValue] = useState("");
+
+  const searchResult = allEntries.filter(
+    (entry) =>
+      entry.personName &&
+      entry.personName.toLowerCase().includes(searchName.toLowerCase())
+  );
+
+  const fetchTotals = () => {
+    console.log("Process.env in dashboard : " + JSON.stringify(process.env));
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/entries/total/${profileId}`)
+      .then((response) => {
+        // console.log(response);
+
+        console.log("Totals : " + JSON.stringify(response.data));
+        setEventsList(response.data);
+      });
+  };
+  const fetchAllEntriesByProfileId = () => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/entries/allentries/${profileId}`)
+      .then((response) => {
+        // console.log(response);
+
+        console.log(
+          "All Entries from ProfileId : " + JSON.stringify(response.data)
+        );
+        setAllEntries(response.data.entriesList);
+        setTotalAmount(response.data.totalAmount);
+        setTotalGift(response.data.totalGift);
+        setMaxAmount(response.data.maxAmountEntry);
+        setMaxAmountEvent(response.data.maxAmountEventList);
+      });
+  };
+  console.log("MaxAmount : " + maxAmount.amount);
+  console.log("MaxAmount Given By : " + maxAmount.personName);
+  console.log("MaxAmount Event Name : " + maxAmountEvent.name);
+
+  useEffect(() => {
+    fetchTotals();
+    fetchAllEntriesByProfileId();
+  }, []);
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Box
         width="100%"
         m="20px 0px"
@@ -29,12 +90,10 @@ export default function DashboardRows() {
         justifyContent="space-between"
         gridAutoRows="90px"
         gap="20px"
-        border="1px solid red"
-        sx={
-          {
-            //   "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
-          }
-        }
+        // border="1px solid red"
+        sx={{
+          "& > div": { gridColumn: isNonMobile ? "span 12" : undefined },
+        }}
       >
         <Box
           //   onClick={navigateToEvents}
@@ -99,153 +158,63 @@ export default function DashboardRows() {
           />
         </Box>
         {/* ROW 2 */}
-        {/* <Box
+        <Box
+          // onClick={navigateToEvents}
+          gridColumn="span 12"
+          gridRow="span 4"
+          gap="20px"
+          bgcolor="#fff"
+          borderRadius="10px"
+          border="1px solid #e8ecf1"
+          width="100%"
+          padding="20px"
+        >
+          <Box marginBottom="20px">
+            <Typography
+              variant="h2"
+              fontWeight="600"
+              color="rgba(54, 162, 235)"
+            >
+              Events Generated
+            </Typography>
+            <Typography
+              variant="h3"
+              fontWeight="500"
+              color="rgba(255, 159, 64)"
+            >
+              {`₹ ${totalAmount}`}
+            </Typography>
+          </Box>
+
+          {/* <NewBar /> */}
+          <Box
+            sx={{
+              width: "100%",
+              height: "80%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* <Example /> */}
+            <NewBar eventsList={eventsList} sx={{ width: "100%" }} />
+          </Box>
+        </Box>
+        <Box
           gridColumn="span 6"
-          gridRow="span 3"
+          gridRow="span 4"
           backgroundColor="#fff"
           //    overflow="auto"
           borderRadius="10px"
+          border="1px solid #e8ecf1"
+          sx={{
+            "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
+          }}
         >
           <Box display="flex" flexDirection="column" padding="10px">
-            {!showSearch ? (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                padding="10px"
-              >
-                <Typography
-                  variant="h5"
-                  fontWeight="600"
-                  sx={{ color: "rgba(39, 206, 136)" }}
-                >
-                  Search by Name
-                </Typography>
-                <IconButton
-                  sx={{ backgroundColor: "rgba(39, 206, 136, 0.2)" }}
-                  onClick={handleSearchClick}
-                >
-                  <SearchIcon sx={{ color: "rgba(39, 206, 136)" }} />
-                </IconButton>
-              </Box>
-            ) : (
-              <TextField
-                type="text"
-                value={searchName}
-                onChange={(e) => setSearchName(e.target.value)}
-                placeholder="Search by Name"
-              />
-            )}
-            <NewSearchTable
-              searchResult={searchResult}
-              eventsList={eventsList}
-              width="100%"
-            />
+            <NewSearch searchResult={searchResult} eventsList={eventsList} />
           </Box>
-        </Box> */}
-
-        {/* <Box
-          gridColumn="span 6"
-          gridRow="span 3"
-          backgroundColor={colors.primary[400]}
-        
-          borderRadius="10px"
-          padding="25px 15px"
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ color: "rgb(140, 141, 255)", paddingBottom: 2 }}
-          >
-            Total of All Events
-          </Typography>
-          <NewEventsTable eventsList={eventsList} />
-        </Box> */}
-
-        {/* <Box
-        //   onClick={navigateToEvents}
-          gridColumn="span 8"
-          gridRow="span 3"
-          backgroundColor={colors.primary[400]}
-          borderRadius="10px"
-        >
-          <Box
-            mt="25px"
-            // p="0 30px"
-            paddingLeft="30px"
-            width="100%"
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Box>
-              <Typography
-                variant="h5"
-                fontWeight="600"
-                color="rgba(54, 162, 235)"
-              >
-                Events Generated
-              </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="500"
-                color="rgba(255, 159, 64)"
-              >
-                {`₹ ${totalAmount}`}
-              </Typography>
-            </Box>
-        
-          </Box>
-          <Box height="250px" sx={{ padding: 3, width: "100%" }}>
-      
-            <NewBar eventsList={eventsList} />
-          </Box>
-        </Box> */}
-
-        {/* <Box
-          gridColumn="span 4"
-          gridRow="span 3"
-          backgroundColor={colors.primary[400]}
-         
-          borderRadius="10px"
-        >
-          <Box display="flex" flexDirection="column" padding="10px">
-            {!filterSearch ? (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                padding="10px"
-              >
-                <Typography
-                  variant="h5"
-                  fontWeight="600"
-                  sx={{ color: "rgba(255, 49, 111)" }}
-                >
-                  Filter by Amount
-                </Typography>
-                <IconButton
-                  sx={{ backgroundColor: "rgba(255, 49, 111, 0.2)" }}
-                  onClick={handleFilterClick}
-                >
-                  <SortIcon sx={{ color: "rgba(255, 49, 111)" }} />
-                </IconButton>
-              </Box>
-            ) : (
-              <TextField
-                type="number"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Filter by Amount"
-              />
-            )}
-
-            <NewFilterTable
-              filteredEntries={filteredEntries}
-              eventsList={eventsList}
-            />
-          </Box>
-        </Box> */}
+        </Box>
       </Box>
     </div>
   );

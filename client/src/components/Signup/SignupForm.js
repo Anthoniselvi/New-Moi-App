@@ -32,9 +32,9 @@ const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // const navigateToSignIn = () => {
-  //   navigate("/signin");
-  // };
+  const navigateToSignIn = () => {
+    navigate("/signin");
+  };
   const updateHandleChange = (event) => {
     // setErrors(Validation(signupData));
 

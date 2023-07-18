@@ -106,3 +106,32 @@
   background-color: #f5f7fa;
 
 }
+@media only screen and (max-width: 1000px) {
+  .navbar-menu-container {
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 10px; */
+    background-color: yellow;
+
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .sidebar{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  .navbar-menu-container {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: none;
+  }
+
+
+}
