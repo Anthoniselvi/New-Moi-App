@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
+import { Typography } from "@mui/material";
 
 function QuickSearchToolbar() {
   return (
@@ -13,7 +14,14 @@ function QuickSearchToolbar() {
         justifyContent: "space-between",
       }}
     >
-      <h3 style={{ color: "rgba(255, 198, 117)" }}>Search by Name</h3>
+      <Typography
+        variant="h4"
+        fontWeight="600"
+        // color="rgba(54, 162, 235)"
+        color="#101a34"
+      >
+        Search by Name
+      </Typography>
       <GridToolbarQuickFilter sx={{ color: "rgba(255, 198, 117)" }} />
     </Box>
   );

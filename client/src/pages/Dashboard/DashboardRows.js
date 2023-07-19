@@ -161,7 +161,7 @@ export default function DashboardRows() {
         <Box
           // onClick={navigateToEvents}
           gridColumn="span 12"
-          gridRow="span 4"
+          gridRow="span 3"
           gap="20px"
           bgcolor="#fff"
           borderRadius="10px"
@@ -169,11 +169,12 @@ export default function DashboardRows() {
           width="100%"
           padding="20px"
         >
-          <Box marginBottom="20px">
+          <Box paddingBottom="10px">
             <Typography
-              variant="h2"
+              variant="h4"
               fontWeight="600"
-              color="rgba(54, 162, 235)"
+              // color="rgba(54, 162, 235)"
+              color="#101a34"
             >
               Events Generated
             </Typography>
