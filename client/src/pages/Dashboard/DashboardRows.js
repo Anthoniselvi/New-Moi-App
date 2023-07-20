@@ -21,14 +21,14 @@ import StatBox3 from "../../components/StatBox/StatBox3";
 import NewBar from "../../components/Chart/Newbar";
 import Example from "../../components/Chart/BarChart";
 import NewSearch from "../../components/Chart/NewSearch";
+import SearchTable from "../../components/Chart/SearchTable";
 export default function DashboardRows() {
   const isNonMobile = useMediaQuery("(max-width:1000px)");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
   const [searchParam] = useSearchParams();
-  // const profileId = searchParam.get("profile");
-  const profileId = "GIPs7KywHfYmlbZuT9UMCuFwixl1";
+  const profileId = searchParam.get("profile");
   const [eventsList, setEventsList] = useState([]);
   const [allEntries, setAllEntries] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
@@ -105,7 +105,7 @@ export default function DashboardRows() {
           borderRadius="10px"
         >
           <StatBox1
-            // title1={eventsList.length}
+            title1={eventsList.length}
             subtitle1="Events"
             icon1={
               <AllInboxIcon
@@ -124,7 +124,7 @@ export default function DashboardRows() {
           borderRadius="10px"
         >
           <StatBox2
-            // title2={`₹ ${totalAmount}`}
+            title2={`₹ ${totalAmount}`}
             // subtitle1={`Maximum Amount - ₹ ${maxAmount.amount}`}
             subtitle1="Amount"
             // progress="0.75"
@@ -147,7 +147,7 @@ export default function DashboardRows() {
           borderRadius="10px"
         >
           <StatBox3
-            // title3={`${totalGift}`}
+            title3={`${totalGift}`}
             // subtitle1={`Total Amount - ₹ ${allTotalAmount}`}
             subtitle1="Gifts"
             icon3={
@@ -212,9 +212,10 @@ export default function DashboardRows() {
             "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
           }}
         >
-          <Box display="flex" flexDirection="column" padding="10px">
+          <SearchTable />
+          {/* <Box display="flex" flexDirection="column" padding="10px">
             <NewSearch searchResult={searchResult} eventsList={eventsList} />
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </div>

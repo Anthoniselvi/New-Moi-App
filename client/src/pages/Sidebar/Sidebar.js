@@ -21,7 +21,8 @@ import InfoIcon from "@mui/icons-material/Info";
 import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 
-const Sidebar = () => {
+const Sidebar = ({ profileId }) => {
+  console.log("ProfileId in Sidebar :" + profileId);
   const [currentLink, setCurrentLink] = useState(1);
   const [openMenu, setOpenMenu] = useState(false);
   const { logOut } = useUserAuth();
@@ -40,21 +41,21 @@ const Sidebar = () => {
     {
       text: "Dashboard",
       icon: <HomeIcon />,
-      link: "/dashboard",
+      link: `/dashboard?profile=${profileId}`,
     },
     {
       text: "Events",
-      icon: <InfoIcon />,
-      link: "#about",
+      icon: <PersonOutlineIcon />,
+      link: `/eventslist?profile=${profileId}`,
     },
     {
       text: "Profile",
-      icon: <CommentRoundedIcon />,
-      link: "#services",
+      icon: <AccountCircleOutlinedIcon />,
+      link: `/profile?profile=${profileId}`,
     },
     {
       text: "Logout",
-      icon: <CommentRoundedIcon />,
+      icon: <ExitToAppIcon />,
       // link: "#works",
     },
   ];
@@ -110,12 +111,20 @@ const Sidebar = () => {
         <div className="center">
           <ul>
             <p className="title">MAIN</p>
-            <li className={currentLink === 1 ? "active" : "none"}>
-              <DashboardIcon className="icon" />
-              <span>Dashboard</span>
-            </li>
+            <Link
+              to={`/dashboard?profile=${profileId}`}
+              style={{ textDecoration: "none" }}
+            >
+              <li className={currentLink === 1 ? "active" : "none"}>
+                <DashboardIcon className="icon" />
+                <span>Dashboard</span>
+              </li>
+            </Link>
             <p className="title">LISTS</p>
-            <Link to="/users" style={{ textDecoration: "none" }}>
+            <Link
+              to={`/eventslist?profile=${profileId}`}
+              style={{ textDecoration: "none" }}
+            >
               <li className={currentLink === 2 ? "active" : "none"}>
                 <PersonOutlineIcon className="icon" />
                 <span>Events</span>
@@ -123,7 +132,10 @@ const Sidebar = () => {
             </Link>
 
             <p className="title">USER</p>
-            <Link to="/users" style={{ textDecoration: "none" }}>
+            <Link
+              to={`/profile?profile=${profileId}`}
+              style={{ textDecoration: "none" }}
+            >
               <li className={currentLink === 3 ? "active" : "none"}>
                 <AccountCircleOutlinedIcon className="icon" />
                 <span>Profile</span>

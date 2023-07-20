@@ -10,6 +10,10 @@ import Signup from "./components/Signup/Signup";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Sidebar from "./pages/Sidebar/Sidebar";
 import { useUserAuth } from "./auth";
+import EventsPage from "./pages/Events/EventsPage";
+import CreateEvent from "./pages/Events/CreateEvent";
+import Profile from "./pages/Profile/Profile";
+import SingleEventPage from "./pages/Events/SingleEventPage";
 
 function App() {
   const auth = useUserAuth();
@@ -31,6 +35,10 @@ function App() {
               {auth.user ? (
                 <>
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/eventslist" element={<EventsPage />} />
+                  <Route path="/newevent" element={<CreateEvent />} />
+                  <Route path="/eventpage" element={<SingleEventPage />} />
+                  <Route path="/profile" element={<Profile />} />
                 </>
               ) : (
                 <>
