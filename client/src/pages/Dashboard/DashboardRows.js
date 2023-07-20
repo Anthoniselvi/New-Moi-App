@@ -202,7 +202,7 @@ export default function DashboardRows() {
           </Box>
         </Box>
         <Box
-          gridColumn="span 6"
+          gridColumn="span 12"
           gridRow="span 4"
           backgroundColor="#fff"
           //    overflow="auto"
@@ -212,7 +212,8 @@ export default function DashboardRows() {
             "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
           }}
         >
-          <SearchTable />
+          <NewSearch searchResult={searchResult} eventsList={eventsList} />
+          {/* <SearchTable searchResult={searchResult} eventsList={eventsList} /> */}
           {/* <Box display="flex" flexDirection="column" padding="10px">
             <NewSearch searchResult={searchResult} eventsList={eventsList} />
           </Box> */}

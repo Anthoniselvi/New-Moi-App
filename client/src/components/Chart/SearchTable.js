@@ -32,8 +32,40 @@ export default function SearchTable({ searchResult, eventsList }) {
             className="magnifier"
             onClick={handleSearchClick}
           />
-          <input type="text" className="input" placeholder="Search ..." />
+          <input
+            type="text"
+            className="input"
+            placeholder="Search ..."
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+          />
         </Box>
+      </Box>
+      <Box>
+        {console.log("Search result: " + JSON.stringify(searchResult))}
+        {searchResult.map((entry) => {
+          // if (entry.amount > 0 || entry.gift) {
+          const event = eventsList.find(
+            (event) => event.eventId === entry.eventId
+          );
+          return (
+            <Box display="flex" justifyContent="space-between">
+              <Typography variant="h6" color="#121212">
+                {entry.personName}
+              </Typography>
+              <Typography variant="h6" color="#121212">
+                {event ? event.eventName : null}
+              </Typography>
+              <Typography variant="h6" color="#121212">
+                {entry.amount}
+              </Typography>
+              <Typography variant="h6" color="#121212">
+                {entry.gift}
+              </Typography>
+            </Box>
+          );
+          // }
+        })}
       </Box>
     </Box>
   );

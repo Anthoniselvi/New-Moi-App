@@ -17,6 +17,7 @@
     width: 25px;
     cursor: pointer;
     position: absolute;
+
     /* left: 20px; */
   }
   
@@ -43,4 +44,6 @@
   .active .input {
     width: 0;
   }
-  
+  .active.magnifier{
+    justify-self: flex-start;
+  }

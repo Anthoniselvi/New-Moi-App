@@ -62,6 +62,11 @@ const Sidebar = ({ profileId }) => {
   const handleMenuClicked = () => {
     setOpenMenu(!openMenu);
   };
+
+  const handleMenuItemClick = (index) => {
+    setCurrentLink(index);
+    setOpenMenu(false);
+  };
   return (
     <>
       <div className="navbar-menu-container">
@@ -115,7 +120,10 @@ const Sidebar = ({ profileId }) => {
               to={`/dashboard?profile=${profileId}`}
               style={{ textDecoration: "none" }}
             >
-              <li className={currentLink === 1 ? "active" : "none"}>
+              <li
+                onClick={() => handleMenuItemClick(1)}
+                className={currentLink === 1 ? "active" : "none"}
+              >
                 <DashboardIcon className="icon" />
                 <span>Dashboard</span>
               </li>
@@ -125,7 +133,10 @@ const Sidebar = ({ profileId }) => {
               to={`/eventslist?profile=${profileId}`}
               style={{ textDecoration: "none" }}
             >
-              <li className={currentLink === 2 ? "active" : "none"}>
+              <li
+                onClick={() => handleMenuItemClick(2)}
+                className={currentLink === 2 ? "active" : "none"}
+              >
                 <PersonOutlineIcon className="icon" />
                 <span>Events</span>
               </li>
@@ -136,7 +147,10 @@ const Sidebar = ({ profileId }) => {
               to={`/profile?profile=${profileId}`}
               style={{ textDecoration: "none" }}
             >
-              <li className={currentLink === 3 ? "active" : "none"}>
+              <li
+                onClick={() => handleMenuItemClick(3)}
+                className={currentLink === 3 ? "active" : "none"}
+              >
                 <AccountCircleOutlinedIcon className="icon" />
                 <span>Profile</span>
               </li>

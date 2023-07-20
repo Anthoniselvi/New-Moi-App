@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
-
+import Sidebar from "../Sidebar/Sidebar";
 import axios from "axios";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
@@ -19,7 +19,6 @@ import { PrintEvent } from "./PrintEvent";
 import EditEvent from "./EditEvent";
 import CreateEntry from "../Entries/CreateEntry";
 
-const drawerWidth = 240;
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
   const [eventsList, setEventsList] = useState({});
@@ -32,14 +31,17 @@ export default function SingleEventPage() {
   const [searchParam] = useSearchParams();
   const eventId = searchParam.get("event");
   const selectedEvent = eventsList;
+  //   console.log("selected event's profileID : " + selectedEvent.profileId);
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+
   const getReports = (eventName) => {
     console.log("eventName :" + eventName);
     console.log("eventsList :", eventsList);
 
     const selectedEvent = eventsList;
+
     const selectedEventEntries = entries.filter(
       (entry) => entry.eventId === selectedEvent.eventId
     );
@@ -84,166 +86,169 @@ export default function SingleEventPage() {
   // }, [entries, selectedEvent]);
 
   return (
-    <Box m="20px">
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          height: "10%",
-          width: "100%",
-          paddingTop: "5%",
-        }}
-      >
-        <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <Typography
-            sx={{
-              color: "#101a34",
-              fontFamily: "Poppins",
-              fontWeight: 600,
-              fontSize: "25px",
-              lineHeight: "34px",
-            }}
-          >
-            {eventsList.name}
-          </Typography>
-          {/* <Box sx={{color: "#101a34", background: "#fafbfd", border: "1px solid #cad3dd", display: "flex", alignItems: "center", gap: "5px", padding: "8px 15px",
-    fontWeight: 600, fontSize: "13px", lineHeight: "18px", borderRadius: "5px", fontFamily: "Poppins", cursor: "pointer"}} 
-    onClick={() => handleEditEvent(eventId)}> */}
-          <BorderColorOutlinedIcon
-            style={{ color: "#121212", cursor: "pointer" }}
-            onClick={() => handleEditEvent(eventId)}
-          />
-        </Box>
-        <Box
-          sx={{
-            color: "#101a34",
-            background: "#fafbfd",
-            border: isNonMobile ? "1px solid #cad3dd" : undefined,
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            padding: "8px 15px",
-            fontWeight: 600,
-            fontSize: "13px",
-            lineHeight: "18px",
-            borderRadius: "5px",
-            fontFamily: "Poppins",
-            cursor: "pointer",
-          }}
-        >
-          {loading ? (
-            <span>Loading...</span>
-          ) : (
-            <PDFDownloadLink
-              document={
-                <PrintEvent
-                  selectedEntries={selectedEntries}
-                  selectedEvent={eventsList.name}
-                />
-              }
-              fileName={`${eventsList.name}.pdf`}
-            >
-              {isNonMobile ? (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <DownloadForOfflineIcon
-                    sx={{
-                      color: "#101a34",
-                      fontSize: "25px",
-                      cursor: "pointer",
-                    }}
-                  />
-                  Download
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <DownloadForOfflineIcon
-                    sx={{
-                      color: "#101a34",
-                      fontSize: "25px",
-                      cursor: "pointer",
-                    }}
-                  />
-                </Box>
-              )}
-            </PDFDownloadLink>
-          )}
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          height: "80vh",
-          borderRadius: "10px",
-          border: "1px solid #cad3dd",
-          marginTop: "4%",
-        }}
-      >
-        <Box
-          sx={{
-            height: "10%",
-            width: "100%",
-            borderBottom: "1px solid #cad3dd",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingLeft: "2%",
-            paddingRight: "2%",
-          }}
-        >
-          <Typography
-            sx={{
-              color: "#101a34",
-              borderBottom: "2px solid #FE956F",
-              fontFamily: "Poppins",
-              fontWeight: 600,
-              fontSize: "17px",
-            }}
-          >
-            Guests ({entries.length})
-          </Typography>
-          <Button
-            onClick={() => setCreateModalOpen(true)}
+    <div className="home">
+      <Sidebar profileId={selectedEvent.profileId} />
+      <div className="homeContainer">
+        <Box m="20px">
+          <Box
             sx={{
               display: "flex",
+              justifyContent: "space-between",
               alignItems: "center",
-              justifyContent: "center",
-              gap: "5px",
-              outline: "none",
-              border: "none",
-              color: "#50bcd9",
-              background: "none",
-              fontWeight: 600,
+              height: "10%",
+              width: "100%",
+              paddingTop: "5%",
             }}
           >
-            <AddCircleOutlineIcon />
-            Add
-          </Button>
-        </Box>
+            <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <Typography
+                sx={{
+                  color: "#101a34",
+                  fontFamily: "Poppins",
+                  fontWeight: 600,
+                  fontSize: "25px",
+                  lineHeight: "34px",
+                }}
+              >
+                {eventsList.name}
+              </Typography>
+              {/* <Box sx={{color: "#101a34", background: "#fafbfd", border: "1px solid #cad3dd", display: "flex", alignItems: "center", gap: "5px", padding: "8px 15px",
+    fontWeight: 600, fontSize: "13px", lineHeight: "18px", borderRadius: "5px", fontFamily: "Poppins", cursor: "pointer"}} 
+    onClick={() => handleEditEvent(eventId)}> */}
+              <BorderColorOutlinedIcon
+                style={{ color: "#121212", cursor: "pointer" }}
+                onClick={() => handleEditEvent(eventId)}
+              />
+            </Box>
+            <Box
+              sx={{
+                color: "#101a34",
+                background: "#fafbfd",
+                border: isNonMobile ? "1px solid #cad3dd" : undefined,
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+                padding: "8px 15px",
+                fontWeight: 600,
+                fontSize: "13px",
+                lineHeight: "18px",
+                borderRadius: "5px",
+                fontFamily: "Poppins",
+                cursor: "pointer",
+              }}
+            >
+              {loading ? (
+                <span>Loading...</span>
+              ) : (
+                <PDFDownloadLink
+                  document={
+                    <PrintEvent
+                      selectedEntries={selectedEntries}
+                      selectedEvent={eventsList.name}
+                    />
+                  }
+                  fileName={`${eventsList.name}.pdf`}
+                >
+                  {isNonMobile ? (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "10px",
+                      }}
+                    >
+                      <DownloadForOfflineIcon
+                        sx={{
+                          color: "#101a34",
+                          fontSize: "25px",
+                          cursor: "pointer",
+                        }}
+                      />
+                      Download
+                    </Box>
+                  ) : (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <DownloadForOfflineIcon
+                        sx={{
+                          color: "#101a34",
+                          fontSize: "25px",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Box>
+                  )}
+                </PDFDownloadLink>
+              )}
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "100%",
+              height: "80vh",
+              borderRadius: "10px",
+              border: "1px solid #cad3dd",
+              marginTop: "4%",
+            }}
+          >
+            <Box
+              sx={{
+                height: "10%",
+                width: "100%",
+                borderBottom: "1px solid #cad3dd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                paddingLeft: "2%",
+                paddingRight: "2%",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#101a34",
+                  borderBottom: "2px solid #FE956F",
+                  fontFamily: "Poppins",
+                  fontWeight: 600,
+                  fontSize: "17px",
+                }}
+              >
+                Guests ({entries.length})
+              </Typography>
+              <Button
+                onClick={() => setCreateModalOpen(true)}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                  outline: "none",
+                  border: "none",
+                  color: "#50bcd9",
+                  background: "none",
+                  fontWeight: 600,
+                }}
+              >
+                <AddCircleOutlineIcon />
+                Add
+              </Button>
+            </Box>
 
-        <Box
-          sx={{
-            padding: 0,
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            backgroundColor: "#ffffff",
-          }}
-        >
-          {/* {isNonMobile ? (
+            <Box
+              sx={{
+                padding: 0,
+                height: "100%",
+                width: "100%",
+                display: "flex",
+                backgroundColor: "#ffffff",
+              }}
+            >
+              {/* {isNonMobile ? (
             <NewEntiesList
               entries={entries}
               eventsList={eventsList}
@@ -253,28 +258,30 @@ export default function SingleEventPage() {
           ) : (
             <EntriesPage />
           )} */}
-          <EntriesPage />
+              <EntriesPage />
+            </Box>
+          </Box>
+          {createModalOpen ? (
+            <CreateEntry
+              open={createModalOpen}
+              onClose={() => setCreateModalOpen(false)}
+              eventId={eventId}
+            />
+          ) : (
+            <></>
+          )}
+          {editModalOpen ? (
+            <EditEvent
+              eventName={eventsList.name}
+              eventId={eventId}
+              open={editModalOpen}
+              onClose={() => setEditModalOpen(false)}
+            />
+          ) : (
+            <></>
+          )}
         </Box>
-      </Box>
-      {createModalOpen ? (
-        <CreateEntry
-          open={createModalOpen}
-          onClose={() => setCreateModalOpen(false)}
-          eventId={eventId}
-        />
-      ) : (
-        <></>
-      )}
-      {editModalOpen ? (
-        <EditEvent
-          eventName={eventsList.name}
-          eventId={eventId}
-          open={editModalOpen}
-          onClose={() => setEditModalOpen(false)}
-        />
-      ) : (
-        <></>
-      )}
-    </Box>
+      </div>
+    </div>
   );
 }
