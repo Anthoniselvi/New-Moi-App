@@ -109,7 +109,10 @@ const Sidebar = ({ profileId }) => {
       <div className="sidebar">
         <div className="top">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <span className="logo">Moi App</span>
+            <p className="logo">
+              Moi
+              <span className="logo-text"> App</span>
+            </p>
           </Link>
         </div>
         <hr />

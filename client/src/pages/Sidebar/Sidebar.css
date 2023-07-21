@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum&display=swap');
 /* Sidebar styles */
 .sidebar {
   flex: 1;
@@ -16,9 +17,17 @@
 
 /* Logo styles */
 .sidebar .top .logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #6439ff;
+  font-size: 30px;
+  font-weight: 900;
+  color: #1a1a1a;
+  font-family: 'Cuprum', sans-serif;
+}
+
+.sidebar .top .logo-text {
+  font-size: 30px;
+  font-weight: normal;
+  color: #393939;
+  font-family: 'Cuprum', sans-serif;
 }
 
 /* Horizontal rule styles */
@@ -54,24 +63,36 @@
   align-items: center;
   padding: 5px;
   cursor: pointer;
+  color: #101a34;
+    padding: 11px 20px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
 }
 
 .sidebar .center ul li:hover {
   background-color: #ece8ff;
+  color: #50bcd9;
 }
 
 /* Icon styles */
 .sidebar .center ul li .icon {
-  font-size: 18px;
-  color: #7451f8;
+  font-size: 20px;
+  /* color: #7451f8; */
+  color: #a8acb3;
+  opacity: 1;
 }
 
 /* Text span styles */
 .sidebar .center ul li span {
   font-size: 13px;
   font-weight: 600;
-  color: #888;
+  /* color: #888; */
   margin-left: 10px;
+  font-family: "Poppins";
+  color: #101a34;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 /* Bottom styles */

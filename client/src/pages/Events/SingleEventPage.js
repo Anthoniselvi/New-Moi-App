@@ -7,7 +7,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { BiEdit, BiShareAlt } from "react-icons/bi";
+import { BiEdit, BiShareAlt, BiDownload } from "react-icons/bi";
 import {
   PDFDownloadLink,
   Page,
@@ -99,7 +99,8 @@ export default function SingleEventPage() {
               alignItems: "center",
               height: "10%",
               width: "100%",
-              paddingTop: "5%",
+              padding: "2% 0%",
+              borderBottom: "1px solid #cad3dd",
             }}
           >
             <Box
@@ -110,21 +111,53 @@ export default function SingleEventPage() {
                 alignItems: "left",
               }}
             >
-              <Typography
-                sx={{
-                  color: "#101a34",
-                  fontFamily: "Poppins",
-                  fontWeight: 600,
-                  fontSize: "25px",
-                  lineHeight: "34px",
-                }}
-              >
-                {eventsList.name}
-              </Typography>
               <Box
                 sx={{
-                  color: "#121212",
-                  cursor: "pointer",
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: "#101a34",
+                    fontFamily: "Poppins",
+                    fontWeight: 600,
+                    fontSize: "25px",
+                    lineHeight: "34px",
+                  }}
+                >
+                  {eventsList.name}
+                </Typography>
+                <Box
+                  sx={{
+                    "&:hover": {
+                      transition: "0.3s ease",
+                      transform: "scale(1.4)",
+                    },
+                  }}
+                >
+                  <PDFDownloadLink
+                    document={
+                      <PrintEvent
+                        selectedEntries={selectedEntries}
+                        selectedEvent={eventsList.name}
+                      />
+                    }
+                    fileName={`${eventsList.name}.pdf`}
+                  >
+                    <BiDownload
+                      style={{
+                        color: "#50bcd9",
+                        fontSize: "25px",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </PDFDownloadLink>
+                </Box>
+              </Box>
+              <Box
+                sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
@@ -150,62 +183,73 @@ export default function SingleEventPage() {
               </Box>
             </Box>
             <Box
-              sx={{
-                border: "1px solid #cad3dd",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                cursor: "pointer",
-                padding: "8px 15px",
-                borderRadius: "5px",
-                "&:hover": {
-                  transition: "0.3s ease",
-                  transform: "scale(0.9)",
-                },
-              }}
+              display="flex"
+              gap="10px"
+              alignItems="center"
+              justifyContent="center"
             >
-              <BiEdit
-                style={{
-                  color: "#101a34",
-                  fontSize: "22px",
-                  fontWeight: 600,
-                }}
-              />
-              <Typography variant="h5" color="#101a34" sx={{ fontWeight: 600 }}>
-                Edit
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                backgroundColor: "#50bcd9",
-                color: "#fff",
-                border: "1px solid #50bcd9",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                cursor: "pointer",
-                padding: "8px 15px",
-                borderRadius: "5px",
-                "&:hover": {
-                  transition: "0.3s ease",
-                  transform: "scale(0.9)",
-                },
-              }}
-            >
-              <BiShareAlt
-                style={{
+              <Box
+                sx={{
+                  backgroundColor: "#50bcd9",
                   color: "#fff",
-                  fontSize: "22px",
-                  fontWeight: 600,
+                  border: "1px solid #50bcd9",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "10px",
+                  cursor: "pointer",
+                  padding: "8px 15px",
+                  borderRadius: "5px",
+                  "&:hover": {
+                    transition: "0.3s ease",
+                    transform: "scale(0.9)",
+                  },
                 }}
-              />
-              <Typography variant="h5" color="#fff" sx={{ fontWeight: 600 }}>
-                Share
-              </Typography>
+              >
+                <BiShareAlt
+                  style={{
+                    color: "#fff",
+                    fontSize: "22px",
+                    fontWeight: 600,
+                  }}
+                />
+                <Typography variant="h5" color="#fff" sx={{ fontWeight: 600 }}>
+                  Share
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  border: "1px solid #cad3dd",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "10px",
+                  cursor: "pointer",
+                  padding: "8px 15px",
+                  borderRadius: "5px",
+                  "&:hover": {
+                    transition: "0.3s ease",
+                    transform: "scale(0.9)",
+                  },
+                }}
+              >
+                <BiEdit
+                  style={{
+                    color: "#101a34",
+                    fontSize: "22px",
+                    fontWeight: 600,
+                  }}
+                />
+                <Typography
+                  variant="h5"
+                  color="#101a34"
+                  sx={{ fontWeight: 600 }}
+                >
+                  Edit
+                </Typography>
+              </Box>
             </Box>
-            <Box
+            {/* <Box
               sx={{
                 color: "#fff",
                 background: "#fafbfd",
@@ -271,15 +315,16 @@ export default function SingleEventPage() {
                   )}
                 </PDFDownloadLink>
               )}
-            </Box>
+            </Box> */}
           </Box>
           <Box
             sx={{
               width: "100%",
-              height: "80vh",
+              height: "70vh",
               borderRadius: "10px",
               border: "1px solid #cad3dd",
-              marginTop: "4%",
+              marginTop: "2%",
+              backgroundColor: "#fff",
             }}
           >
             <Box
@@ -290,20 +335,22 @@ export default function SingleEventPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                paddingLeft: "2%",
-                paddingRight: "2%",
+                padding: "0% 2%",
               }}
             >
               <Typography
                 sx={{
                   color: "#101a34",
-                  borderBottom: "2px solid #FE956F",
+                  // borderBottom: "2px solid #FE956F",
                   fontFamily: "Poppins",
                   fontWeight: 600,
-                  fontSize: "17px",
+                  fontSize: "20px",
                 }}
               >
-                Guests ({entries.length})
+                Guests{" "}
+                <span style={{ color: "#a8acb3", fontSize: "22px" }}>
+                  ({entries.length})
+                </span>
               </Typography>
               <Button
                 onClick={() => setCreateModalOpen(true)}
@@ -312,15 +359,30 @@ export default function SingleEventPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "5px",
-                  outline: "none",
-                  border: "none",
                   color: "#50bcd9",
-                  background: "none",
+                  fontSize: "18px",
                   fontWeight: 600,
+                  // border: "1px solid #cad3dd",
+                  "&:hover": {
+                    transition: "0.3s ease",
+                    transform: "scale(1.4)",
+                  },
                 }}
               >
-                <AddCircleOutlineIcon />
-                Add
+                <AddCircleOutlineIcon
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    color: "#50bcd9",
+                  }}
+                />
+                <Typography
+                  variant="h5"
+                  color="#50bcd9"
+                  sx={{ fontWeight: 600, textTransform: "none" }}
+                >
+                  Add
+                </Typography>
               </Button>
             </Box>
 
@@ -330,19 +392,8 @@ export default function SingleEventPage() {
                 height: "100%",
                 width: "100%",
                 display: "flex",
-                backgroundColor: "#ffffff",
               }}
             >
-              {/* {isNonMobile ? (
-            <NewEntiesList
-              entries={entries}
-              eventsList={eventsList}
-              totalAmount={totalAmount}
-              totalGift={totalGift}
-            />
-          ) : (
-            <EntriesPage />
-          )} */}
               <EntriesPage />
             </Box>
           </Box>
