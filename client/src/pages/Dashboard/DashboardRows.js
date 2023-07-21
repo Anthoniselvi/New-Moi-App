@@ -89,7 +89,7 @@ export default function DashboardRows() {
         gridTemplateColumns="repeat(12, 1fr)"
         justifyContent="space-between"
         gridAutoRows="90px"
-        gap="20px"
+        gap="30px"
         // border="1px solid red"
         sx={{
           "& > div": { gridColumn: isNonMobile ? "span 12" : undefined },

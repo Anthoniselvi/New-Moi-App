@@ -14,7 +14,7 @@ function QuickSearchToolbar() {
         justifyContent: "space-between",
         marginBottom: "2%",
         "& .MuiSvgIcon-root": {
-          fontSize: "30px",
+          fontSize: "25px",
           color: "#101a34",
         },
         "& .MuiInput-input": {
@@ -63,7 +63,8 @@ export default function NewSearch({ searchResult, eventsList }) {
           fontSize: "15px",
           lineHeight: "19px",
           color: "#101a34",
-          padding: "20px",
+          paddingTop: "30px",
+          paddingBottom: "30px",
           alignItems: "left",
         },
         "& .name-column--cell": {
@@ -72,10 +73,12 @@ export default function NewSearch({ searchResult, eventsList }) {
         "& .MuiDataGrid-columnHeaders": {
           // display: "none",
           backgroundColor: "#fafbfd",
-          color: "#121212",
-          borderBottom: "none",
-          fontWeight: 700,
-          fontSize: 16,
+          color: "#101a34",
+          fontWeight: 600,
+          fontSize: 11,
+          lineHeight: 18,
+          borderTop: "1px solid #cad3dd",
+          borderBottom: "1px solid #cad3dd",
         },
         "& .MuiButton-text": {
           fontWeight: 600,
