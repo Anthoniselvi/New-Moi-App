@@ -20,6 +20,7 @@ import EntriesPage from "../Entries/EntriesPage";
 import { PrintEvent } from "./PrintEvent";
 import EditEvent from "./EditEvent";
 import CreateEntry from "../Entries/CreateEntry";
+import NewEntriesPage from "../Entries/NewEntriesPage";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
@@ -394,7 +395,8 @@ export default function SingleEventPage() {
                 display: "flex",
               }}
             >
-              <EntriesPage />
+              {/* <EntriesPage /> */}
+              <NewEntriesPage />
             </Box>
           </Box>
           {createModalOpen ? (

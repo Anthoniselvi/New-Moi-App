@@ -104,20 +104,15 @@ const EntriesPage = () => {
     // <RefreshContext.Provider value={{ updateRefreshCount }}>
     <Box m="20px" width="100%" height="100%">
       <Box
-        //   border="1px solid red"
         width="100%"
-        //   pr="20px"
-        //   mt="20px"
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         justifyContent="space-between"
-        //   gridAutoRows="90px"
         gap="20px"
         sx={{
           "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
         }}
       >
-        {/* <Box display="grid" gridTemplateColumns="1fr 1fr" gap="20px"  > */}
         {entries.length > 0 && (
           <>
             {entries.map((entry, index) => (
