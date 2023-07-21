@@ -69,7 +69,7 @@ const Sidebar = ({ profileId }) => {
   };
   return (
     <>
-      <div className="navbar-menu-container">
+      {/* <div className="navbar-menu-container">
         <div className="mobile-menu-icon">
           {!openMenu ? (
             <RiMenu2Line
@@ -105,7 +105,7 @@ const Sidebar = ({ profileId }) => {
             ))}
           </List>
         </Box>
-      </Drawer>
+      </Drawer> */}
       <div className="sidebar">
         <div className="top">
           <Link to="/" style={{ textDecoration: "none" }}>

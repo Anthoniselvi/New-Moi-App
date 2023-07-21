@@ -7,7 +7,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import EventsList from "./EventsList";
 import Sidebar from "../Sidebar/Sidebar";
-import Topbar from "../Topbar/Topbar";
 
 export default function EventsPage() {
   const navigate = useNavigate();
@@ -32,9 +31,7 @@ export default function EventsPage() {
     <div className="home">
       <Sidebar profileId={profileId} />
       <div className="homeContainer">
-        <Box margin="20px" sx={{ margrinTop: "0px" }}>
-          {/* <Toolbar /> */}
-
+        <Box margin="30px">
           <Typography
             variant="h2"
             sx={{
@@ -53,7 +50,7 @@ export default function EventsPage() {
               width: "100%",
               minHeight: "80vh",
               borderRadius: "10px",
-              marginTop: "5%",
+              paddingTop: "2%",
             }}
           >
             <EventsList eventslist={eventslist} />

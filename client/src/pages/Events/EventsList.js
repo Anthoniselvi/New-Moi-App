@@ -7,7 +7,7 @@ import axios from "axios";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import EditIcon from "@mui/icons-material/Edit";
-// import NewEditEvent from "../events/NewEditEvent";
+import EditEvent from "./EditEvent";
 
 export default function EventsList({ eventslist }) {
   const [value, setValue] = React.useState(0);
@@ -23,6 +23,7 @@ export default function EventsList({ eventslist }) {
     setValue(newValue);
   };
   const handleEditEvent = (eventId, event) => {
+    console.log("edit button clicked");
     event.stopPropagation(); // Stop event propagation to the parent Box
 
     setAnchorEl(null);
@@ -45,21 +46,26 @@ export default function EventsList({ eventslist }) {
     <Box sx={{ width: "100%", minHeight: "100%" }}>
       <Box
         sx={{
-          height: "100%",
+          backgroundColor: "#fff",
+          padding: "2%",
+          borderRadius: "10px",
+          border: "1px solid #e8ecf1",
+          minHeight: "80vh",
           width: "100%",
           display: "flex",
+          gap: "2%",
           // flexWrap: 'wrap',
-          justifyContent: "space-between",
-          flexWrap: isNonMobile ? "wrap" : "nowrap",
+          // justifyContent: "space-between",
+          // flexWrap: isNonMobile ? "wrap" : "nowrap",
           flexDirection: isNonMobile ? "row" : "column",
         }}
       >
         <Box
           onClick={navigateToCreateEvent}
           sx={{
-            height: "300px",
+            height: "250px",
             // width: '30%',
-            width: isNonMobile ? "30%" : "100%",
+            width: isNonMobile ? "25%" : "100%",
             marginBottom: isNonMobile ? undefined : "5%",
             border: "1px solid #cad3dd",
             borderRadius: "10px",
@@ -68,8 +74,9 @@ export default function EventsList({ eventslist }) {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            backgroundColor: "#f5f7fa",
             "&:hover": {
-              backgroundColor: "rgb(140, 141, 255)",
+              backgroundColor: "#50bcd9",
               color: "#ffffff",
               "& .MuiTypography-root, & .MuiSvgIcon-root": {
                 color: "#ffffff",
@@ -77,9 +84,7 @@ export default function EventsList({ eventslist }) {
             },
           }}
         >
-          <ControlPointIcon
-            sx={{ fontSize: "40px", color: "rgb(140, 141, 255)" }}
-          />
+          <ControlPointIcon sx={{ fontSize: "40px", color: "#50bcd9" }} />
           <Typography
             sx={{
               fontWeight: 600,
@@ -100,10 +105,11 @@ export default function EventsList({ eventslist }) {
             onMouseEnter={() => handleBoxHover(index)}
             onMouseLeave={() => handleBoxHover(null)}
             sx={{
+              backgroundColor: "#f5f7fa",
               position: "relative",
-              height: "300px",
+              height: "250px",
               // width: '30%',
-              width: isNonMobile ? "30%" : "100%",
+              width: isNonMobile ? "25%" : "100%",
               border: "1px solid #cad3dd",
               borderRadius: "10px",
               display: "flex",
@@ -112,7 +118,7 @@ export default function EventsList({ eventslist }) {
               alignItems: "center",
               justifyContent: "center",
               "&:hover": {
-                backgroundColor: "rgb(140, 141, 255)",
+                backgroundColor: "#50bcd9",
                 color: "#ffffff",
                 "& .MuiTypography-root, & .MuiSvgIcon-root": {
                   color: "#ffffff",
@@ -206,14 +212,15 @@ export default function EventsList({ eventslist }) {
                   backgroundColor: "red",
                   padding: "5px",
                   borderRadius: "50%",
+                  cursor: "pointer",
                 }}
               />
             )}
           </Box>
         ))}
       </Box>
-      {/* {editModalOpen ? (
-        <NewEditEvent
+      {editModalOpen ? (
+        <EditEvent
           // eventName={singleEvent.name}
           eventId={selectedRowId}
           open={editModalOpen}
@@ -221,7 +228,7 @@ export default function EventsList({ eventslist }) {
         />
       ) : (
         <></>
-      )} */}
+      )}
     </Box>
   );
 }

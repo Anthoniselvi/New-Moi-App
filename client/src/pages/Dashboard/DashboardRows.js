@@ -39,6 +39,9 @@ export default function DashboardRows() {
   const [maxAmountEvent, setMaxAmountEvent] = useState({});
   const [inputValue, setInputValue] = useState("");
 
+  const navigateToEvents = () => {
+    navigate(`/eventslist?profile=${profileId}`);
+  };
   const searchResult = allEntries.filter(
     (entry) =>
       entry.personName &&
@@ -96,7 +99,7 @@ export default function DashboardRows() {
         }}
       >
         <Box
-          //   onClick={navigateToEvents}
+          onClick={navigateToEvents}
           gridColumn="span 4"
           backgroundColor="#fff"
           display="flex"
@@ -213,10 +216,6 @@ export default function DashboardRows() {
           }}
         >
           <NewSearch searchResult={searchResult} eventsList={eventsList} />
-          {/* <SearchTable searchResult={searchResult} eventsList={eventsList} /> */}
-          {/* <Box display="flex" flexDirection="column" padding="10px">
-            <NewSearch searchResult={searchResult} eventsList={eventsList} />
-          </Box> */}
         </Box>
       </Box>
     </div>
