@@ -6,6 +6,8 @@ import axios from "axios";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { BiEdit, BiShareAlt } from "react-icons/bi";
 import {
   PDFDownloadLink,
   Page,
@@ -100,7 +102,14 @@ export default function SingleEventPage() {
               paddingTop: "5%",
             }}
           >
-            <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                alignItems: "left",
+              }}
+            >
               <Typography
                 sx={{
                   color: "#101a34",
@@ -112,17 +121,93 @@ export default function SingleEventPage() {
               >
                 {eventsList.name}
               </Typography>
-              {/* <Box sx={{color: "#101a34", background: "#fafbfd", border: "1px solid #cad3dd", display: "flex", alignItems: "center", gap: "5px", padding: "8px 15px",
-    fontWeight: 600, fontSize: "13px", lineHeight: "18px", borderRadius: "5px", fontFamily: "Poppins", cursor: "pointer"}} 
-    onClick={() => handleEditEvent(eventId)}> */}
-              <BorderColorOutlinedIcon
-                style={{ color: "#121212", cursor: "pointer" }}
-                onClick={() => handleEditEvent(eventId)}
-              />
+              <Box
+                sx={{
+                  color: "#121212",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                <CalendarMonthIcon
+                  style={{
+                    color: "#50bcd9",
+                    fontSize: "16px",
+                  }}
+                />
+                <Typography
+                  sx={{
+                    color: "#101a34",
+                    fontFamily: "Poppins",
+                    fontWeight: 600,
+                    fontSize: "16px",
+                    lineHeight: "34px",
+                  }}
+                >
+                  {eventsList.date}
+                </Typography>
+              </Box>
             </Box>
             <Box
               sx={{
-                color: "#101a34",
+                border: "1px solid #cad3dd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                cursor: "pointer",
+                padding: "8px 15px",
+                borderRadius: "5px",
+                "&:hover": {
+                  transition: "0.3s ease",
+                  transform: "scale(0.9)",
+                },
+              }}
+            >
+              <BiEdit
+                style={{
+                  color: "#101a34",
+                  fontSize: "22px",
+                  fontWeight: 600,
+                }}
+              />
+              <Typography variant="h5" color="#101a34" sx={{ fontWeight: 600 }}>
+                Edit
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                backgroundColor: "#50bcd9",
+                color: "#fff",
+                border: "1px solid #50bcd9",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                cursor: "pointer",
+                padding: "8px 15px",
+                borderRadius: "5px",
+                "&:hover": {
+                  transition: "0.3s ease",
+                  transform: "scale(0.9)",
+                },
+              }}
+            >
+              <BiShareAlt
+                style={{
+                  color: "#fff",
+                  fontSize: "22px",
+                  fontWeight: 600,
+                }}
+              />
+              <Typography variant="h5" color="#fff" sx={{ fontWeight: 600 }}>
+                Share
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                color: "#fff",
                 background: "#fafbfd",
                 border: isNonMobile ? "1px solid #cad3dd" : undefined,
                 display: "flex",
