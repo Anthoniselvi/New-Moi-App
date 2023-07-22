@@ -23,11 +23,12 @@ import CreateEntry from "../Entries/CreateEntry";
 import NewEntriesPage from "../Entries/NewEntriesPage";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import EntriesTable from "../Entries/EntriesTable";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
   const [eventsList, setEventsList] = useState({});
-  const [totals, setTotals] = useState({});
+  // const [totals, setTotals] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalGift, setTotalGift] = useState(0);
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -37,13 +38,12 @@ export default function SingleEventPage() {
   const [searchParam] = useSearchParams();
   const eventId = searchParam.get("event");
   const selectedEvent = eventsList;
-  console.log("selected event's  : " + JSON.stringify(totals));
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  const totalValue = totals.find(
-    (singleTotal) => singleTotal.eventId === eventsList.eventId
-  );
+  // const totalValue = totals.find(
+  //   (singleTotal) => singleTotal.eventId === eventsList.eventId
+  // );
   const getReports = (eventName) => {
     console.log("eventName :" + eventName);
     console.log("eventsList :", eventsList);
@@ -84,22 +84,22 @@ export default function SingleEventPage() {
         setTotalGift(response.data.totalGift);
       });
   };
-  const fetchTotals = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_BASE_URL}/entries/total/${eventsList.profileId}`
-      )
-      .then((response) => {
-        // console.log(response);
+  // const fetchTotals = () => {
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_BASE_URL}/entries/total/${eventsList.profileId}`
+  //     )
+  //     .then((response) => {
+  //       // console.log(response);
 
-        console.log("Totals : " + JSON.stringify(response.data));
-        setTotals(response.data);
-      });
-  };
+  //       console.log("Totals : " + JSON.stringify(response.data));
+  //       setTotals(response.data);
+  //     });
+  // };
   useEffect(() => {
     getSelectedEvent();
     fetchAllEntries();
-    fetchTotals();
+    // fetchTotals();
     setLoading(true);
     // setSelectedEntries(entries.filter((entry) => entry.eventId === selectedEvent.eventId));
     setLoading(false);
@@ -202,7 +202,7 @@ export default function SingleEventPage() {
                       lineHeight: "34px",
                     }}
                   >
-                    {totalValue.totalAmount}
+                    {totalAmount}
                   </Typography>
                 </Box>
                 <Box
@@ -224,7 +224,7 @@ export default function SingleEventPage() {
                       lineHeight: "34px",
                     }}
                   >
-                    {totalValue.totalGift}
+                    {totalGift}
                   </Typography>
                 </Box>
               </Box>
@@ -400,13 +400,14 @@ export default function SingleEventPage() {
             <Box
               sx={{
                 padding: 0,
-                height: "100%",
+                height: "90%",
                 width: "100%",
                 display: "flex",
               }}
             >
               {/* <EntriesPage /> */}
-              <NewEntriesPage />
+              {/* <NewEntriesPage /> */}
+              <EntriesTable />
             </Box>
           </Box>
           {createModalOpen ? (
