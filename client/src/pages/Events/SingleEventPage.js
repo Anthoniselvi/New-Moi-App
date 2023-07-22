@@ -21,10 +21,13 @@ import { PrintEvent } from "./PrintEvent";
 import EditEvent from "./EditEvent";
 import CreateEntry from "../Entries/CreateEntry";
 import NewEntriesPage from "../Entries/NewEntriesPage";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
   const [eventsList, setEventsList] = useState({});
+  const [totals, setTotals] = useState({});
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalGift, setTotalGift] = useState(0);
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -34,11 +37,13 @@ export default function SingleEventPage() {
   const [searchParam] = useSearchParams();
   const eventId = searchParam.get("event");
   const selectedEvent = eventsList;
-  //   console.log("selected event's profileID : " + selectedEvent.profileId);
+  console.log("selected event's  : " + JSON.stringify(totals));
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-
+  const totalValue = totals.find(
+    (singleTotal) => singleTotal.eventId === eventsList.eventId
+  );
   const getReports = (eventName) => {
     console.log("eventName :" + eventName);
     console.log("eventsList :", eventsList);
@@ -79,9 +84,22 @@ export default function SingleEventPage() {
         setTotalGift(response.data.totalGift);
       });
   };
+  const fetchTotals = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_BASE_URL}/entries/total/${eventsList.profileId}`
+      )
+      .then((response) => {
+        // console.log(response);
+
+        console.log("Totals : " + JSON.stringify(response.data));
+        setTotals(response.data);
+      });
+  };
   useEffect(() => {
     getSelectedEvent();
     fetchAllEntries();
+    fetchTotals();
     setLoading(true);
     // setSelectedEntries(entries.filter((entry) => entry.eventId === selectedEvent.eventId));
     setLoading(false);
@@ -160,6 +178,61 @@ export default function SingleEventPage() {
               <Box
                 sx={{
                   display: "flex",
+                  flexDirection: "column",
+                  // gap: "10px",
+                  alignItems: "left",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <CurrencyRupeeIcon
+                    sx={{ color: "#50bcd9", fontSize: "16px" }}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#101a34",
+                      fontFamily: "Poppins",
+                      fontWeight: 600,
+                      fontSize: "16px",
+                      lineHeight: "34px",
+                    }}
+                  >
+                    {totalValue.totalAmount}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <CardGiftcardIcon
+                    sx={{ color: "#50bcd9", fontSize: "16px" }}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#101a34",
+                      fontFamily: "Poppins",
+                      fontWeight: 600,
+                      fontSize: "16px",
+                      lineHeight: "34px",
+                    }}
+                  >
+                    {totalValue.totalGift}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <Box
+                sx={{
+                  display: "flex",
                   alignItems: "center",
                   gap: "10px",
                 }}
@@ -182,141 +255,78 @@ export default function SingleEventPage() {
                   {eventsList.date}
                 </Typography>
               </Box>
-            </Box>
-            <Box
-              display="flex"
-              gap="10px"
-              alignItems="center"
-              justifyContent="center"
-            >
               <Box
-                sx={{
-                  backgroundColor: "#50bcd9",
-                  color: "#fff",
-                  border: "1px solid #50bcd9",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                  padding: "8px 15px",
-                  borderRadius: "5px",
-                  "&:hover": {
-                    transition: "0.3s ease",
-                    transform: "scale(0.9)",
-                  },
-                }}
+                display="flex"
+                gap="10px"
+                alignItems="center"
+                justifyContent="center"
               >
-                <BiShareAlt
-                  style={{
+                <Box
+                  sx={{
+                    backgroundColor: "#50bcd9",
                     color: "#fff",
-                    fontSize: "22px",
-                    fontWeight: 600,
+                    border: "1px solid #50bcd9",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    cursor: "pointer",
+                    padding: "8px 15px",
+                    borderRadius: "5px",
+                    "&:hover": {
+                      transition: "0.3s ease",
+                      transform: "scale(0.9)",
+                    },
                   }}
-                />
-                <Typography variant="h5" color="#fff" sx={{ fontWeight: 600 }}>
-                  Share
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  border: "1px solid #cad3dd",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                  padding: "8px 15px",
-                  borderRadius: "5px",
-                  "&:hover": {
-                    transition: "0.3s ease",
-                    transform: "scale(0.9)",
-                  },
-                }}
-              >
-                <BiEdit
-                  style={{
-                    color: "#101a34",
-                    fontSize: "22px",
-                    fontWeight: 600,
-                  }}
-                />
-                <Typography
-                  variant="h5"
-                  color="#101a34"
-                  sx={{ fontWeight: 600 }}
                 >
-                  Edit
-                </Typography>
+                  <BiShareAlt
+                    style={{
+                      color: "#fff",
+                      fontSize: "22px",
+                      fontWeight: 600,
+                    }}
+                  />
+                  <Typography
+                    variant="h5"
+                    color="#fff"
+                    sx={{ fontWeight: 600 }}
+                  >
+                    Share
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    border: "1px solid #cad3dd",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    cursor: "pointer",
+                    padding: "8px 15px",
+                    borderRadius: "5px",
+                    "&:hover": {
+                      transition: "0.3s ease",
+                      transform: "scale(0.9)",
+                    },
+                  }}
+                >
+                  <BiEdit
+                    style={{
+                      color: "#101a34",
+                      fontSize: "22px",
+                      fontWeight: 600,
+                    }}
+                  />
+                  <Typography
+                    variant="h5"
+                    color="#101a34"
+                    sx={{ fontWeight: 600 }}
+                  >
+                    Edit
+                  </Typography>
+                </Box>
               </Box>
             </Box>
-            {/* <Box
-              sx={{
-                color: "#fff",
-                background: "#fafbfd",
-                border: isNonMobile ? "1px solid #cad3dd" : undefined,
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                padding: "8px 15px",
-                fontWeight: 600,
-                fontSize: "13px",
-                lineHeight: "18px",
-                borderRadius: "5px",
-                fontFamily: "Poppins",
-                cursor: "pointer",
-              }}
-            >
-              {loading ? (
-                <span>Loading...</span>
-              ) : (
-                <PDFDownloadLink
-                  document={
-                    <PrintEvent
-                      selectedEntries={selectedEntries}
-                      selectedEvent={eventsList.name}
-                    />
-                  }
-                  fileName={`${eventsList.name}.pdf`}
-                >
-                  {isNonMobile ? (
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      <DownloadForOfflineIcon
-                        sx={{
-                          color: "#101a34",
-                          fontSize: "25px",
-                          cursor: "pointer",
-                        }}
-                      />
-                      Download
-                    </Box>
-                  ) : (
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <DownloadForOfflineIcon
-                        sx={{
-                          color: "#101a34",
-                          fontSize: "25px",
-                          cursor: "pointer",
-                        }}
-                      />
-                    </Box>
-                  )}
-                </PDFDownloadLink>
-              )}
-            </Box> */}
           </Box>
           <Box
             sx={{
