@@ -303,6 +303,7 @@ export default function SingleEventPage() {
                   </Typography>
                 </Box>
                 <Box
+                  onClick={() => handleEditEvent(eventsList.eventId)}
                   sx={{
                     border: "1px solid #cad3dd",
                     display: "flex",

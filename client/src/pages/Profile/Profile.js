@@ -221,7 +221,7 @@ export default function Profile() {
                 }}
               >
                 <label
-                  for="lname"
+                  for="name"
                   style={{
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -234,8 +234,8 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="name"
+                  name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   style={{
@@ -263,7 +263,7 @@ export default function Profile() {
                 }}
               >
                 <label
-                  for="fname"
+                  for="gender"
                   style={{
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -306,7 +306,7 @@ export default function Profile() {
                 }}
               >
                 <label
-                  for="lname"
+                  for="city"
                   style={{
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -319,8 +319,8 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="city"
+                  name="city"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   style={{
@@ -348,7 +348,7 @@ export default function Profile() {
                 }}
               >
                 <label
-                  for="lname"
+                  for="mobile"
                   style={{
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -361,8 +361,8 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="mobile"
+                  name="mobile"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   style={{
@@ -390,7 +390,7 @@ export default function Profile() {
                 }}
               >
                 <label
-                  for="lname"
+                  for="email"
                   style={{
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -403,8 +403,8 @@ export default function Profile() {
                 </label>
                 <input
                   type="text"
-                  id="lname"
-                  name="lname"
+                  id="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   style={{
