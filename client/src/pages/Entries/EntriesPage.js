@@ -123,10 +123,11 @@ const EntriesPage = () => {
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
-                gap="20px"
+                gap="5%"
                 padding="2%"
                 borderRadius="10px"
-                sx={{ backgroundColor: "#48cae4" }}
+                border="1px solid #cad3dd"
+                sx={{ backgroundColor: "#fafbfd" }}
               >
                 <Box
                   display="flex"
@@ -147,7 +148,7 @@ const EntriesPage = () => {
                     alignItems="flex-start"
                   >
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       fontWeight="bold"
                       sx={{ color: "#023e8a", fontWeight: 600 }}
                       textTransform="capitalize"
@@ -157,7 +158,7 @@ const EntriesPage = () => {
                     <Typography
                       variant="h6"
                       textTransform="capitalize"
-                      sx={{ color: colors.grey[100] }}
+                      sx={{ color: "#5e6577" }}
                     >
                       {entry.city}
                     </Typography>
@@ -196,11 +197,10 @@ const EntriesPage = () => {
                   <Box>
                     {/* <EditOrDelete entryId={entry.entryId} /> */}
                     <Button
-                      style={{ color: "#fff" }}
+                      style={{ color: "#ff574d", fontSize: 20 }}
                       onClick={(e) => handleDeleteEntry(e, entry.entryId)}
                     >
-                      {" "}
-                      <Delete />
+                      <Delete sx={{ fontSize: 20 }} />
                     </Button>
                   </Box>
                 </Box>
