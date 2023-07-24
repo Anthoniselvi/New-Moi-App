@@ -119,6 +119,7 @@ export default function SingleEventPage() {
               height: "10%",
               width: "100%",
               padding: "2% 0%",
+              paddingBottom: "5%",
               borderBottom: "1px solid #cad3dd",
             }}
           >
@@ -339,10 +340,10 @@ export default function SingleEventPage() {
           <Box
             sx={{
               width: "100%",
-              height: "70vh",
+              minHeight: "70vh",
               borderRadius: "10px",
               border: "1px solid #cad3dd",
-              marginTop: "2%",
+              marginTop: "5%",
               backgroundColor: "#fff",
             }}
           >

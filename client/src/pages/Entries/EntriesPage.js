@@ -103,7 +103,7 @@ const EntriesPage = () => {
   return (
     // <RefreshContext.Provider value={{ updateRefreshCount }}>
     <Box
-      m="2%"
+      // m="2%"
       width="100%"
       height="100%"
       // border="1px solid green"
