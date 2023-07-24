@@ -102,113 +102,110 @@ const EntriesPage = () => {
 
   return (
     // <RefreshContext.Provider value={{ updateRefreshCount }}>
-    <Box m="20px" width="100%" height="100%">
-      <Box
-        width="100%"
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        justifyContent="space-between"
-        gap="20px"
-        sx={{
-          "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
-        }}
-      >
-        {entries.length > 0 && (
-          <>
-            {entries.map((entry, index) => (
+    <Box
+      m="2%"
+      width="100%"
+      height="100%"
+      // border="1px solid green"
+      display="flex"
+      flexDirection="column"
+      gap="5%"
+    >
+      {entries.length > 0 && (
+        <>
+          {entries.map((entry, index) => (
+            <Box
+              // gridColumn="span 6"
+              key={index}
+              onClick={() => handleEditEntry(entry.entryId)}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              gap="5%"
+              padding="2%"
+              borderRadius="10px"
+              border="1px solid #cad3dd"
+              sx={{ backgroundColor: "#fafbfd" }}
+            >
               <Box
-                gridColumn="span 6"
-                key={index}
-                onClick={() => handleEditEntry(entry.entryId)}
                 display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                gap="5%"
-                padding="2%"
-                borderRadius="10px"
-                border="1px solid #cad3dd"
-                sx={{ backgroundColor: "#fafbfd" }}
+                gap="10%"
+                onClick={() => handleEditEntry(entry.entryId)}
               >
+                <Avatar
+                  name={entry.personName}
+                  size="40"
+                  round={true}
+                  maxInitials="1"
+                />
+
                 <Box
                   display="flex"
-                  gap="10%"
-                  onClick={() => handleEditEntry(entry.entryId)}
+                  flexDirection="column"
+                  gap="2%"
+                  alignItems="flex-start"
                 >
-                  <Avatar
-                    name={entry.personName}
-                    size="40"
-                    round={true}
-                    maxInitials="1"
-                  />
-
-                  <Box
-                    display="flex"
-                    flexDirection="column"
-                    gap="2%"
-                    alignItems="flex-start"
+                  <Typography
+                    variant="h5"
+                    fontWeight="bold"
+                    sx={{ color: "#023e8a", fontWeight: 600 }}
+                    textTransform="capitalize"
                   >
-                    <Typography
-                      variant="h5"
-                      fontWeight="bold"
-                      sx={{ color: "#023e8a", fontWeight: 600 }}
-                      textTransform="capitalize"
-                    >
-                      {entry.personName}
-                    </Typography>
-                    <Typography
-                      variant="h6"
-                      textTransform="capitalize"
-                      sx={{ color: "#5e6577" }}
-                    >
-                      {entry.city}
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  onClick={() => handleEditEntry(entry.entryId)}
-                >
-                  {entry.presentType === "amount" ? (
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "#023e8a",
-                        fontWeight: 600,
-                        textAlign: "right",
-                      }}
-                    >
-                      ₹ {entry.amount}
-                    </Typography>
-                  ) : (
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: "#023e8a",
-                        fontWeight: 600,
-                        textAlign: "right",
-                      }}
-                    >
-                      {entry.gift}
-                    </Typography>
-                  )}
-
-                  <Box>
-                    {/* <EditOrDelete entryId={entry.entryId} /> */}
-                    <Button
-                      style={{ color: "#ff574d", fontSize: 20 }}
-                      onClick={(e) => handleDeleteEntry(e, entry.entryId)}
-                    >
-                      <Delete sx={{ fontSize: 20 }} />
-                    </Button>
-                  </Box>
+                    {entry.personName}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    textTransform="capitalize"
+                    sx={{ color: "#5e6577" }}
+                  >
+                    {entry.city}
+                  </Typography>
                 </Box>
               </Box>
-            ))}
-          </>
-        )}
-      </Box>
+
+              <Box
+                display="flex"
+                alignItems="center"
+                onClick={() => handleEditEntry(entry.entryId)}
+              >
+                {entry.presentType === "amount" ? (
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: "#023e8a",
+                      fontWeight: 600,
+                      textAlign: "right",
+                    }}
+                  >
+                    ₹ {entry.amount}
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: "#023e8a",
+                      fontWeight: 600,
+                      textAlign: "right",
+                    }}
+                  >
+                    {entry.gift}
+                  </Typography>
+                )}
+
+                <Box>
+                  {/* <EditOrDelete entryId={entry.entryId} /> */}
+                  <Button
+                    style={{ color: "#ff574d", fontSize: 20 }}
+                    onClick={(e) => handleDeleteEntry(e, entry.entryId)}
+                  >
+                    <Delete sx={{ fontSize: 20 }} />
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </>
+      )}
 
       {createModalOpen ? (
         <CreateEntry

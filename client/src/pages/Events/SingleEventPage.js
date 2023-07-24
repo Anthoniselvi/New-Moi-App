@@ -114,8 +114,8 @@ export default function SingleEventPage() {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              justifyContent: isNonMobile ? "space-between" : "center",
+              flexDirection: isNonMobile ? "row" : "column",
               height: "10%",
               width: "100%",
               padding: "2% 0%",
@@ -179,6 +179,8 @@ export default function SingleEventPage() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
+                  // flexDirection: isNonMobile ? "column" : "row",
+                  // gap: isNonMobile ? "undefined" : "20%",
                   // gap: "10px",
                   alignItems: "left",
                 }}
@@ -258,8 +260,12 @@ export default function SingleEventPage() {
               <Box
                 display="flex"
                 gap="10px"
-                alignItems="center"
-                justifyContent="center"
+                // alignItems="center"
+                // justifyContent="center"
+                justifyContent={isNonMobile ? "center" : "space-between"}
+                alignItems={isNonMobile ? "center" : "left"}
+                // border="1px solid red"
+                width="100%"
               >
                 <Box
                   sx={{
@@ -273,6 +279,7 @@ export default function SingleEventPage() {
                     cursor: "pointer",
                     padding: "8px 15px",
                     borderRadius: "5px",
+                    width: "50%",
                     "&:hover": {
                       transition: "0.3s ease",
                       transform: "scale(0.9)",
@@ -304,6 +311,7 @@ export default function SingleEventPage() {
                     cursor: "pointer",
                     padding: "8px 15px",
                     borderRadius: "5px",
+                    width: "50%",
                     "&:hover": {
                       transition: "0.3s ease",
                       transform: "scale(0.9)",
