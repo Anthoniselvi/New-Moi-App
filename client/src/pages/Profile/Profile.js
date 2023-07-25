@@ -63,369 +63,369 @@ export default function Profile() {
     getProfile();
   }, []);
   return (
-    <div className="home">
-      <Sidebar profileId={profileId} />
-      <div className="homeContainer">
-        <Box margin="20px">
-          {/* <Toolbar /> */}
-          <Typography
-            sx={{
-              color: "#101a34",
-              fontFamily: "Poppins",
-              fontWeight: 600,
-              fontSize: "32px",
-              lineHeight: "34px",
-              marginTop: "-50px",
-            }}
-          >
-            Profile
-          </Typography>
+    // <div className="home">
+    //   <Sidebar profileId={profileId} />
+    <div className="homeContainer">
+      <Box margin="20px">
+        {/* <Toolbar /> */}
+        <Typography
+          sx={{
+            color: "#101a34",
+            fontFamily: "Poppins",
+            fontWeight: 600,
+            fontSize: "32px",
+            lineHeight: "34px",
+            marginTop: "-50px",
+          }}
+        >
+          Profile
+        </Typography>
+        <Box
+          display="flex"
+          padding="2% 0%"
+          borderBottom="1px solid #cad3dd"
+          sx={{ gap: isNonMobile ? "50px" : "20px" }}
+        >
           <Box
             display="flex"
-            padding="2% 0%"
-            borderBottom="1px solid #cad3dd"
-            sx={{ gap: isNonMobile ? "50px" : "20px" }}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="50%"
-              backgroundColor="#50bcd9"
-              color="#fff"
-              fontFamily="Poppins"
-              sx={{
-                height: isNonMobile ? "90px" : "50px",
-                width: isNonMobile ? "90px" : "50px",
-                fontSize: isNonMobile ? "35px" : "20px",
-              }}
-            >
-              {" "}
-              {name.charAt(0).toUpperCase()}
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              gap="10px"
-              alignItems="left"
-              justifyContent="center"
-            >
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontSize: "17px",
-                  lineHeight: "22px",
-                  color: "#101a34",
-                  fontWeight: 600,
-                }}
-              >
-                {name}
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontSize: "13px",
-                  lineHeight: "16px",
-                  color: "#5e6577",
-                }}
-              >
-                {email}
-              </Typography>
-            </Box>
-          </Box>
-
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              margin: isNonMobile ? "2% 0%" : "4% 0%",
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="50%"
+            backgroundColor="#50bcd9"
+            color="#fff"
+            fontFamily="Poppins"
+            sx={{
+              height: isNonMobile ? "90px" : "50px",
+              width: isNonMobile ? "90px" : "50px",
+              fontSize: isNonMobile ? "35px" : "20px",
             }}
           >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              width="100%"
+            {" "}
+            {name.charAt(0).toUpperCase()}
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            gap="10px"
+            alignItems="left"
+            justifyContent="center"
+          >
+            <Typography
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: "17px",
+                lineHeight: "22px",
+                color: "#101a34",
+                fontWeight: 600,
+              }}
             >
-              <Typography
-                sx={{
+              {name}
+            </Typography>
+            <Typography
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: "13px",
+                lineHeight: "16px",
+                color: "#5e6577",
+              }}
+            >
+              {email}
+            </Typography>
+          </Box>
+        </Box>
+
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            margin: isNonMobile ? "2% 0%" : "4% 0%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+        >
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            width="100%"
+          >
+            <Typography
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: "20px",
+                lineHeight: "25px",
+                color: "#101a34",
+                fontWeight: 600,
+              }}
+            >
+              Personal Info
+            </Typography>
+            <button
+              type="submit"
+              style={{
+                //   marginTop: "10px",
+                backgroundColor: "#50bcd9",
+                color: "#ffffff",
+                width: isNonMobile ? "200px" : "30px",
+                height: isNonMobile ? "44px" : "30px",
+                padding: isNonMobile ? "8px 15px" : "10px",
+                fontWeight: 400,
+                borderRadius: "7px",
+                fontSize: "16px",
+                lineHeight: "20px",
+                fontFamily: "Poppins",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.border = "1px solid #50bcd9";
+                e.target.style.backgroundColor = "#ffffff";
+                e.target.style.color = "#50bcd9";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.border = "none";
+                e.target.style.color = "#ffffff";
+                e.target.style.backgroundColor = "#50bcd9";
+              }}
+            >
+              {isNonMobile ? (
+                <>
+                  <TaskAltIcon /> Save Changes
+                </>
+              ) : (
+                <TaskAltIcon style={{ width: "20px" }} />
+              )}
+            </button>
+          </Box>
+          <Box
+            display="flex"
+            gap="5%"
+            sx={{
+              flexWrap: isNonMobile ? "wrap" : "nowrap",
+              flexDirection: isNonMobile ? "row" : "column",
+              width: isNonMobile ? "undefined" : "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: isNonMobile ? "30%" : "100%",
+                marginBottom: "20px",
+              }}
+            >
+              <label
+                for="name"
+                style={{
                   fontFamily: "Poppins",
-                  fontSize: "20px",
-                  lineHeight: "25px",
+                  fontSize: "13px",
+                  lineHeight: "18px",
                   color: "#101a34",
                   fontWeight: 600,
                 }}
               >
-                Personal Info
-              </Typography>
-              <button
-                type="submit"
+                Name:
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 style={{
-                  //   marginTop: "10px",
-                  backgroundColor: "#50bcd9",
-                  color: "#ffffff",
-                  width: isNonMobile ? "200px" : "30px",
-                  height: isNonMobile ? "44px" : "30px",
-                  padding: isNonMobile ? "8px 15px" : "10px",
-                  fontWeight: 400,
+                  background: "#fff",
                   borderRadius: "7px",
+                  width: "100%",
+                  height: "44px",
+                  padding: "8px 15px",
+                  fontWeight: 400,
                   fontSize: "16px",
                   lineHeight: "20px",
+                  color: "#101a34",
+                  border: "1px solid #cad3dd",
                   fontFamily: "Poppins",
-                  border: "none",
-                  cursor: "pointer",
-                  display: "flex",
-                  gap: "10px",
-                  alignItems: "center",
-                  justifyContent: "center",
                 }}
-                onMouseEnter={(e) => {
-                  e.target.style.border = "1px solid #50bcd9";
-                  e.target.style.backgroundColor = "#ffffff";
-                  e.target.style.color = "#50bcd9";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.border = "none";
-                  e.target.style.color = "#ffffff";
-                  e.target.style.backgroundColor = "#50bcd9";
-                }}
-              >
-                {isNonMobile ? (
-                  <>
-                    <TaskAltIcon /> Save Changes
-                  </>
-                ) : (
-                  <TaskAltIcon style={{ width: "20px" }} />
-                )}
-              </button>
-            </Box>
-            <Box
-              display="flex"
-              gap="5%"
-              sx={{
-                flexWrap: isNonMobile ? "wrap" : "nowrap",
-                flexDirection: isNonMobile ? "row" : "column",
-                width: isNonMobile ? "undefined" : "100%",
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: isNonMobile ? "30%" : "100%",
+                marginBottom: "20px",
               }}
             >
-              <div
+              <label
+                for="gender"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                  width: isNonMobile ? "30%" : "100%",
-                  marginBottom: "20px",
+                  fontFamily: "Poppins",
+                  fontSize: "13px",
+                  lineHeight: "18px",
+                  color: "#101a34",
+                  fontWeight: 600,
                 }}
               >
-                <label
-                  for="name"
-                  style={{
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    color: "#101a34",
-                    fontWeight: 600,
-                  }}
-                >
-                  Name:
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "7px",
-                    width: "100%",
-                    height: "44px",
-                    padding: "8px 15px",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    color: "#101a34",
-                    border: "1px solid #cad3dd",
-                    fontFamily: "Poppins",
-                  }}
-                />
-              </div>
-              <div
+                Gender:
+              </label>
+              <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                  width: isNonMobile ? "30%" : "100%",
-                  marginBottom: "20px",
+                  background: "#fff",
+                  borderRadius: "7px",
+                  width: "100%",
+                  height: "44px",
+                  padding: "8px 15px",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                  color: "#101a34",
+                  border: "1px solid #cad3dd",
+                  fontFamily: "Poppins",
                 }}
               >
-                <label
-                  for="gender"
-                  style={{
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    color: "#101a34",
-                    fontWeight: 600,
-                  }}
-                >
-                  Gender:
-                </label>
-                <select
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "7px",
-                    width: "100%",
-                    height: "44px",
-                    padding: "8px 15px",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    color: "#101a34",
-                    border: "1px solid #cad3dd",
-                    fontFamily: "Poppins",
-                  }}
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="others">Others</option>
-                </select>
-              </div>
-              <div
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: isNonMobile ? "30%" : "100%",
+                marginBottom: "20px",
+              }}
+            >
+              <label
+                for="city"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                  width: isNonMobile ? "30%" : "100%",
-                  marginBottom: "20px",
+                  fontFamily: "Poppins",
+                  fontSize: "13px",
+                  lineHeight: "18px",
+                  color: "#101a34",
+                  fontWeight: 600,
                 }}
               >
-                <label
-                  for="city"
-                  style={{
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    color: "#101a34",
-                    fontWeight: 600,
-                  }}
-                >
-                  City:
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "7px",
-                    width: "100%",
-                    height: "44px",
-                    padding: "8px 15px",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    color: "#101a34",
-                    border: "1px solid #cad3dd",
-                    fontFamily: "Poppins",
-                  }}
-                />
-              </div>
-              <div
+                City:
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                  width: isNonMobile ? "30%" : "100%",
-                  marginBottom: "20px",
+                  background: "#fff",
+                  borderRadius: "7px",
+                  width: "100%",
+                  height: "44px",
+                  padding: "8px 15px",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                  color: "#101a34",
+                  border: "1px solid #cad3dd",
+                  fontFamily: "Poppins",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: isNonMobile ? "30%" : "100%",
+                marginBottom: "20px",
+              }}
+            >
+              <label
+                for="mobile"
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "13px",
+                  lineHeight: "18px",
+                  color: "#101a34",
+                  fontWeight: 600,
                 }}
               >
-                <label
-                  for="mobile"
-                  style={{
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    color: "#101a34",
-                    fontWeight: 600,
-                  }}
-                >
-                  Mobile:
-                </label>
-                <input
-                  type="text"
-                  id="mobile"
-                  name="mobile"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "7px",
-                    width: "100%",
-                    height: "44px",
-                    padding: "8px 15px",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    color: "#101a34",
-                    border: "1px solid #cad3dd",
-                    fontFamily: "Poppins",
-                  }}
-                />
-              </div>
-              <div
+                Mobile:
+              </label>
+              <input
+                type="text"
+                id="mobile"
+                name="mobile"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                  width: isNonMobile ? "30%" : "100%",
-                  marginBottom: "20px",
+                  background: "#fff",
+                  borderRadius: "7px",
+                  width: "100%",
+                  height: "44px",
+                  padding: "8px 15px",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                  color: "#101a34",
+                  border: "1px solid #cad3dd",
+                  fontFamily: "Poppins",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: isNonMobile ? "30%" : "100%",
+                marginBottom: "20px",
+              }}
+            >
+              <label
+                for="email"
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "13px",
+                  lineHeight: "18px",
+                  color: "#101a34",
+                  fontWeight: 600,
                 }}
               >
-                <label
-                  for="email"
-                  style={{
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    color: "#101a34",
-                    fontWeight: 600,
-                  }}
-                >
-                  Email:
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    background: "#fff",
-                    borderRadius: "7px",
-                    width: "100%",
-                    height: "44px",
-                    padding: "8px 15px",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    color: "#101a34",
-                    border: "1px solid #cad3dd",
-                    fontFamily: "Poppins",
-                  }}
-                />
-              </div>
-            </Box>
-          </form>
-        </Box>
-      </div>
+                Email:
+              </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  background: "#fff",
+                  borderRadius: "7px",
+                  width: "100%",
+                  height: "44px",
+                  padding: "8px 15px",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                  color: "#101a34",
+                  border: "1px solid #cad3dd",
+                  fontFamily: "Poppins",
+                }}
+              />
+            </div>
+          </Box>
+        </form>
+      </Box>
     </div>
+    // </div>
   );
 }

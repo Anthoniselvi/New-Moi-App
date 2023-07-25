@@ -41,239 +41,239 @@ export default function CreateEvent() {
     // refreshPage();
   };
   return (
-    <div className="home">
-      <Sidebar profileId={profileId} />
-      <div className="homeContainer">
+    // <div className="home">
+    //   <Sidebar profileId={profileId} />
+    <div className="homeContainer">
+      <Box
+        m="20px"
+        p="20px"
+        sx={{
+          minHeight: "80vh",
+          backgroundColor: "#fff",
+          border: "1px solid #e8ecf1",
+          borderRadius: "10px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Box
-          m="20px"
-          p="20px"
           sx={{
-            minHeight: "80vh",
-            backgroundColor: "#fff",
-            border: "1px solid #e8ecf1",
-            borderRadius: "10px",
+            borderBottom: "1px solid #e8ecf1",
+            height: "20%",
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
+            paddingBottom: "40px",
           }}
         >
-          <Box
+          <CardGiftcardIcon sx={{ fontSize: "60px", color: "#FE956F" }} />
+          <Typography
             sx={{
-              borderBottom: "1px solid #e8ecf1",
-              height: "20%",
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              paddingBottom: "40px",
+              color: "#101a34",
+              textAlign: "center",
+              fontFamily: "Poppins",
+              fontSize: "30px",
+              fontWeight: 600,
             }}
           >
-            <CardGiftcardIcon sx={{ fontSize: "60px", color: "#FE956F" }} />
-            <Typography
-              sx={{
-                color: "#101a34",
-                textAlign: "center",
+            Let's create your Event!
+          </Typography>
+        </Box>
+
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            margin: "5% 0%",
+            width: "60%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+        >
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              // for="eventType"
+              style={{
                 fontFamily: "Poppins",
-                fontSize: "30px",
+                fontSize: "13px",
+                lineHeight: "18px",
+                color: "#101a34",
                 fontWeight: 600,
               }}
             >
-              Let's create your Event!
-            </Typography>
-          </Box>
-
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              margin: "5% 0%",
-              width: "60%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                // for="eventType"
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "13px",
-                  lineHeight: "18px",
-                  color: "#101a34",
-                  fontWeight: 600,
-                }}
-              >
-                Event Type:
-              </label>
-              <select
-                style={{
-                  background: "#fff",
-                  borderRadius: "7px",
-                  width: "100%",
-                  height: "44px",
-                  padding: "8px 15px",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  color: "#101a34",
-                  border: "1px solid #cad3dd",
-                  fontFamily: "Poppins",
-                }}
-                value={eventType}
-                onChange={(e) => setEventType(e.target.value)}
-              >
-                <option>Select Event Type</option>
-                <option value="wedding">Wedding</option>
-                <option value="birthday">Birthday</option>
-                <option value="baby">Baby Shower</option>
-                <option value="house">House Warming</option>
-                <option value="others">Others</option>
-              </select>
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                // for="name"
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "13px",
-                  lineHeight: "18px",
-                  color: "#101a34",
-                  fontWeight: 600,
-                }}
-              >
-                Event Name:
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                style={{
-                  background: "#fff",
-                  borderRadius: "7px",
-                  width: "100%",
-                  height: "44px",
-                  padding: "8px 15px",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  color: "#101a34",
-                  border: "1px solid #cad3dd",
-                  fontFamily: "Poppins",
-                }}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                // for="place"
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "13px",
-                  lineHeight: "18px",
-                  color: "#101a34",
-                  fontWeight: 600,
-                }}
-              >
-                Place:
-              </label>
-              <input
-                type="text"
-                id="place"
-                name="place"
-                style={{
-                  background: "#fff",
-                  borderRadius: "7px",
-                  width: "100%",
-                  height: "44px",
-                  padding: "8px 15px",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  color: "#101a34",
-                  border: "1px solid #cad3dd",
-                  fontFamily: "Poppins",
-                }}
-                value={place}
-                onChange={(e) => setPlace(e.target.value)}
-              />
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-            >
-              <label
-                // for="eventName"
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "13px",
-                  lineHeight: "18px",
-                  color: "#101a34",
-                  fontWeight: 600,
-                }}
-              >
-                Event Name:
-              </label>
-              <input
-                type="date"
-                id="eventName"
-                name="eventName"
-                style={{
-                  background: "#fff",
-                  borderRadius: "7px",
-                  width: "100%",
-                  height: "44px",
-                  padding: "8px 15px",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  color: "#101a34",
-                  border: "1px solid #cad3dd",
-                  fontFamily: "Poppins",
-                }}
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-            <button
-              type="submit"
+              Event Type:
+            </label>
+            <select
               style={{
-                marginTop: "10px",
-                backgroundColor: "#50bcd9",
-                color: "#ffffff",
+                background: "#fff",
+                borderRadius: "7px",
                 width: "100%",
                 height: "44px",
                 padding: "8px 15px",
                 fontWeight: 400,
-                borderRadius: "7px",
                 fontSize: "16px",
                 lineHeight: "20px",
+                color: "#101a34",
+                border: "1px solid #cad3dd",
                 fontFamily: "Poppins",
-                border: "none",
-                cursor: "pointer",
               }}
-              onMouseEnter={(e) => {
-                e.target.style.border = "1px solid #50bcd9";
-                e.target.style.backgroundColor = "#ffffff";
-                e.target.style.color = "#50bcd9";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.border = "none";
-                e.target.style.color = "#ffffff";
-                e.target.style.backgroundColor = "#50bcd9";
+              value={eventType}
+              onChange={(e) => setEventType(e.target.value)}
+            >
+              <option>Select Event Type</option>
+              <option value="wedding">Wedding</option>
+              <option value="birthday">Birthday</option>
+              <option value="baby">Baby Shower</option>
+              <option value="house">House Warming</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              // for="name"
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "13px",
+                lineHeight: "18px",
+                color: "#101a34",
+                fontWeight: 600,
               }}
             >
-              Continue
-            </button>
-          </form>
-        </Box>
-      </div>
+              Event Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              style={{
+                background: "#fff",
+                borderRadius: "7px",
+                width: "100%",
+                height: "44px",
+                padding: "8px 15px",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "20px",
+                color: "#101a34",
+                border: "1px solid #cad3dd",
+                fontFamily: "Poppins",
+              }}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              // for="place"
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "13px",
+                lineHeight: "18px",
+                color: "#101a34",
+                fontWeight: 600,
+              }}
+            >
+              Place:
+            </label>
+            <input
+              type="text"
+              id="place"
+              name="place"
+              style={{
+                background: "#fff",
+                borderRadius: "7px",
+                width: "100%",
+                height: "44px",
+                padding: "8px 15px",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "20px",
+                color: "#101a34",
+                border: "1px solid #cad3dd",
+                fontFamily: "Poppins",
+              }}
+              value={place}
+              onChange={(e) => setPlace(e.target.value)}
+            />
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <label
+              // for="eventName"
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "13px",
+                lineHeight: "18px",
+                color: "#101a34",
+                fontWeight: 600,
+              }}
+            >
+              Event Name:
+            </label>
+            <input
+              type="date"
+              id="eventName"
+              name="eventName"
+              style={{
+                background: "#fff",
+                borderRadius: "7px",
+                width: "100%",
+                height: "44px",
+                padding: "8px 15px",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "20px",
+                color: "#101a34",
+                border: "1px solid #cad3dd",
+                fontFamily: "Poppins",
+              }}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            style={{
+              marginTop: "10px",
+              backgroundColor: "#50bcd9",
+              color: "#ffffff",
+              width: "100%",
+              height: "44px",
+              padding: "8px 15px",
+              fontWeight: 400,
+              borderRadius: "7px",
+              fontSize: "16px",
+              lineHeight: "20px",
+              fontFamily: "Poppins",
+              border: "none",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.border = "1px solid #50bcd9";
+              e.target.style.backgroundColor = "#ffffff";
+              e.target.style.color = "#50bcd9";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.border = "none";
+              e.target.style.color = "#ffffff";
+              e.target.style.backgroundColor = "#50bcd9";
+            }}
+          >
+            Continue
+          </button>
+        </form>
+      </Box>
     </div>
+    // </div>
   );
 }

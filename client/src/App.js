@@ -14,6 +14,7 @@ import EventsPage from "./pages/Events/EventsPage";
 import CreateEvent from "./pages/Events/CreateEvent";
 import Profile from "./pages/Profile/Profile";
 import SingleEventPage from "./pages/Events/SingleEventPage";
+import NewSidebar from "./pages/Sidebar/NewSidebar";
 
 function App() {
   const auth = useUserAuth();
@@ -28,7 +29,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          {/* {auth.user ? <Sidebar /> : null} */}
+          {auth.user ? <NewSidebar /> : null}
           <main className="content">
             {/* <Topbar setIsSidebar={setIsSidebar} /> */}
             <Routes>

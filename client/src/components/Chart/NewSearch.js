@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 
 function QuickSearchToolbar() {
   return (
@@ -32,14 +32,35 @@ function QuickSearchToolbar() {
 }
 
 export default function NewSearch({ searchResult, eventsList }) {
-  console.log("eventsList in NewSearch : " + JSON.stringify(eventsList));
-  console.log("searchResult in NewSearch : " + JSON.stringify(searchResult));
-  const columns = [
-    { field: "personName", headerName: "Name", flex: 0.25, align: "left" },
-    { field: "eventName", headerName: "EventName", flex: 0.4, align: "left" },
-    { field: "amount", headerName: "Amount", flex: 0.25, align: "left" },
-    { field: "gift", headerName: "Gift", flex: 0.3, align: "left" },
-  ];
+  const isMobile = useMediaQuery("(max-width: 1000px)");
+
+  const columns = isMobile
+    ? [
+        { field: "personName", headerName: "Name", flex: 0.33, align: "left" },
+        {
+          field: "eventName",
+          headerName: "EventName",
+          flex: 0.33,
+          align: "left",
+        },
+        {
+          field: "presentation",
+          headerName: "Presentation",
+          flex: 0.33,
+          align: "left",
+        },
+      ]
+    : [
+        { field: "personName", headerName: "Name", flex: 0.25, align: "left" },
+        {
+          field: "eventName",
+          headerName: "EventName",
+          flex: 0.25,
+          align: "left",
+        },
+        { field: "amount", headerName: "Amount", flex: 0.25, align: "left" },
+        { field: "gift", headerName: "Gift", flex: 0.25, align: "left" },
+      ];
 
   const rows = searchResult.map((row) => ({
     ...row,
@@ -47,8 +68,8 @@ export default function NewSearch({ searchResult, eventsList }) {
     eventName:
       eventsList.find((event) => event.eventId === row.eventId)?.eventName ||
       "",
+    presentation: row.presentType === "gift" ? row.gift : row.amount,
   }));
-
   return (
     <Box
       sx={{
@@ -60,7 +81,7 @@ export default function NewSearch({ searchResult, eventsList }) {
         },
         "& .MuiDataGrid-cell": {
           borderBottom: " 1px solid #e8ecf1",
-          fontSize: "15px",
+          fontSize: isMobile ? "11px" : "15px",
           lineHeight: "19px",
           color: "#101a34",
           paddingTop: "30px",
@@ -109,7 +130,7 @@ export default function NewSearch({ searchResult, eventsList }) {
           color: "black",
         },
         "& .MuiDataGrid-row:hover": {
-          backgroundColor: "#e0e0e0", // change the background color to your desired value
+          backgroundColor: "#e0e0e0",
           cursor: "pointer",
         },
       }}

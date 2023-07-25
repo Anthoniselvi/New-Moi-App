@@ -28,35 +28,35 @@ export default function EventsPage() {
     fetchTotals();
   }, []);
   return (
-    <div className="home">
-      <Sidebar profileId={profileId} />
-      <div className="homeContainer">
-        <Box margin="30px">
-          <Typography
-            variant="h2"
-            sx={{
-              color: "#101a34",
-              fontFamily: "Poppins",
-              fontWeight: 600,
-              //   fontSize: "32px",
-              //   lineHeight: "34px",
-            }}
-          >
-            Events
-          </Typography>
+    // <div className="home">
+    //   <Sidebar profileId={profileId} />
+    <div className="homeContainer">
+      <Box margin="30px">
+        <Typography
+          variant="h2"
+          sx={{
+            color: "#101a34",
+            fontFamily: "Poppins",
+            fontWeight: 600,
+            //   fontSize: "32px",
+            //   lineHeight: "34px",
+          }}
+        >
+          Events
+        </Typography>
 
-          <Box
-            sx={{
-              width: "100%",
-              minHeight: "80vh",
-              borderRadius: "10px",
-              paddingTop: "2%",
-            }}
-          >
-            <EventsList eventslist={eventslist} />
-          </Box>
+        <Box
+          sx={{
+            width: "100%",
+            minHeight: "80vh",
+            borderRadius: "10px",
+            paddingTop: "2%",
+          }}
+        >
+          <EventsList eventslist={eventslist} />
         </Box>
-      </div>
+      </Box>
     </div>
+    // </div>
   );
 }
