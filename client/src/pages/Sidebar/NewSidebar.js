@@ -17,15 +17,29 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles"; // Step 1: Import useTheme
+import { ImCross } from "react-icons/im";
+import { RiMenu2Line } from "react-icons/ri";
+import { useMediaQuery } from "@mui/material";
 
 const drawerWidth = 240;
 
 function NewSidebar(props) {
   const { window } = props;
+  const isMobile = useMediaQuery("(max-width:1000px)");
+
+  // Use the useTheme hook to determine if the viewport is in mobile view
+  const theme = useTheme();
+  const isMobileView = theme.breakpoints.down("sm");
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const handleDrawerToggle = () => {
+    console.log("Menu icon clicked");
+    setMobileOpen(!mobileOpen);
+  };
+
   const handleOutsideClick = (event) => {
-    if (isMobileView) {
+    if (isMobileView && mobileOpen) {
       const drawerElement = document.querySelector(".MuiDrawer-root");
       const menuIconElement = document.querySelector(
         ".MuiIconButton-edgeStart"
@@ -42,18 +56,6 @@ function NewSidebar(props) {
     }
   };
 
-  // Use the useTheme hook to determine if the viewport is in mobile view
-  const theme = useTheme();
-  const isMobileView = theme.breakpoints.down("sm");
-
-  const handleDrawerToggle = () => {
-    console.log("Menu icon clicked");
-    setMobileOpen(!mobileOpen);
-    // if (isMobileView) {
-    //   setMobileOpen(!mobileOpen);
-    // }
-  };
-
   React.useEffect(() => {
     // Add event listener to the document to handle clicks outside the drawer in mobile view
     document.addEventListener("click", handleOutsideClick);
@@ -66,8 +68,68 @@ function NewSidebar(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
+      {/* <Toolbar /> */}
+      {isMobile ? (
+        <AppBar
+          position="fixed"
+          sx={{
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+            zIndex: 7000,
+            background: "#fff",
+            color: "#101a34",
+          }}
+        >
+          <Toolbar>
+            <Box
+              sx={{
+                borderRight: "1px solid #cad3dd",
+                minHeight: "56px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{
+                  mr: 2,
+                  display: { sm: "none" },
+                }}
+              >
+                {mobileOpen ? (
+                  <ImCross style={{ fontSize: "25px" }} />
+                ) : (
+                  <RiMenu2Line style={{ fontSize: "25px" }} />
+                )}
+              </IconButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
+                sx={{ textAlign: "center" }}
+              >
+                MOI APP
+              </Typography>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      ) : (
+        <></>
+      )}
+      <Divider style={{ borderBottom: "1px solid #e8ecf1" }} />
       <List>
         {["Dashboard", "Events", "Profile"].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -99,39 +161,70 @@ function NewSidebar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  // Step 2: Use the useTheme hook to determine if the viewport is in mobile view
-  //   const theme = useTheme();
-  //   const isMobileView = theme.breakpoints.down("sm");
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-          zIndex: 7000,
-        }}
-      >
-        <Toolbar>
-          {/* Show menu icon only in mobile view */}
-          {isMobileView && (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle} // Update this line
-              sx={{ mr: 2, display: { sm: "none" } }}
+      {isMobile ? (
+        <AppBar
+          position="fixed"
+          sx={{
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+            zIndex: 7000,
+            background: "#fff",
+            color: "#101a34",
+          }}
+        >
+          <Toolbar>
+            <Box
+              sx={{
+                borderRight: "1px solid #cad3dd",
+                minHeight: "56px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-          )}
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{
+                  mr: 2,
+                  display: { sm: "none" },
+                }}
+              >
+                {!isMobileView && mobileOpen ? (
+                  <ImCross style={{ fontSize: "25px" }} />
+                ) : (
+                  <RiMenu2Line style={{ fontSize: "25px" }} />
+                )}
+              </IconButton>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
+                sx={{ textAlign: "center" }}
+              >
+                MOI APP
+              </Typography>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      ) : (
+        <></>
+      )}
       <Box
         // component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -141,8 +234,8 @@ function NewSidebar(props) {
         <Drawer
           container={container}
           variant={isMobileView ? "temporary" : "permanent"} // Use "temporary" for mobile view and "permanent" for other views
-          open={isMobileView ? mobileOpen : true} // Keep the drawer open in non-mobile views
-          onClose={handleDrawerToggle}
+          open={isMobileView ? mobileOpen : true} // Use the isMobileView and mobileOpen state to manage the Drawer open state
+          onClose={() => setMobileOpen(false)} // Close the Drawer when clicking outside in mobile view
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
@@ -150,9 +243,38 @@ function NewSidebar(props) {
             // Hide the drawer in non-mobile views
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
+              paddingTop: "15%",
               boxSizing: "border-box",
-              width: drawerWidth,
-              background: "green",
+              width: "drawerWidth",
+              background: "#fff",
+              color: "#101a34",
+            },
+            "& .MuiTypography-root": {
+              fontSize: 13,
+            },
+            "& .MuiListItem-root": {
+              fontSize: 13,
+              color: "#101a34",
+              fontWeight: 500,
+              lineHeight: 18,
+            },
+            "& .MuiSvgIcon-root": {
+              fontSize: 13,
+              color: "#101a34",
+              fontWeight: 500,
+              lineHeight: 18,
+            },
+            "& .MuiListItemButton-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiSvgIcon-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemButton-root.active": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
             },
           }}
         >
@@ -165,7 +287,37 @@ function NewSidebar(props) {
             display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              width: "50%",
+              background: "#fff",
+              color: "#101a34",
+              fontSize: 20,
+            },
+            "& .MuiTypography-root": {
+              fontSize: 13,
+            },
+            "& .MuiListItem-root": {
+              fontSize: 13,
+              color: "#101a34",
+              fontWeight: 500,
+              lineHeight: 18,
+            },
+            "& .MuiSvgIcon-root": {
+              fontSize: 13,
+              color: "#101a34",
+              fontWeight: 500,
+              lineHeight: 18,
+            },
+            "& .MuiListItemButton-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiSvgIcon-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemButton-root.active": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
             },
           }}
           open
