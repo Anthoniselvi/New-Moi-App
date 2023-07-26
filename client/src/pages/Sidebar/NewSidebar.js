@@ -252,9 +252,9 @@ function NewSidebar(props) {
             // Hide the drawer in non-mobile views
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
-              paddingTop: "15%",
+              paddingTop: "12%",
               boxSizing: "border-box",
-              width: "drawerWidth",
+              width: "80%",
               background: "#fff",
               color: "#101a34",
             },
@@ -282,6 +282,16 @@ function NewSidebar(props) {
               background: "#f5f7fa",
             },
             "& .MuiListItemButton-root.active": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemIcon-root": {
+              color: "#a8acb3",
+              textAlign: "center",
+              alignItems: "center",
+              fontWeight: 600,
+            },
+            "& .MuiListItemIcon-root:hover": {
               color: "#50bcd9",
               background: "#f5f7fa",
             },

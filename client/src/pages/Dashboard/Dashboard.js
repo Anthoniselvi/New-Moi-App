@@ -10,15 +10,11 @@ const Dashboard = () => {
   const profileId = searchParam.get("profile");
   return (
     <div>
-      {/* <NewSidebar /> */}
-      {/* <Sidebar profileId={profileId} /> */}
-      {/* <div className="homeContainer"> */}
       <Topbar />
       <div className="widgets">
         <DashboardRows />
       </div>
     </div>
-    // </div>
   );
 };
 
