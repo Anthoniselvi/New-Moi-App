@@ -30,15 +30,19 @@ const drawerWidth = 240;
 function NewSidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
   const isMobile = useMediaQuery("(max-width:1000px)");
   const auth = useUserAuth();
   const { logOut } = useUserAuth();
+  const [selectedItem, setSelectedItem] = React.useState(
+    `/dashboard?profile=${auth.user.uid}`
+  );
 
   const navigate = useNavigate();
 
   const navigateTo = async (link) => {
     setMobileOpen(false); // Close the sidebar on mobile view when a menu item is clicked
-
+    setSelectedItem(link);
     if (link === "logout") {
       // Special handling for Logout menu item
       try {
@@ -130,7 +134,10 @@ function NewSidebar(props) {
       <List>
         {menuOptions.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton onClick={() => navigateTo(item.link)}>
+            <ListItemButton
+              onClick={() => navigateTo(item.link)}
+              className={item.link === selectedItem ? "selected" : ""}
+            >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -254,7 +261,7 @@ function NewSidebar(props) {
             "& .MuiDrawer-paper": {
               paddingTop: "12%",
               boxSizing: "border-box",
-              width: "80%",
+              width: "60%",
               background: "#fff",
               color: "#101a34",
             },
@@ -292,6 +299,10 @@ function NewSidebar(props) {
               fontWeight: 600,
             },
             "& .MuiListItemIcon-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemButton-root.selected": {
               color: "#50bcd9",
               background: "#f5f7fa",
             },
@@ -338,7 +349,7 @@ function NewSidebar(props) {
               color: "#50bcd9",
               background: "#f5f7fa",
             },
-            "& .MuiListItemButton-root.active": {
+            "& .MuiListItemButton-root.selected": {
               color: "#50bcd9",
               background: "#f5f7fa",
             },
@@ -349,6 +360,10 @@ function NewSidebar(props) {
               fontWeight: 600,
             },
             "& .MuiListItemIcon-root:hover": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemButton-root.selected": {
               color: "#50bcd9",
               background: "#f5f7fa",
             },
