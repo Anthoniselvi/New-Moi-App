@@ -184,7 +184,7 @@ export default function EntriesTable() {
     id: row._id,
   }));
   return (
-    <Box sx={{ minHeight: "90vh", width: "85vw", padding: "20px" }}>
+    <Box sx={{ minHeight: "90vh", width: "100%", padding: "20px" }}>
       {isNonMobile ? (
         <EntriesPage />
       ) : (

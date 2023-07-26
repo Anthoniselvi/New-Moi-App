@@ -121,13 +121,15 @@ const EntriesPage = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              gap="5%"
+              // gap="20%"
               padding="2%"
+              // paddingRight="0%"
               borderRadius="10px"
               border="1px solid #cad3dd"
               sx={{ backgroundColor: "#fafbfd" }}
             >
               <Box
+                // border="1px solid red"
                 display="flex"
                 gap="10%"
                 onClick={() => handleEditEntry(entry.entryId)}
@@ -164,8 +166,10 @@ const EntriesPage = () => {
               </Box>
 
               <Box
+                // border="1px solid green"
                 display="flex"
                 alignItems="center"
+                justifyContent="space-between"
                 onClick={() => handleEditEntry(entry.entryId)}
               >
                 {entry.presentType === "amount" ? (
@@ -192,15 +196,19 @@ const EntriesPage = () => {
                   </Typography>
                 )}
 
-                <Box>
-                  {/* <EditOrDelete entryId={entry.entryId} /> */}
-                  <Button
-                    style={{ color: "#ff574d", fontSize: 20 }}
-                    onClick={(e) => handleDeleteEntry(e, entry.entryId)}
-                  >
-                    <Delete sx={{ fontSize: 20 }} />
-                  </Button>
-                </Box>
+                {/* <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                > */}
+                {/* <EditOrDelete entryId={entry.entryId} /> */}
+                <button
+                  style={{ color: "#ff574d", fontSize: 20 }}
+                  onClick={(e) => handleDeleteEntry(e, entry.entryId)}
+                >
+                  <Delete sx={{ fontSize: 20 }} />
+                </button>
+                {/* </Box> */}
               </Box>
             </Box>
           ))}

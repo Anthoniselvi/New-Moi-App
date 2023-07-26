@@ -47,7 +47,7 @@ export default function EventsList({ eventslist }) {
       <Box
         sx={{
           backgroundColor: "#fff",
-          padding: "2%",
+          padding: isNonMobile ? "2%" : "5%",
           borderRadius: "10px",
           border: "1px solid #e8ecf1",
           minHeight: "80vh",

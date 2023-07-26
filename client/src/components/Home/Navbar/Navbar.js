@@ -79,6 +79,27 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      <div className="navbar">
+        <div className="nav-logo-container">
+          <h1>MOI APP</h1>
+        </div>
+        <div className="navbar-links-container">
+          <a href="/">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#works">How to Works</a>
+          <a href="#testimonal">Testimonials</a>
+          <a href="#footer">Contact</a>
+
+          <button className="primary1-button" onClick={navigateToLogin}>
+            Login
+          </button>
+          <button className="primary-button" onClick={navigateToSignUp}>
+            Sign Up
+          </button>
+        </div>
+      </div>
       <Drawer
         open={openMenu}
         onClose={() => setOpenMenu(false)}
@@ -138,24 +159,6 @@ const Navbar = () => {
           </div>
         </Box>
       </Drawer>
-      <div className="nav-logo-container">
-        <h1>MOI APP</h1>
-      </div>
-      <div className="navbar-links-container">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#works">How to Works</a>
-        <a href="#testimonal">Testimonials</a>
-        <a href="#footer">Contact</a>
-
-        <button className="primary1-button" onClick={navigateToLogin}>
-          Login
-        </button>
-        <button className="primary-button" onClick={navigateToSignUp}>
-          Sign Up
-        </button>
-      </div>
     </nav>
   );
 };

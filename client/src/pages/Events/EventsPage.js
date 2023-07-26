@@ -7,12 +7,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import EventsList from "./EventsList";
 import Sidebar from "../Sidebar/Sidebar";
+import { useMediaQuery } from "@mui/material";
 
 export default function EventsPage() {
   const navigate = useNavigate();
   const [eventslist, setEventsList] = useState([]);
   const [searchParam] = useSearchParams();
   const profileId = searchParam.get("profile");
+  const isMobile = useMediaQuery("(max-width:1000px)");
 
   const fetchTotals = () => {
     axios
@@ -31,7 +33,7 @@ export default function EventsPage() {
     // <div className="home">
     //   <Sidebar profileId={profileId} />
     <div className="homeContainer">
-      <Box margin="30px">
+      <Box margin="30px" paddingTop={isMobile ? "50px" : "undefined"}>
         <Typography
           variant="h2"
           sx={{

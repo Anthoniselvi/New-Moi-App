@@ -87,7 +87,8 @@ export default function DashboardRows() {
     <div style={{ width: "100%" }}>
       <Box
         width="100%"
-        m="20px 0px"
+        // m="20px 0px"
+        p="20px"
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         justifyContent="space-between"

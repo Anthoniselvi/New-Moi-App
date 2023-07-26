@@ -22,6 +22,9 @@ import { RiMenu2Line } from "react-icons/ri";
 import { useMediaQuery } from "@mui/material";
 import { useUserAuth } from "../../auth";
 import { useNavigate } from "react-router-dom";
+import { BiSolidDashboard, BiListUl } from "react-icons/bi";
+import { BsPersonBoundingBox } from "react-icons/bs";
+import { LuLogOut } from "react-icons/lu";
 const drawerWidth = 240;
 
 function NewSidebar(props) {
@@ -53,23 +56,23 @@ function NewSidebar(props) {
   const menuOptions = [
     {
       text: "Dashboard",
-      icon: <MenuIcon />,
+      icon: <BiSolidDashboard />,
       link: `/dashboard?profile=${auth.user.uid}`,
     },
     {
       text: "Events",
-      icon: <MenuIcon />,
+      icon: <BiListUl />,
       link: `/eventslist?profile=${auth.user.uid}`,
     },
     {
       text: "Profile",
-      icon: <MenuIcon />,
+      icon: <BsPersonBoundingBox />,
       link: `/profile?profile=${auth.user.uid}`,
     },
 
     {
       text: "Logout",
-      icon: <MenuIcon />,
+      icon: <LuLogOut />,
       link: "logout",
     },
   ];
@@ -128,8 +131,6 @@ function NewSidebar(props) {
         {menuOptions.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton onClick={() => navigateTo(item.link)}>
-              {" "}
-              {/* Update this line */}
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -302,11 +303,12 @@ function NewSidebar(props) {
             },
             "& .MuiTypography-root": {
               fontSize: 13,
+              fontWeight: 600,
             },
             "& .MuiListItem-root": {
               fontSize: 13,
+              fontWeight: 600,
               color: "#101a34",
-              fontWeight: 500,
               lineHeight: 18,
             },
             "& .MuiSvgIcon-root": {
@@ -314,6 +316,9 @@ function NewSidebar(props) {
               color: "#101a34",
               fontWeight: 500,
               lineHeight: 18,
+            },
+            "& .MuiListItemButton-root": {
+              alignItems: "center",
             },
             "& .MuiListItemButton-root:hover": {
               color: "#50bcd9",
@@ -324,6 +329,16 @@ function NewSidebar(props) {
               background: "#f5f7fa",
             },
             "& .MuiListItemButton-root.active": {
+              color: "#50bcd9",
+              background: "#f5f7fa",
+            },
+            "& .MuiListItemIcon-root": {
+              color: "#a8acb3",
+              textAlign: "center",
+              alignItems: "center",
+              fontWeight: 600,
+            },
+            "& .MuiListItemIcon-root:hover": {
               color: "#50bcd9",
               background: "#f5f7fa",
             },

@@ -8,7 +8,8 @@
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    
+    /* justify-content: space-between; */
     /* min-height: 90px; */
     height: 90px;
     width: 100vw;
@@ -21,6 +22,19 @@
     box-shadow: 0 0 0 0 #ccc;
     padding-right: 5%;
     padding-left: 5%;
+  }
+  .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+    height: 100%;
+  }
+  .navbar h1{
+    text-align: left;
+    /* padding: auto; */
+    font-size: 25px;
   }
   .navbar-links-container a {
     /* margin-right: 3rem; */
@@ -112,13 +126,15 @@
 /* margin-left: -100px; */
     }
  .Icon{
-  font-size: 35px;
+  /* font-size: 35px; */
  }
   .navbar-menu-container {
     display: none;
     padding: 15px 30px 15px 15px;
     border-right: 1px solid #cad3dd;
-   padding-left: 0;
+   padding-right: 2rem;
+   width: 50px;
+   height: 50px;
   }
   .navbar-links-container{
     /* display: flex;
@@ -203,7 +219,7 @@
     .navbar-menu-container {
       display: flex;
       justify-content: flex-end;
-      padding: 10px;
+      padding: 15px 30px 15px 15px;
     }
   
     .mobile-menu-icon {

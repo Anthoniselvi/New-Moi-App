@@ -110,7 +110,7 @@ export default function SingleEventPage() {
     // <div className="home">
     //   <Sidebar profileId={selectedEvent.profileId} />
     <div className="homeContainer">
-      <Box m="20px">
+      <Box m="20px" paddingTop={isNonMobile ? "undefined" : "50px"}>
         <Box
           sx={{
             display: "flex",
