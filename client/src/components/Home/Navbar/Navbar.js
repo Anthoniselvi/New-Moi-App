@@ -83,10 +83,19 @@ const Navbar = () => {
         open={openMenu}
         onClose={() => setOpenMenu(false)}
         anchor="left"
-        sx={{ zIndex: 4000 }}
+        sx={{
+          zIndex: 4000,
+          "& .MuiDrawer-paper": {
+            background: "#fff",
+            color: "black",
+          },
+        }}
       >
         <Box
-          sx={{ width: 250, paddingTop: "70px" }}
+          sx={{
+            width: 250,
+            paddingTop: "70px",
+          }}
           role="presentation"
           onClick={() => setOpenMenu(false)}
           onKeyDown={() => setOpenMenu(false)}

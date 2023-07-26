@@ -29,7 +29,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          {auth.user ? <NewSidebar /> : null}
+          {auth.user ? <NewSidebar profileId={auth.user.uid} /> : null}
           <main className="content">
             {/* <Topbar setIsSidebar={setIsSidebar} /> */}
             <Routes>
