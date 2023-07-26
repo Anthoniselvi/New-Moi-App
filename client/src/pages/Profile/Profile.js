@@ -66,7 +66,7 @@ export default function Profile() {
     // <div className="home">
     //   <Sidebar profileId={profileId} />
     <div className="homeContainer">
-      <Box margin="20px">
+      <Box margin="20px" paddingTop={isNonMobile ? "undefined" : "100px"}>
         {/* <Toolbar /> */}
         <Typography
           sx={{
