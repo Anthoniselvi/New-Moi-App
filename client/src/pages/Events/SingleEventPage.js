@@ -179,7 +179,8 @@ export default function SingleEventPage() {
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "column",
+                gap: "20px",
+                // flexDirection: "column",
                 // flexDirection: isNonMobile ? "column" : "row",
                 // gap: isNonMobile ? "undefined" : "20%",
                 // gap: "10px",

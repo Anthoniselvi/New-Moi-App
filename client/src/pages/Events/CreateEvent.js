@@ -1,4 +1,4 @@
-import { Box, Input, Typography } from "@mui/material";
+import { Box, Input, Typography, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 // import "./styles.css";
@@ -14,6 +14,7 @@ export default function CreateEvent() {
   const [searchParam] = useSearchParams();
   const profileId = searchParam.get("profile");
   // const { updateRefreshCount } = useContext(RefreshContext);
+  const isMobile = useMediaQuery("(max-width:1000px");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,8 +48,10 @@ export default function CreateEvent() {
       <Box
         m="20px"
         p="20px"
+        marginTop={isMobile ? "70px" : "20px"}
         sx={{
-          minHeight: "80vh",
+          // height: "100%",
+          minHeight: "70vh",
           backgroundColor: "#fff",
           border: "1px solid #e8ecf1",
           borderRadius: "10px",
@@ -87,7 +90,8 @@ export default function CreateEvent() {
           onSubmit={handleSubmit}
           style={{
             margin: "5% 0%",
-            width: "60%",
+            // width: "60%",
+            width: isMobile ? "100%" : "60%",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
