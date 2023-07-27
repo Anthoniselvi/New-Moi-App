@@ -162,6 +162,7 @@ function NewSidebar(props) {
             zIndex: 7000,
             background: "#fff",
             color: "#101a34",
+            borderBottom: "1px solid #50bcd9",
           }}
         >
           <Toolbar>
@@ -259,7 +260,7 @@ function NewSidebar(props) {
             // Hide the drawer in non-mobile views
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
-              paddingTop: "12%",
+              paddingTop: "13%",
               boxSizing: "border-box",
               width: "60%",
               background: "#fff",
