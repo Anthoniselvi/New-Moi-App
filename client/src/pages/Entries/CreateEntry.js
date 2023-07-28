@@ -77,10 +77,11 @@ export default function CreateEntry({ open, onClose, eventId }) {
       <DialogContent>
         <form style={{ paddingTop: 2 }}>
           <TextField
+            fullWidth
             sx={{
-              width: "300px",
-              margin: "5px",
-              "& > div": { width: isNonMobile ? undefined : "250px" },
+              // width: "300px",
+              // margin: "5px",
+              "& > div": { width: isNonMobile ? "300px" : "250px" },
               "& .MuiFormLabel-root": {
                 color: "#121212",
               },
@@ -112,10 +113,11 @@ export default function CreateEntry({ open, onClose, eventId }) {
           <br />
           <br />
           <TextField
+            fullWidth
             sx={{
-              width: "300px",
-              margin: "5px",
-              "& > div": { width: isNonMobile ? undefined : "250px" },
+              // width: "300px",
+              // margin: "5px",
+              "& > div": { width: isNonMobile ? "300px" : "250px" },
               "& .MuiFormLabel-root": {
                 color: "#121212",
               },
@@ -147,10 +149,11 @@ export default function CreateEntry({ open, onClose, eventId }) {
           <br />
           <br />
           <FormControl
+            fullWidth
             sx={{
-              width: "300px",
-              margin: "5px",
-              "& > div": { width: isNonMobile ? undefined : "250px" },
+              // width: "300px",
+              // margin: "5px",
+              "& > div": { width: isNonMobile ? "300px" : "250px" },
               "& .MuiFormLabel-root": {
                 color: "#121212",
               },
@@ -160,8 +163,9 @@ export default function CreateEntry({ open, onClose, eventId }) {
             }}
           >
             <FormLabel
+              fullWidth
               id="demo-controlled-radio-buttons-group"
-              style={{ width: "300px", margin: "5px" }}
+              // style={{ width: "300px", margin: "5px" }}
             >
               Type of Presentation :
             </FormLabel>
@@ -193,10 +197,11 @@ export default function CreateEntry({ open, onClose, eventId }) {
               {presentType === "amount" ? (
                 // <div>
                 <TextField
+                  fullWidth
                   sx={{
-                    width: "300px",
-                    margin: "5px",
-                    "& > div": { width: isNonMobile ? undefined : "250px" },
+                    // width: "300px",
+                    // margin: "5px",
+                    "& > div": { width: isNonMobile ? "300px" : "250px" },
                     "& .MuiInputLabel-root": { color: "#121212" },
                     "& .MuiInputBase-input": {
                       color: "#121212",
@@ -221,10 +226,11 @@ export default function CreateEntry({ open, onClose, eventId }) {
                 // </div>
                 // <div className="gift-box">
                 <TextField
+                  fullWidth
                   sx={{
-                    width: "300px",
-                    margin: "5px",
-                    "& > div": { width: isNonMobile ? undefined : "250px" },
+                    // width: "300px",
+                    // margin: "5px",
+                    "& > div": { width: isNonMobile ? "300px" : "250px" },
                     "& .MuiInputLabel-root": { color: "#121212" },
                     "& .MuiInputBase-input": {
                       color: "#121212",

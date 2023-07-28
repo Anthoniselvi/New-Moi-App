@@ -98,14 +98,18 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
           }}
         >
           <DialogTitle variant="h4">Edit</DialogTitle>
-          <DeleteOutlineOutlined onClick={() => handleDeleteEvent(eventId)} />
+          <DeleteOutlineOutlined
+            onClick={() => handleDeleteEvent(eventId)}
+            sx={{ fontSize: 20, cursor: "pointer" }}
+          />
         </Box>
         <DialogContent>
           <form>
             <FormControl
+              fullWidth
               sx={{
-                width: "300px",
-                "& > div": { width: isNonMobile ? undefined : "250px" },
+                // width: "300px",
+                "& > div": { width: isNonMobile ? "300px" : "250px" },
                 "& .MuiFormLabel-root": {
                   color: "#121212",
                 },
@@ -148,10 +152,11 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
             <br />
             <br />
             <TextField
+              fullWidth
               sx={{
-                width: "300px",
-                margin: "5px",
-                "& > div": { width: isNonMobile ? undefined : "250px" },
+                // width: "300px",
+                // margin: "5px",
+                "& > div": { width: isNonMobile ? "300px" : "250px" },
                 "& .MuiInputLabel-root": { color: "#121212" },
                 "& .MuiInputBase-input": {
                   color: "#121212",
@@ -175,10 +180,11 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
             <br />
             <br />
             <TextField
+              fullWidth
               sx={{
-                width: "300px",
-                margin: "5px",
-                "& > div": { width: isNonMobile ? undefined : "250px" },
+                // width: "300px",
+                // margin: "5px",
+                "& > div": { width: isNonMobile ? "300px" : "250px" },
                 "& .MuiInputLabel-root": { color: "#121212" },
                 "& .MuiInputBase-input": {
                   color: "#121212",
@@ -202,10 +208,11 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
             <br />
             <br />
             <TextField
+              fullWidth
               sx={{
-                width: "300px",
-                margin: "5px",
-                "& > div": { width: isNonMobile ? undefined : "250px" },
+                // width: "300px",
+                // margin: "5px",
+                "& > div": { width: isNonMobile ? "300px" : "250px" },
                 "& .MuiInputLabel-root": { color: "#121212" },
                 "& .MuiInputBase-input": {
                   color: "#121212",

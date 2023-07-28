@@ -96,11 +96,11 @@ export default function EditEntry({ open, onClose, entryId }) {
           <DialogContent>
             <form>
               <TextField
+                fullWidth
                 sx={{
-                  width: "300px",
-                  margin: "5px",
-                  color: "#121212",
-                  "& > div": { width: isNonMobile ? undefined : "250px" },
+                  // width: "300px",
+                  // margin: "5px",
+                  "& > div": { width: isNonMobile ? "300px" : "250px" },
                   "& .MuiInputLabel-root": { color: "#121212" },
                   "& .MuiInputBase-input": {
                     color: "#121212",
@@ -124,10 +124,11 @@ export default function EditEntry({ open, onClose, entryId }) {
               <br />
               <br />
               <TextField
+                fullWidth
                 sx={{
-                  width: "300px",
-                  margin: "5px",
-                  "& > div": { width: isNonMobile ? undefined : "250px" },
+                  // width: "300px",
+                  // margin: "5px",
+                  "& > div": { width: isNonMobile ? "300px" : "250px" },
                   "& .MuiInputLabel-root": { color: "#121212" },
                   "& .MuiInputBase-input": {
                     color: "#121212",
@@ -152,9 +153,9 @@ export default function EditEntry({ open, onClose, entryId }) {
               <br />
               <FormControl
                 sx={{
-                  width: "300px",
-                  margin: "5px",
-                  "& > div": { width: isNonMobile ? undefined : "250px" },
+                  // width: "300px",
+                  // margin: "5px",
+                  "& > div": { width: isNonMobile ? "300px" : "250px" },
                   "& .MuiFormLabel-root": {
                     color: "#121212",
                   },
@@ -165,7 +166,11 @@ export default function EditEntry({ open, onClose, entryId }) {
               >
                 <FormLabel
                   id="demo-controlled-radio-buttons-group"
-                  sx={{ width: "300px", margin: "5px", color: "#fff" }}
+                  sx={{
+                    // width: "300px", margin: "5px",
+                    color: "#fff",
+                    "& > div": { width: isNonMobile ? "300px" : "250px" },
+                  }}
                 >
                   Type of Presentation :
                 </FormLabel>
@@ -190,9 +195,9 @@ export default function EditEntry({ open, onClose, entryId }) {
                     // <div>
                     <TextField
                       sx={{
-                        width: "300px",
-                        margin: "5px",
-                        "& > div": { width: isNonMobile ? undefined : "250px" },
+                        // width: "300px",
+                        // margin: "5px",
+                        "& > div": { width: isNonMobile ? "300px" : "250px" },
                         "& .MuiInputLabel-root": { color: "#121212" },
                         "& .MuiInputBase-input": {
                           color: "#121212",
@@ -218,9 +223,9 @@ export default function EditEntry({ open, onClose, entryId }) {
                     // <div className="gift-box">
                     <TextField
                       sx={{
-                        width: "300px",
-                        margin: "5px",
-                        "& > div": { width: isNonMobile ? undefined : "250px" },
+                        // width: "300px",
+                        // margin: "5px",
+                        "& > div": { width: isNonMobile ? "300px" : "250px" },
                         "& .MuiInputLabel-root": { color: "#121212" },
                         "& .MuiInputBase-input": {
                           color: "#121212",
