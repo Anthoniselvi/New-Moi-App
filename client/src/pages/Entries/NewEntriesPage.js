@@ -9,7 +9,7 @@ import { tokens } from "../../theme";
 import { useState, useEffect, createContext } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import Avatar from "react-avatar";
+
 import { Delete } from "@mui/icons-material";
 import CreateEntry from "./CreateEntry";
 import EditEntry from "./EditEntry";
