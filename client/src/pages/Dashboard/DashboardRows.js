@@ -201,8 +201,8 @@ export default function DashboardRows() {
               justifyContent: "center",
             }}
           >
-            {/* <Example /> */}
-            <NewBar eventsList={eventsList} sx={{ width: "100%" }} />
+            <Example eventsList={eventsList} />
+            {/* <NewBar eventsList={eventsList} sx={{ width: "100%" }} /> */}
           </Box>
         </Box>
         <Box
