@@ -41,9 +41,7 @@ export default function SingleEventPage() {
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  // const totalValue = totals.find(
-  //   (singleTotal) => singleTotal.eventId === eventsList.eventId
-  // );
+
   const getReports = (eventName) => {
     console.log("eventName :" + eventName);
     console.log("eventsList :", eventsList);
@@ -79,11 +77,16 @@ export default function SingleEventPage() {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/entries/all/${eventId}`)
       .then((response) => {
+        console.log(response.data); // Add this line to check the fetched data
         setEntries(response.data.entriesList);
         setTotalAmount(response.data.totalAmount);
         setTotalGift(response.data.totalGift);
+      })
+      .catch((error) => {
+        console.log("Error fetching entries:", error);
       });
   };
+
   // const fetchTotals = () => {
   //   axios
   //     .get(
@@ -157,11 +160,18 @@ export default function SingleEventPage() {
                   },
                 }}
               >
+                {console.log(
+                  "selectedEntries in Print :" + JSON.stringify(selectedEntries)
+                )}
+                {console.log(
+                  "selectedEvent in Print :" + JSON.stringify(selectedEvent)
+                )}
                 <PDFDownloadLink
                   document={
                     <PrintEvent
                       selectedEntries={selectedEntries}
                       selectedEvent={eventsList.name}
+                      selectedEventId={eventsList.eventId}
                     />
                   }
                   fileName={`${eventsList.name}.pdf`}
