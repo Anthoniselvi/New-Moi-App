@@ -8,14 +8,6 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { BiEdit, BiShareAlt, BiDownload } from "react-icons/bi";
-import {
-  PDFDownloadLink,
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-} from "@react-pdf/renderer";
 import EntriesPage from "../Entries/EntriesPage";
 import { PrintEvent } from "./PrintEvent";
 import EditEvent from "./EditEvent";
@@ -24,6 +16,14 @@ import NewEntriesPage from "../Entries/NewEntriesPage";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import EntriesTable from "../Entries/EntriesTable";
+import {
+  PDFDownloadLink,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+} from "@react-pdf/renderer";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
@@ -42,6 +42,20 @@ export default function SingleEventPage() {
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
 
+  const sharePdf = () => {
+    const url = `${process.env.REACT_APP_BASE_URL}/pdf/${eventsList.eventId}`;
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `${eventsList.name}'s event details`,
+          url: url,
+        })
+        .then(() => console.log("Successfully shared."))
+        .catch((error) => console.log("Error sharing:", error));
+    } else {
+      console.log("Web Share API is not supported on this browser.");
+    }
+  };
   const getReports = (eventName) => {
     console.log("eventName :" + eventName);
     console.log("eventsList :", eventsList);
@@ -295,6 +309,7 @@ export default function SingleEventPage() {
                     transform: "scale(0.9)",
                   },
                 }}
+                onClick={sharePdf}
               >
                 <BiShareAlt
                   style={{
