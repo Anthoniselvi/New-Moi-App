@@ -23,7 +23,7 @@ const LoginForm = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
-  const { googleSignIn, user } = useUserAuth();
+  const { googleSignIn, facebookSignIn, user } = useUserAuth();
 
   const [signinData, setSigninData] = useState({
     email: "",
@@ -63,7 +63,7 @@ const LoginForm = () => {
       });
   };
 
-  const handleClick = async (e) => {
+  const handleGoogleSignin = async (e) => {
     e.preventDefault();
     try {
       await googleSignIn();
@@ -84,6 +84,29 @@ const LoginForm = () => {
       console.log(error.message);
     }
   };
+
+  const handleFacebookSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      await facebookSignIn();
+      axios
+        .post(`${process.env.REACT_APP_BASE_URL}/profile`, {
+          profileId: user.uid,
+          name: user.displayName,
+          email: user.email,
+        })
+        .then((response) => {
+          console.log(response);
+          console.log(response.data);
+          console.log(response.data.profileId);
+          navigate(`/dashboard?profile=${user.uid}`);
+          // navigate(`/newhome?profile=${user.uid}`);
+        });
+    } catch (error) {
+      console.error("Facebook Sign-in Error:", error);
+    }
+  };
   return (
     <div className="login-form-container">
       <h4 className="login-form-title">Login to MoiList</h4>
@@ -98,7 +121,7 @@ const LoginForm = () => {
         <Button
           width={isNonMobile ? "100%" : "49%"}
           className="login-form-button"
-          onClick={handleClick}
+          onClick={handleGoogleSignin}
           type="submit"
           // variant="contained"s
           sx={{
@@ -119,7 +142,7 @@ const LoginForm = () => {
         </Button>
         <Button
           width={isNonMobile ? "100%" : "49%"}
-          onClick={handleClick}
+          onClick={handleGoogleSignin}
           type="submit"
           // variant="contained"
           sx={{

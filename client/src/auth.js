@@ -1,38 +1,3 @@
-// import React, { useState } from "react";
-
-// const AuthContext = React.createContext();
-
-// function AuthProvider(props) {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   const [role, setRole] = useState("");
-
-//   const logout = () => {
-//     setIsLoggedIn(false);
-//     setRole("");
-//   };
-
-//   return (
-//     <AuthContext.Provider
-//       value={{
-//         isLoggedIn,
-//         setIsLoggedIn,
-//         setRole,
-//         role,
-//         logout,
-//       }}
-//     >
-//       {props.children}
-//     </AuthContext.Provider>
-//   );
-// }
-
-// function useAuthContext() {
-//   return React.useContext(AuthContext);
-// }
-
-// export { AuthProvider, useAuthContext };
-
 import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -40,6 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
+  FacebookAuthProvider, // Import FacebookAuthProvider
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase";
@@ -52,21 +18,29 @@ export function UserAuthContextProvider({ children }) {
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
+
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
+
   function logOut() {
     return signOut(auth);
   }
+
   function googleSignIn() {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider);
   }
 
+  function facebookSignIn() {
+    const facebookAuthProvider = new FacebookAuthProvider();
+    return signInWithPopup(auth, facebookAuthProvider);
+  }
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-      console.log("Auth", currentuser);
-      setUser(currentuser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth", currentUser);
+      setUser(currentUser);
     });
 
     return () => {
@@ -76,7 +50,7 @@ export function UserAuthContextProvider({ children }) {
 
   return (
     <userAuthContext.Provider
-      value={{ user, logIn, signUp, logOut, googleSignIn }}
+      value={{ user, logIn, signUp, logOut, googleSignIn, facebookSignIn }}
     >
       {children}
     </userAuthContext.Provider>
