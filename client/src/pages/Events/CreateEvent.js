@@ -72,7 +72,7 @@ export default function CreateEvent() {
             paddingBottom: "40px",
           }}
         >
-          <CardGiftcardIcon sx={{ fontSize: "60px", color: "#FE956F" }} />
+          <CardGiftcardIcon sx={{ fontSize: "60px", color: "#bf1110" }} />
           <Typography
             sx={{
               color: "#101a34",
@@ -249,7 +249,8 @@ export default function CreateEvent() {
             type="submit"
             style={{
               marginTop: "10px",
-              backgroundColor: "#50bcd9",
+              // backgroundColor: "#50bcd9",
+              backgroundColor: "#bf1110",
               color: "#ffffff",
               width: "100%",
               height: "44px",
@@ -263,14 +264,14 @@ export default function CreateEvent() {
               cursor: "pointer",
             }}
             onMouseEnter={(e) => {
-              e.target.style.border = "1px solid #50bcd9";
+              e.target.style.border = "1px solid #bf1110";
               e.target.style.backgroundColor = "#ffffff";
-              e.target.style.color = "#50bcd9";
+              e.target.style.color = "#bf1110";
             }}
             onMouseLeave={(e) => {
               e.target.style.border = "none";
               e.target.style.color = "#ffffff";
-              e.target.style.backgroundColor = "#50bcd9";
+              e.target.style.backgroundColor = "#bf1110";
             }}
           >
             Continue

@@ -4,6 +4,7 @@
   
   .homeContainer {
     flex: 6;
+    /* background-color: #feeae9; */
   }
   
   .homeContainer .widgets {

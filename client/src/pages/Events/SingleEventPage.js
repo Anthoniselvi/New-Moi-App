@@ -192,7 +192,7 @@ export default function SingleEventPage() {
                 >
                   <BiDownload
                     style={{
-                      color: "#50bcd9",
+                      color: "#bf1110",
                       fontSize: "25px",
                       cursor: "pointer",
                     }}
@@ -219,7 +219,7 @@ export default function SingleEventPage() {
                 }}
               >
                 <CurrencyRupeeIcon
-                  sx={{ color: "#50bcd9", fontSize: "16px" }}
+                  sx={{ color: "#bf1110", fontSize: "16px" }}
                 />
                 <Typography
                   sx={{
@@ -240,7 +240,7 @@ export default function SingleEventPage() {
                   gap: "10px",
                 }}
               >
-                <CardGiftcardIcon sx={{ color: "#50bcd9", fontSize: "16px" }} />
+                <CardGiftcardIcon sx={{ color: "#bf1110", fontSize: "16px" }} />
                 <Typography
                   sx={{
                     color: "#101a34",
@@ -265,7 +265,7 @@ export default function SingleEventPage() {
             >
               <CalendarMonthIcon
                 style={{
-                  color: "#50bcd9",
+                  color: "#bf1110",
                   fontSize: "16px",
                 }}
               />
@@ -293,9 +293,9 @@ export default function SingleEventPage() {
             >
               <Box
                 sx={{
-                  backgroundColor: "#50bcd9",
+                  backgroundColor: "#bf1110",
                   color: "#fff",
-                  border: "1px solid #50bcd9",
+                  border: "1px solid #bf1110",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -325,7 +325,7 @@ export default function SingleEventPage() {
               <Box
                 onClick={() => handleEditEvent(eventsList.eventId)}
                 sx={{
-                  border: "1px solid #cad3dd",
+                  border: "1px solid #bf1110",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -414,12 +414,12 @@ export default function SingleEventPage() {
                 style={{
                   fontSize: "18px",
                   fontWeight: 600,
-                  color: "#50bcd9",
+                  color: "#bf1110",
                 }}
               />
               <Typography
                 variant="h5"
-                color="#50bcd9"
+                color="#bf1110"
                 sx={{ fontWeight: 600, textTransform: "none" }}
               >
                 Add

@@ -111,11 +111,7 @@ export default function DashboardRows() {
           <StatBox1
             title1={eventsList.length}
             subtitle1="Events"
-            icon1={
-              <AllInboxIcon
-                sx={{ color: "rgb(140, 141, 255)", fontSize: "24px" }}
-              />
-            }
+            icon1={<AllInboxIcon sx={{ color: "#E82192", fontSize: "24px" }} />}
           />
         </Box>
         <Box
@@ -134,9 +130,7 @@ export default function DashboardRows() {
             // progress="0.75"
             // increase="+14%"
             icon2={
-              <CurrencyRupeeIcon
-                sx={{ color: "rgb(255, 198, 117)", fontSize: "24px" }}
-              />
+              <CurrencyRupeeIcon sx={{ color: "#D37D22", fontSize: "24px" }} />
             }
           />
         </Box>
@@ -155,9 +149,7 @@ export default function DashboardRows() {
             // subtitle1={`Total Amount - ₹ ${allTotalAmount}`}
             subtitle1="Gifts"
             icon3={
-              <CardGiftcardIcon
-                sx={{ color: "rgb(36, 153, 239)", fontSize: "24px" }}
-              />
+              <CardGiftcardIcon sx={{ color: "#62924F", fontSize: "24px" }} />
             }
           />
         </Box>

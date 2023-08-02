@@ -125,7 +125,9 @@ function NewSidebar(props) {
       {/* <Toolbar /> */}
       {!isMobile ? (
         <Box display="flex" alignItems="center" justifyContent="center">
-          <h1 style={{ margin: "0 auto", marginTop: 0 }}>MOI APP</h1>
+          <h1 style={{ margin: "0 auto", marginTop: 0, color: "#bf1110" }}>
+            MOI APP
+          </h1>
         </Box>
       ) : (
         <></>
@@ -138,8 +140,15 @@ function NewSidebar(props) {
               onClick={() => navigateTo(item.link)}
               className={item.link === selectedItem ? "selected" : ""}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemIcon
+                className={item.link === selectedItem ? "selected" : ""}
+              >
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.text}
+                className={item.link === selectedItem ? "selected" : ""}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -282,16 +291,16 @@ function NewSidebar(props) {
               lineHeight: 18,
             },
             "& .MuiListItemButton-root:hover": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
             "& .MuiSvgIcon-root:hover": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              // background: "#feeae9",
             },
             "& .MuiListItemButton-root.active": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
             "& .MuiListItemIcon-root": {
               color: "#a8acb3",
@@ -300,13 +309,25 @@ function NewSidebar(props) {
               fontWeight: 600,
             },
             "& .MuiListItemIcon-root:hover": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
             "& .MuiListItemButton-root.selected": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
+            "& .MuiSvgIcon-root.selected": {
+              color: "#bf1110",
+            },
+            "& .MuiListItemButton-root:hover .MuiListItemText-primary, .MuiListItemButton-root.active .MuiListItemText-primary":
+              {
+                color: "#bf1110",
+              },
+
+            "& .MuiListItemButton-root:hover .MuiSvgIcon-root, .MuiListItemButton-root.active .MuiSvgIcon-root.selected":
+              {
+                color: "#bf1110",
+              },
           }}
         >
           {drawer}
@@ -343,16 +364,16 @@ function NewSidebar(props) {
               alignItems: "center",
             },
             "& .MuiListItemButton-root:hover": {
-              color: "#50bcd9",
+              color: "#bf1110",
               background: "#f5f7fa",
             },
             "& .MuiSvgIcon-root:hover": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              // background: "#feeae9",
             },
             "& .MuiListItemButton-root.selected": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
             "& .MuiListItemIcon-root": {
               color: "#a8acb3",
@@ -361,13 +382,26 @@ function NewSidebar(props) {
               fontWeight: 600,
             },
             "& .MuiListItemIcon-root:hover": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              // background: "#feeae9",
             },
             "& .MuiListItemButton-root.selected": {
-              color: "#50bcd9",
-              background: "#f5f7fa",
+              color: "#bf1110",
+              background: "#feeae9",
             },
+            "& .MuiListItemIcon-root.selected": {
+              color: "#bf1110",
+              // background: "#feeae9",
+            },
+            "& .MuiListItemButton-root:hover .MuiListItemText-primary, .MuiListItemButton-root.active .MuiListItemText-primary":
+              {
+                color: "#bf1110",
+              },
+
+            "& .MuiListItemButton-root:hover .MuiSvgIcon-root, .MuiListItemButton-root.active .MuiSvgIcon-root":
+              {
+                color: "#bf1110",
+              },
           }}
           open
         >

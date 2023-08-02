@@ -29,7 +29,7 @@ const StatBox2 = ({
             width="50px"
             height="50px"
             borderRadius="50%"
-            backgroundColor="rgba(255, 198, 117, 0.1)"
+            backgroundColor="rgba(211,125,34, 0.1)"
             // sx={{backgroundColor: colors.greenAccent[800]}}
           >
             {icon2}
@@ -37,18 +37,10 @@ const StatBox2 = ({
         </Box>
 
         <Box display="flex" flexDirection="column" padding="10px">
-          <Typography
-            variant="h5"
-            fontWeight="bold"
-            sx={{ color: "rgba(255, 198, 117)" }}
-          >
+          <Typography variant="h5" fontWeight="bold" sx={{ color: "#D37D22" }}>
             {subtitle1}
           </Typography>
-          <Typography
-            variant="h3"
-            fontWeight="bold"
-            color="rgba(255, 198, 117)"
-          >
+          <Typography variant="h3" fontWeight="bold" color="#D37D22">
             {title2}
           </Typography>
         </Box>

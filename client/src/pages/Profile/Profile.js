@@ -91,7 +91,7 @@ export default function Profile() {
             alignItems="center"
             justifyContent="center"
             borderRadius="50%"
-            backgroundColor="#50bcd9"
+            backgroundColor="#bf1110"
             color="#fff"
             fontFamily="Poppins"
             sx={{
@@ -165,7 +165,7 @@ export default function Profile() {
               type="submit"
               style={{
                 //   marginTop: "10px",
-                backgroundColor: "#50bcd9",
+                backgroundColor: "#bf1110",
                 color: "#ffffff",
                 width: isNonMobile ? "200px" : "30px",
                 height: isNonMobile ? "44px" : "30px",
@@ -183,14 +183,14 @@ export default function Profile() {
                 justifyContent: "center",
               }}
               onMouseEnter={(e) => {
-                e.target.style.border = "1px solid #50bcd9";
+                e.target.style.border = "1px solid #bf1110";
                 e.target.style.backgroundColor = "#ffffff";
-                e.target.style.color = "#50bcd9";
+                e.target.style.color = "#bf1110";
               }}
               onMouseLeave={(e) => {
                 e.target.style.border = "none";
                 e.target.style.color = "#ffffff";
-                e.target.style.backgroundColor = "#50bcd9";
+                e.target.style.backgroundColor = "#bf1110";
               }}
             >
               {isNonMobile ? (

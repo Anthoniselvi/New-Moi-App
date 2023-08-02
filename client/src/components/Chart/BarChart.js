@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { Box } from "@mui/material";
 import {
   BarChart,
   Bar,
@@ -31,16 +32,28 @@ const Example = ({ eventsList }) => {
           dx={-10} // Move the labels slightly to the left
         />
         <YAxis />
-        <Tooltip />
+        <Tooltip
+          label={true}
+          formatter={(value, name, props) => {
+            const { payload } = props;
+            return [
+              <Box display="flex" flexDirection="column">
+                <p>{payload.eventName}</p>
+                <p>{value}</p>
+              </Box>,
+            ];
+          }}
+        />
         <Legend />
         {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <Bar
           dataKey="totalAmount"
-          fill="#8884d8"
+          fill="#EB707E"
           background={{ fill: "#eee" }}
         />
       </BarChart>
     </ResponsiveContainer>
   );
 };
+
 export default Example;

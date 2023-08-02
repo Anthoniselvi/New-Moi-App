@@ -49,7 +49,7 @@ export default function EventsList({ eventslist }) {
           backgroundColor: "#fff",
           padding: isNonMobile ? "2%" : "5%",
           borderRadius: "10px",
-          border: "1px solid #e8ecf1",
+          border: "1px solid #feeae9",
           minHeight: "80vh",
           width: "100%",
           display: "flex",
@@ -67,16 +67,19 @@ export default function EventsList({ eventslist }) {
             // width: '30%',
             width: isNonMobile ? "25%" : "100%",
             marginBottom: isNonMobile ? undefined : "5%",
-            border: "1px solid #cad3dd",
+            border: "1px solid #feeae9",
             borderRadius: "10px",
             display: "flex",
             gap: "5%",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#f5f7fa",
+            backgroundColor: "#feeae9",
+            // backgroundColor: "#f5f7fa",
             "&:hover": {
-              backgroundColor: "#50bcd9",
+              backgroundColor: "#bf1110",
+              // " #C21010",
+              // #50bcd9
               color: "#ffffff",
               "& .MuiTypography-root, & .MuiSvgIcon-root": {
                 color: "#ffffff",
@@ -84,14 +87,15 @@ export default function EventsList({ eventslist }) {
             },
           }}
         >
-          <ControlPointIcon sx={{ fontSize: "40px", color: "#50bcd9" }} />
+          <ControlPointIcon sx={{ fontSize: "40px", color: "#bf1110" }} />
+          {/* color: "#50bcd9" */}
           <Typography
             sx={{
               fontWeight: 600,
               fontSize: "17px",
               lineHeight: "22px",
               fontFamily: "Poppins",
-              color: "#101a34",
+              color: "#bf1110",
             }}
           >
             Create a new Event
@@ -105,12 +109,13 @@ export default function EventsList({ eventslist }) {
             onMouseEnter={() => handleBoxHover(index)}
             onMouseLeave={() => handleBoxHover(null)}
             sx={{
-              backgroundColor: "#f5f7fa",
+              // backgroundColor: "#f5f7fa",
+              backgroundColor: "#feeae9",
               position: "relative",
               height: "250px",
               // width: '30%',
               width: isNonMobile ? "25%" : "100%",
-              border: "1px solid #cad3dd",
+              border: "1px solid #feeae9",
               borderRadius: "10px",
               display: "flex",
               marginBottom: "5%",
@@ -118,7 +123,8 @@ export default function EventsList({ eventslist }) {
               alignItems: "center",
               justifyContent: "center",
               "&:hover": {
-                backgroundColor: "#50bcd9",
+                backgroundColor: "#bf1110",
+                // "#50bcd9",
                 color: "#ffffff",
                 "& .MuiTypography-root, & .MuiSvgIcon-root": {
                   color: "#ffffff",
@@ -209,7 +215,7 @@ export default function EventsList({ eventslist }) {
                   left: "90%",
                   transform: "translate(-50%, -50%)",
                   zIndex: 1,
-                  backgroundColor: "red",
+                  backgroundColor: "#bf1110",
                   padding: "5px",
                   borderRadius: "50%",
                   cursor: "pointer",
