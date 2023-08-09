@@ -39,6 +39,18 @@ const LoginForm = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const handleForgotPassword = async () => {
+    console.log("forgot password button clicked");
+    try {
+      await auth.sendPasswordResetEmail(signinData.email);
+      setError("");
+      // Optionally, you can show a success message to the user.
+      console.log("Password reset email sent successfully!");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   const handleChange = (event) => {
     setSigninData({
       ...signinData,
@@ -142,7 +154,7 @@ const LoginForm = () => {
         </Button>
         <Button
           width={isNonMobile ? "100%" : "49%"}
-          onClick={handleGoogleSignin}
+          onClick={handleFacebookSignIn}
           type="submit"
           // variant="contained"
           sx={{
@@ -328,10 +340,15 @@ const LoginForm = () => {
       >
         <Grid container>
           <Grid item xs>
-            <Link href="#" sx={{ color: "rgb(80, 188, 217)" }}>
+            <Link
+              href="#"
+              onClick={handleForgotPassword}
+              sx={{ color: "rgb(80, 188, 217)" }}
+            >
               Forgot password?
             </Link>
           </Grid>
+          {error && <Typography color="red">{error}</Typography>}
           <Grid item>
             <Link href="signup" to="/signup" sx={{ color: "#5e6577" }}>
               Need to create an account?{" "}
