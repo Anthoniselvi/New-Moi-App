@@ -9,7 +9,7 @@ import SigninValidation from "./SigninValidation";
 import { auth } from "../../firebase";
 import { useUserAuth } from "../../auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
@@ -37,18 +37,6 @@ const LoginForm = () => {
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
   const handlePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-
-  const handleForgotPassword = async () => {
-    console.log("forgot password button clicked");
-    try {
-      await auth.sendPasswordResetEmail(signinData.email);
-      setError("");
-      // Optionally, you can show a success message to the user.
-      console.log("Password reset email sent successfully!");
-    } catch (error) {
-      setError(error.message);
-    }
   };
 
   const handleChange = (event) => {
@@ -95,6 +83,10 @@ const LoginForm = () => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  const navigateToResetPassword = () => {
+    navigate("/resetpassword");
   };
 
   const handleFacebookSignIn = async (e) => {
@@ -339,16 +331,17 @@ const LoginForm = () => {
         width="100%"
       >
         <Grid container>
-          <Grid item xs>
+          <Grid item xs sx={{ color: "rgb(80, 188, 217)" }}>
             <Link
+              to="/resetpassword"
               href="#"
-              onClick={handleForgotPassword}
+              // onClick={navigateToResetPassword}
               sx={{ color: "rgb(80, 188, 217)" }}
             >
               Forgot password?
             </Link>
           </Grid>
-          {error && <Typography color="red">{error}</Typography>}
+
           <Grid item>
             <Link href="signup" to="/signup" sx={{ color: "#5e6577" }}>
               Need to create an account?{" "}

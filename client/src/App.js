@@ -15,6 +15,8 @@ import CreateEvent from "./pages/Events/CreateEvent";
 import Profile from "./pages/Profile/Profile";
 import SingleEventPage from "./pages/Events/SingleEventPage";
 import NewSidebar from "./pages/Sidebar/NewSidebar";
+import ResetPassword from "./components/Login/ResetPassword";
+import VerifyEmail from "./components/Login/VerifyEmail";
 
 function App() {
   const auth = useUserAuth();
@@ -46,6 +48,12 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
+                  <Route
+                    exact
+                    path="/resetpassword"
+                    element={<ResetPassword />}
+                  />
+                  <Route path="/verifyemail" element={<VerifyEmail />} />
                 </>
               )}
             </Routes>
