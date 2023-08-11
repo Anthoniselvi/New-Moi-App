@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import autoIncrement from "mongoose-plugin-autoinc";
+const mongoose = require("mongoose");
+const autoIncrement = require("mongoose-plugin-autoinc");
 
 const { autoIncrementFactory } = autoIncrement;
 
@@ -67,4 +67,4 @@ EventSchema.pre("save", function (next) {
 });
 
 const Events = mongoose.model("Events", EventSchema);
-export default Events;
+module.exports = Events;

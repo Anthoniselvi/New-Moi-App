@@ -1,8 +1,8 @@
-import Profiles from "../models/Profile.js";
-import mongoose from "mongoose";
-const { ObjectId } = mongoose.Types;
+const Profiles = require("../models/Profile.js");
+const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
 
-export const postProfile = (req, res) => {
+const postProfile = (req, res) => {
   const profileId = req.body.profileId;
   const name = req.body.name;
   const email = req.body.email;
@@ -29,13 +29,13 @@ export const postProfile = (req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getAllProfiles = (req, res) => {
+const getAllProfiles = (req, res) => {
   Profiles.find()
     .then((profiles) => res.json(profiles))
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getProfileById = (req, res) => {
+const getProfileById = (req, res) => {
   const profileId = req.params.profileId;
   Profiles.findOne({ profileId })
     .then((profile) => {
@@ -47,7 +47,7 @@ export const getProfileById = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-export const updateProfile = (req, res) => {
+const updateProfile = (req, res) => {
   const profileId = req.params.profileId;
   Profiles.findOne({ profileId })
     .then((profile) => {
@@ -65,4 +65,11 @@ export const updateProfile = (req, res) => {
         .catch((err) => res.status(400).json("Error : " + err));
     })
     .catch((err) => res.status(400).json("Error : " + err));
+};
+
+module.exports = {
+  postProfile,
+  getAllProfiles,
+  getProfileById,
+  updateProfile,
 };

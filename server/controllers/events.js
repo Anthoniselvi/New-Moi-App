@@ -1,7 +1,7 @@
-import Events from "../models/Events.js";
-import Entries from "../models/Entries.js";
+const Events = require("../models/Events.js");
+const Entries = require("../models/Entries.js");
 
-export const postEvent = (req, res) => {
+const postEvent = (req, res) => {
   const eventType = req.body.eventType;
   const name = req.body.name;
   const place = req.body.place;
@@ -39,13 +39,13 @@ export const postEvent = (req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getAllEvents = (req, res) => {
+const getAllEvents = (req, res) => {
   Events.find()
     .then((events) => res.json(events))
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getEventByEventId = (req, res) => {
+const getEventByEventId = (req, res) => {
   const eventId = req.params.eventId; // Extract eventId from req.params
   Events.findOne({ eventId }) // Use eventId instead of _id
     .then((event) => {
@@ -57,7 +57,7 @@ export const getEventByEventId = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-export const getEventsByProfileId = (req, res) => {
+const getEventsByProfileId = (req, res) => {
   const profileId = req.params.profileId;
   Events.find({ profileId: profileId })
     .then((events) => {
@@ -69,7 +69,7 @@ export const getEventsByProfileId = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-export const updateEventByEventId = (req, res) => {
+const updateEventByEventId = (req, res) => {
   const eventId = req.params.eventId; // Extract eventId from req.params
   Events.findOne({ eventId })
     .then((event) => {
@@ -88,7 +88,7 @@ export const updateEventByEventId = (req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const deleteEventByEventId = (req, res) => {
+const deleteEventByEventId = (req, res) => {
   const eventId = req.params.eventId; // Extract eventId from req.params
 
   // Delete all entries with matching eventId first
@@ -105,4 +105,13 @@ export const deleteEventByEventId = (req, res) => {
         .catch((err) => res.status(400).json("Error deleting event: " + err));
     })
     .catch((err) => res.status(400).json("Error deleting entries: " + err));
+};
+
+module.exports = {
+  postEvent,
+  getAllEvents,
+  getEventByEventId,
+  getEventsByProfileId,
+  updateEventByEventId,
+  deleteEventByEventId,
 };

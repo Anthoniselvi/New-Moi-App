@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import autoIncrement from "mongoose-plugin-autoinc";
+const mongoose = require("mongoose");
+const autoIncrement = require("mongoose-plugin-autoinc");
 
 const { autoIncrementFactory } = autoIncrement;
 
@@ -47,4 +47,4 @@ EntrySchema.plugin(autoIncrement.plugin, {
 });
 
 const Entries = mongoose.model("Entries", EntrySchema);
-export default Entries;
+module.exports = Entries;

@@ -1,20 +1,13 @@
-import express from "express";
-import {
-  postEvent,
-  getAllEvents,
-  getEventByEventId,
-  getEventsByProfileId,
-  updateEventByEventId,
-  deleteEventByEventId,
-} from "../controllers/events.js";
+const express = require("express");
+const eventsController = require("../controllers/events.js");
 
 const router = express.Router();
 
-router.post("/add", postEvent);
-router.get("/all", getAllEvents);
-router.get("/single/:eventId", getEventByEventId);
-router.get("/all/:profileId", getEventsByProfileId);
-router.put("/edit/:eventId", updateEventByEventId);
-router.delete("/delete/:eventId", deleteEventByEventId);
+router.post("/add", eventsController.postEvent);
+router.get("/all", eventsController.getAllEvents);
+router.get("/single/:eventId", eventsController.getEventByEventId);
+router.get("/all/:profileId", eventsController.getEventsByProfileId);
+router.put("/edit/:eventId", eventsController.updateEventByEventId);
+router.delete("/delete/:eventId", eventsController.deleteEventByEventId);
 
-export default router;
+module.exports = router;

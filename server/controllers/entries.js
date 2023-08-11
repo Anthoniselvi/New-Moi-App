@@ -1,7 +1,7 @@
-import Entries from "../models/Entries.js";
-import Events from "../models/Events.js";
+const Entries = require("../models/Entries.js");
+const Events = require("../models/Events.js");
 
-export const postEntry = (req, res) => {
+const postEntry = (req, res) => {
   const personName = req.body.personName;
   const city = req.body.city;
   const presentType = req.body.presentType;
@@ -24,13 +24,13 @@ export const postEntry = (req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getAllEntries = (req, res) => {
+const getAllEntries = (req, res) => {
   Entries.find()
     .then((entries) => res.json(entries))
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const getEntryByEntryId = (req, res) => {
+const getEntryByEntryId = (req, res) => {
   const entryId = req.params.entryId; // Extract eventId from req.params
   Entries.findOne({ entryId: entryId }) // Use eventId instead of _id
     .then((entry) => {
@@ -42,7 +42,7 @@ export const getEntryByEntryId = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-export const getAllEntriesByEventId = async (req, res) => {
+const getAllEntriesByEventId = async (req, res) => {
   const eventId = req.params.eventId;
   try {
     const result = await Entries.find({ eventId: eventId });
@@ -63,7 +63,7 @@ export const getAllEntriesByEventId = async (req, res) => {
   }
 };
 
-export const getAllEntriesByProfileId = async (req, res) => {
+const getAllEntriesByProfileId = async (req, res) => {
   const profileId = req.params.profileId;
   try {
     const events = await Events.find({ profileId: profileId });
@@ -95,7 +95,7 @@ export const getAllEntriesByProfileId = async (req, res) => {
   }
 };
 
-export const updateEntryByEntryId = (req, res) => {
+const updateEntryByEntryId = (req, res) => {
   const entryId = req.params.entryId; // Extract eventId from req.params
   Entries.findOne({ entryId: entryId })
     .then((entry) => {
@@ -113,7 +113,7 @@ export const updateEntryByEntryId = (req, res) => {
     .catch((err) => res.status(400).json("Error : " + err));
 };
 
-export const deleteEntryByEntryId = (req, res) => {
+const deleteEntryByEntryId = (req, res) => {
   const entryId = req.params.entryId; // Extract eventId from req.params
   Entries.deleteOne({ entryId: entryId })
     .then((result) => {
@@ -125,7 +125,7 @@ export const deleteEntryByEntryId = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-export const getTotals = async (req, res) => {
+const getTotals = async (req, res) => {
   const profileId = req.params.profileId;
   try {
     // Get all events for the given profileId
@@ -163,4 +163,15 @@ export const getTotals = async (req, res) => {
     console.log("Error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
+};
+
+module.exports = {
+  postEntry,
+  getAllEntries,
+  getAllEntriesByEventId,
+  getAllEntriesByProfileId,
+  getEntryByEntryId,
+  getTotals,
+  updateEntryByEntryId,
+  deleteEntryByEntryId,
 };
