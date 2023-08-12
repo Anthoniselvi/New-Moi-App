@@ -20,5 +20,8 @@
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-plugin-autoinc": "^1.1.9",
     "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.0.0"
   }
 }
