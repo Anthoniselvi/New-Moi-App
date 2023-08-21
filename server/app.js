@@ -13,8 +13,9 @@ app.use(cookieParser());
 // Use cors middleware with specific origin
 app.use(
   cors({
-    origin: true, // Update with your frontend URL
-    credentials: true, // Enable cookies and credentials for cross-origin requests
+    origin: "http://16.16.67.248:1234",
+    credentials: true,
+    secure: true, // Add this line
   })
 );
 
