@@ -36,9 +36,10 @@
   }
   @media (max-width: 1000px) {
     .firstpage-container{
-      height:60vh;
+      height:100%;
       padding: 5%;
-     
+      padding-top: 20%;
+     border: none;
     }
     .home-text-section {
       gap:15px;
@@ -57,7 +58,7 @@
     }
     .secondary-button{
       width: 100%;
-      border:1px solid red;
+      /* border:1px solid red; */
     }
   }
   .primary-text {

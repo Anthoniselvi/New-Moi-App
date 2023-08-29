@@ -1,5 +1,5 @@
 .footer-container{
-    background-color: #22222a;
+    background-color: #a30024;
     width: 100vw;
     padding: 5%;
   
@@ -98,13 +98,13 @@
   }
 
   .footer-button:hover {
-    background-color: #50bcd9;
-    color: #101a34;
+    background-color: #f59f2f;
+    color: #a30024;
   }
   .footer1-button {
   
-    background: #50bcd9;
-    color: #fff;
+    background: #f59f2f;
+    color: #a30024;
  
     width: 170px;
     height: 40px;

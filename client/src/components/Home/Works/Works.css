@@ -91,7 +91,7 @@ width: 40%;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    color: #a30024;
+    color: #101a34;
 }
 .works-bottom-container{
     display: flex;
@@ -104,8 +104,14 @@ width: 40%;
       gap: 20px;
 }
 .works-content-img{
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 30px;
+    background-color: #a30024;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 @media (max-width: 1000px) {
     .works-container{

@@ -62,7 +62,14 @@
     display: flex; align-items: center; gap: 20px
   }
   .subworks-img{
-    width: 20px; height: 20px 
+    width: 35px;
+    height: 30px;
+    background-color: #a30024;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
   .subworks-content-text{
     font-family: Poppins;
