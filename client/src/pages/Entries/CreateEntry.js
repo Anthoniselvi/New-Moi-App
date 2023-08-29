@@ -16,6 +16,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import { RefreshContext } from "./EntriesPage";
 // import { RefreshContext } from "./Entries";
 // import { RefreshContext } from "./index";
 
@@ -26,10 +27,10 @@ export default function CreateEntry({ open, onClose, eventId }) {
   const [amount, setAmount] = useState(0);
   const [gift, setGift] = useState("");
   const [presentType, setPresentType] = useState("amount");
-  //    const { updateRefreshCount } = useContext(RefreshContext);
+  const { updateRefreshCount } = useContext(RefreshContext);
 
   function refreshPage() {
-    // updateRefreshCount();
+    updateRefreshCount();
   }
 
   const handleClose = () => {
@@ -63,7 +64,7 @@ export default function CreateEntry({ open, onClose, eventId }) {
     setAmount("");
     setGift("");
     onClose();
-    //   refreshPage();
+    refreshPage();
   };
 
   return (
