@@ -294,7 +294,7 @@ const LoginForm = () => {
           type="submit"
           style={{
             marginTop: "10px",
-            backgroundColor: "#50bcd9",
+            backgroundColor: "#a30024",
             color: "#ffffff",
             width: "100%",
             height: "44px",
@@ -308,14 +308,14 @@ const LoginForm = () => {
             cursor: "pointer",
           }}
           onMouseEnter={(e) => {
-            e.target.style.border = "1px solid #50bcd9";
-            e.target.style.backgroundColor = "#f0f2f5";
-            e.target.style.color = "#50bcd9";
+            // e.target.style.border = "1px solid #a30024";
+            e.target.style.backgroundColor = "#f59f2f";
+            e.target.style.color = "#a30024";
           }}
           onMouseLeave={(e) => {
             e.target.style.border = "none";
             e.target.style.color = "#ffffff";
-            e.target.style.backgroundColor = "#50bcd9";
+            e.target.style.backgroundColor = "#a30024";
           }}
         >
           Sign In
@@ -331,12 +331,12 @@ const LoginForm = () => {
         width="100%"
       >
         <Grid container>
-          <Grid item xs sx={{ color: "rgb(80, 188, 217)" }}>
+          <Grid item xs sx={{ color: "#a30024", fontSize: 15 }}>
             <Link
               to="/resetpassword"
               href="#"
               // onClick={navigateToResetPassword}
-              sx={{ color: "rgb(80, 188, 217)" }}
+              sx={{ color: "#a30024" }}
             >
               Forgot password?
             </Link>
@@ -345,7 +345,7 @@ const LoginForm = () => {
           <Grid item>
             <Link href="signup" to="/signup" sx={{ color: "#5e6577" }}>
               Need to create an account?{" "}
-              <span style={{ color: "rgb(80, 188, 217)" }}>Sign Up</span>
+              <span style={{ color: "#a30024", fontSize: 15 }}>Sign Up</span>
             </Link>
           </Grid>
         </Grid>

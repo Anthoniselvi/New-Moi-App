@@ -353,16 +353,16 @@ const SignupForm = () => {
         <Button
           type="submit"
           sx={{
-            backgroundColor: "#50bcd9",
+            backgroundColor: "#a30024",
             color: "#ffffff",
             fontSize: "16px",
             fontWeight: 600,
             // padding: "10px 20px",
             width: "100%",
             "&:hover ": {
-              backgroundColor: "#f0f2f5",
-              color: "#50bcd9",
-              border: "1px solid #50bcd9",
+              backgroundColor: "#f59f2f",
+              color: "#a30024",
+              // border: "1px solid #a30024",
             },
           }}
         >
@@ -390,9 +390,13 @@ const SignupForm = () => {
                 </Link>
               </Grid> */}
           <Grid item>
-            <Link href="/login" to="/login" sx={{ color: "#5e6577" }}>
+            <Link
+              href="/login"
+              to="/login"
+              sx={{ color: "#5e6577", fontSize: 15 }}
+            >
               Already have an account?{" "}
-              <span style={{ color: "rgb(80, 188, 217)", fontWeight: 400 }}>
+              <span style={{ color: "#a30024", fontSize: 15, fontWeight: 400 }}>
                 Login
               </span>
             </Link>
