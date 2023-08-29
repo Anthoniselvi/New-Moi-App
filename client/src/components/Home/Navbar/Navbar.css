@@ -78,15 +78,15 @@
   }
   .primary-button:hover {
     /* background-color: rgb(234, 234, 234); */
-    background-color: #50bcd9;
-    color: #fff;
+    background-color: #f59f2f;
+    color: #a30024;
   }
   .primary1-button {
     border-radius: 8px;
     padding: 10px 24px;
     background-color: #fff;
-    color: #50bcd9;
-    border: 1px solid #50bcd9;
+    color: #101a34;
+    border: 1px solid #f59f2f;
     outline: none;
     border: none;
     font-family: "Poppins";
@@ -100,8 +100,8 @@
     margin-left: 20px;
   }
   .primary1-button:hover {
-    background-color: #50bcd9;
-    color: #fff;
+    background-color: #f59f2f;
+    color: #a30024;
   }
   .navbar-menu-container svg {
     font-size: 1.5rem;
