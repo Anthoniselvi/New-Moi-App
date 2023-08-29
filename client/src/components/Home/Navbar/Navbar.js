@@ -144,7 +144,7 @@ const Navbar = () => {
           >
             <button
               className="primary1-button"
-              style={{ width: "100%", border: "1px solid #a30024" }}
+              style={{ width: "100%", border: "1px solid #DA344D" }}
               onClick={navigateToLogin}
             >
               Login

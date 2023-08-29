@@ -353,7 +353,7 @@ const SignupForm = () => {
         <Button
           type="submit"
           sx={{
-            backgroundColor: "#a30024",
+            backgroundColor: "#DA344D",
             color: "#ffffff",
             fontSize: "16px",
             fontWeight: 600,
@@ -361,8 +361,8 @@ const SignupForm = () => {
             width: "100%",
             "&:hover ": {
               backgroundColor: "#f59f2f",
-              color: "#a30024",
-              // border: "1px solid #a30024",
+              color: "#DA344D",
+              // border: "1px solid #DA344D",
             },
           }}
         >
@@ -396,7 +396,7 @@ const SignupForm = () => {
               sx={{ color: "#5e6577", fontSize: 15 }}
             >
               Already have an account?{" "}
-              <span style={{ color: "#a30024", fontSize: 15, fontWeight: 400 }}>
+              <span style={{ color: "#DA344D", fontSize: 15, fontWeight: 400 }}>
                 Login
               </span>
             </Link>

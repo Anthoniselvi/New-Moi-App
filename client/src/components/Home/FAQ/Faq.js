@@ -28,11 +28,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel1" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -59,11 +59,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel2" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -91,11 +91,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel3" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -124,11 +124,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel4" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -155,11 +155,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel5" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -188,11 +188,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel6" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -221,11 +221,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel7" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
@@ -255,11 +255,11 @@ export default function Faq() {
             expandIcon={
               expanded === "panel8" ? (
                 <RemoveCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               ) : (
                 <AddCircleOutlineIcon
-                  sx={{ color: "#a30024", fontSize: "22px" }}
+                  sx={{ color: "#DA344D", fontSize: "22px" }}
                 />
               )
             }
