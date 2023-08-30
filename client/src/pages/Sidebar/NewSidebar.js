@@ -276,16 +276,16 @@ function NewSidebar(props) {
               color: "#101a34",
             },
             "& .MuiTypography-root": {
-              fontSize: 13,
+              fontSize: 18,
             },
             "& .MuiListItem-root": {
-              fontSize: 13,
+              fontSize: 18,
               color: "#101a34",
               fontWeight: 500,
               lineHeight: 18,
             },
             "& .MuiSvgIcon-root": {
-              fontSize: 13,
+              fontSize: 20,
               color: "#101a34",
               fontWeight: 500,
               lineHeight: 18,
@@ -307,6 +307,7 @@ function NewSidebar(props) {
               textAlign: "center",
               alignItems: "center",
               fontWeight: 600,
+              fontSize: "20px",
             },
             "& .MuiListItemIcon-root:hover": {
               color: "#bf1110",

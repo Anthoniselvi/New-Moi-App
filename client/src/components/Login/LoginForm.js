@@ -130,7 +130,7 @@ const LoginForm = () => {
           // variant="contained"s
           sx={{
             background: "#fff",
-            border: "1px solid #50bcd9",
+            border: "1px solid #DA344D",
             borderRadius: "4px",
             padding: "10px 17px",
             fontWeight: 500,
@@ -151,7 +151,7 @@ const LoginForm = () => {
           // variant="contained"
           sx={{
             background: "#fff",
-            border: "1px solid #50bcd9",
+            border: "1px solid #DA344D",
             borderRadius: "4px",
             padding: "10px 17px",
             fontWeight: 500,
