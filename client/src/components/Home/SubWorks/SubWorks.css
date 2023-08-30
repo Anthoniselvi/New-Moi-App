@@ -119,7 +119,7 @@
   .subworks-text-box{
     order: 1;
     width: 100%;
-
+padding-top: 0;
   }
   .subworks-img-box{
       order:2;

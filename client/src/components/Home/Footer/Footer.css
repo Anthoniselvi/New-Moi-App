@@ -12,8 +12,15 @@
     gap: 10%;
     align-items: top;
 }
-.footer-leftcolumn h1, .footer-leftcolumn h3{
-   color: #fff;
+
+.footer-leftcolumn h1{
+  font-size: 30px;
+  color: #fff;
+}
+.footer-leftcolumn h3{
+  font-size: 18px;
+  color: #fff;
+  font-weight: normal;
 }
 .footer-rightcolumn{
   display: flex;
