@@ -103,21 +103,21 @@ export default function EntriesTable() {
           <Box
             onClick={() => handleEditEntry(row.entryId)}
             sx={{
-              border: "1px solid #56c984",
+              // border: "1px solid #56c984",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "10px",
+              gap: "5px",
               cursor: "pointer",
               padding: "5px 10px",
-              borderRadius: "5px",
-              background: "#56c984",
-              color: "#fff",
+              // borderRadius: "5px",
+              // background: "#56c984",
+              // color: "#fff",
               "&:hover": {
-                transition: "0.3s ease",
-                transform: "scale(0.9)",
-                background: "#fafbfd",
-                color: "#56c984",
+                // transition: "0.3s ease",
+                // transform: "scale(0.9)",
+                // background: "#fafbfd",
+                // color: "#56c984",
               },
             }}
           >
@@ -139,21 +139,21 @@ export default function EntriesTable() {
           <Box
             onClick={(e) => handleDeleteEntry(e, row.entryId)}
             sx={{
-              border: "1px solid #ff574d",
+              // border: "1px solid #ff574d",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "10px",
+              gap: "5px",
               cursor: "pointer",
               padding: "5px 10px",
               borderRadius: "5px",
-              background: "#ff574d",
-              color: "#fff",
+              // background: "#ff574d",
+              // color: "#fff",
               "&:hover": {
-                transition: "0.3s ease",
-                transform: "scale(0.9)",
-                color: "#ff574d",
-                background: "#fafbfd",
+                // transition: "0.3s ease",
+                // transform: "scale(0.9)",
+                // color: "#ff574d",
+                // background: "#fafbfd",
               },
             }}
           >
@@ -198,10 +198,12 @@ export default function EntriesTable() {
             },
             "& .MuiDataGrid-cell": {
               borderBottom: " 1px solid #e8ecf1",
+              borderTop: " 1px solid #e8ecf1",
               fontSize: "15px",
               lineHeight: "19px",
               color: "#101a34",
               alignItems: "left",
+              // height: "150px",
             },
             "& .name-column--cell": {
               color: "red",
@@ -245,8 +247,9 @@ export default function EntriesTable() {
               color: "black",
             },
             "& .MuiDataGrid-row": {
-              paddingTop: "40px",
-              paddingBottom: "40px",
+              // paddingTop: "40px",
+              // paddingBottom: "40px",
+              // textAlign: "center",
             },
             "& .MuiDataGrid-row:hover": {
               // backgroundColor: "#e0e0e0",

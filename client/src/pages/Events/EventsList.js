@@ -77,9 +77,10 @@ export default function EventsList({ eventslist }) {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "#feeae9",
-            // backgroundColor: "#f5f7fa",
+
             "&:hover": {
-              backgroundColor: "#bf1110",
+              // backgroundColor: "#bf1110",
+              backgroundColor: "#DA344D",
               // " #C21010",
               // #50bcd9
               color: "#ffffff",
@@ -125,7 +126,7 @@ export default function EventsList({ eventslist }) {
               alignItems: "center",
               justifyContent: "center",
               "&:hover": {
-                backgroundColor: "#bf1110",
+                backgroundColor: "#DA344D",
                 // "#50bcd9",
                 color: "#ffffff",
                 "& .MuiTypography-root, & .MuiSvgIcon-root": {
@@ -217,7 +218,7 @@ export default function EventsList({ eventslist }) {
                   left: "90%",
                   transform: "translate(-50%, -50%)",
                   zIndex: 1,
-                  backgroundColor: "#bf1110",
+                  backgroundColor: "#DA344D",
                   padding: "5px",
                   borderRadius: "50%",
                   cursor: "pointer",

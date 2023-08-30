@@ -136,7 +136,7 @@ export default function SingleEventPage() {
             height: "10%",
             width: "100%",
             padding: "2% 0%",
-            paddingBottom: "5%",
+            paddingBottom: "2%",
             borderBottom: "1px solid #cad3dd",
           }}
         >
@@ -364,19 +364,19 @@ export default function SingleEventPage() {
             minHeight: "70vh",
             borderRadius: "10px",
             border: "1px solid #cad3dd",
-            marginTop: "5%",
+            marginTop: "2%",
             backgroundColor: "#fff",
           }}
         >
           <Box
             sx={{
-              height: "10%",
+              height: "15%",
               width: "100%",
               borderBottom: "1px solid #cad3dd",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              padding: "0% 2%",
+              padding: "1% 2%",
             }}
           >
             <Typography
@@ -435,8 +435,6 @@ export default function SingleEventPage() {
               display: "flex",
             }}
           >
-            {/* <EntriesPage /> */}
-            {/* <NewEntriesPage /> */}
             <EntriesTable />
           </Box>
         </Box>

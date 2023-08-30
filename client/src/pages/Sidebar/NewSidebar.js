@@ -171,7 +171,7 @@ function NewSidebar(props) {
             zIndex: 7000,
             background: "#fff",
             color: "#101a34",
-            borderBottom: "1px solid #50bcd9",
+            borderBottom: "0.5px solid #bf1110",
           }}
         >
           <Toolbar>
@@ -197,7 +197,7 @@ function NewSidebar(props) {
                 >
                   <RiMenu2Line
                     // onClick={handleMenuClicked}
-                    style={{ fontSize: "25px" }}
+                    style={{ fontSize: "25px", color: "#bf1110" }}
                     //   className="Icon"
                   />
                 </IconButton>
@@ -223,8 +223,9 @@ function NewSidebar(props) {
                   }}
                 >
                   <ImCross
-                  // onClick={handleMenuClicked}
-                  // className="Icon"
+                    style={{ color: "#bf1110" }}
+                    // onClick={handleMenuClicked}
+                    // className="Icon"
                   />{" "}
                 </IconButton>
               </Box>
@@ -241,7 +242,12 @@ function NewSidebar(props) {
                 variant="h4"
                 noWrap
                 component="div"
-                sx={{ textAlign: "center" }}
+                sx={{
+                  textAlign: "center",
+                  color: "#bf1110",
+                  fontWeight: 600,
+                  fontSize: 30,
+                }}
               >
                 MOI APP
               </Typography>
@@ -346,17 +352,17 @@ function NewSidebar(props) {
               fontSize: 20,
             },
             "& .MuiTypography-root": {
-              fontSize: 13,
+              fontSize: 18,
               fontWeight: 600,
             },
             "& .MuiListItem-root": {
-              fontSize: 13,
+              fontSize: 18,
               fontWeight: 600,
               color: "#101a34",
               lineHeight: 18,
             },
             "& .MuiSvgIcon-root": {
-              fontSize: 13,
+              fontSize: 18,
               color: "#101a34",
               fontWeight: 500,
               lineHeight: 18,
