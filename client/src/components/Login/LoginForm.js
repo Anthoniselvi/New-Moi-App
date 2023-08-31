@@ -68,7 +68,7 @@ const LoginForm = () => {
     try {
       await googleSignIn();
       axios
-        .post(`${process.env.REACT_APP_BASE_URL}/profile`, {
+        .post(`${process.env.REACT_APP_BASE_URL}/profile/add`, {
           profileId: user.uid,
           name: user.displayName,
           email: user.email,
@@ -95,7 +95,7 @@ const LoginForm = () => {
     try {
       await facebookSignIn();
       axios
-        .post(`${process.env.REACT_APP_BASE_URL}/profile`, {
+        .post(`${process.env.REACT_APP_BASE_URL}/profile/add`, {
           profileId: user.uid,
           name: user.displayName,
           email: user.email,
