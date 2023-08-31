@@ -69,19 +69,29 @@ export const getAllEntriesByProfileId = async (req, res) => {
     const events = await Events.find({ profileId: profileId });
     const eventIds = events.map((event) => Number(event.eventId));
     const entriesList = await Entries.find({ eventId: { $in: eventIds } });
-    console.log("Matching Documents:", entriesList);
+
+    if (entriesList.length === 0) {
+      // No entries found, send an appropriate response
+      res.status(200).json({
+        message: "No entries found",
+        entriesList: [],
+        totalAmount: 0,
+        totalGift: 0,
+      });
+      return;
+    }
+
+    // Process entriesList and other calculations as before
     const totalAmount = entriesList.reduce((acc, doc) => acc + doc.amount, 0);
-    console.log("Total Amount:", totalAmount);
     const totalGift = entriesList.filter((entry) => entry.gift !== "").length;
-    console.log("Filled Gift Count:", totalGift);
     const maxAmountEntry = entriesList.reduce((acc, curr) =>
       acc.amount > curr.amount ? acc : curr
     );
-    console.log("Max Amount Entry:", maxAmountEntry);
     const maxAmountEventList = await Events.findOne({
       eventId: maxAmountEntry.eventId,
     });
-    console.log("Event List:", maxAmountEventList);
+
+    // Send the response with the relevant data
     res.status(200).json({
       entriesList: entriesList,
       totalAmount: totalAmount,
