@@ -9,8 +9,16 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 import { useRefreshContext } from "../../RefreshContext";
+import { useNavigate } from "react-router-dom";
 
-export default function DeleteEvent({ eventId, open, onClose, eventName }) {
+export default function DeleteEvent({
+  eventId,
+  open,
+  onClose,
+  eventName,
+  profileId,
+}) {
+  const navigate = useNavigate();
   const { refreshCount, refreshPage } = useRefreshContext();
   const handleClose = () => {
     onClose();
@@ -24,6 +32,7 @@ export default function DeleteEvent({ eventId, open, onClose, eventName }) {
       });
     onClose();
     refreshPage();
+    navigate(`/eventslist?profile=${profileId}`);
   };
   return (
     <div>

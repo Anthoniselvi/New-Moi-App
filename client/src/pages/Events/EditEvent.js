@@ -25,6 +25,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
   const [name, setName] = useState("");
   const [place, setPlace] = useState("");
   const [date, setDate] = useState("");
+  const [profileId, setProfileId] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedRowId, setSelectedRowId] = React.useState(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -74,6 +75,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
         setName(response.data.name);
         setPlace(response.data.place);
         setDate(response.data.date);
+        setProfileId(response.data.profileId);
       });
   };
   useEffect(() => {
@@ -419,6 +421,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
       </Dialog>
       {deleteModalOpen ? (
         <DeleteEvent
+          profileId={profileId}
           eventName={name}
           eventId={eventId}
           open={deleteModalOpen}
