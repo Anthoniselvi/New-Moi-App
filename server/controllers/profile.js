@@ -6,7 +6,7 @@ export const postProfile = (req, res) => {
   const profileId = req.body.profileId;
   const name = req.body.name;
   const email = req.body.email;
-  const mobile = "";
+  const mobile = req.body.mobile;
   const age = "";
   const gender = "";
   const address = "";
