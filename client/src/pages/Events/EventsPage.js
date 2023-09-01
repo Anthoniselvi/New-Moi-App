@@ -8,8 +8,9 @@ import { useState, useEffect } from "react";
 import EventsList from "./EventsList";
 import Sidebar from "../Sidebar/Sidebar";
 import { useMediaQuery } from "@mui/material";
-
+import { useRefreshContext } from "../../RefreshContext";
 export default function EventsPage() {
+  const { refreshCount, refreshPage } = useRefreshContext();
   const navigate = useNavigate();
   const [eventslist, setEventsList] = useState([]);
   const [searchParam] = useSearchParams();
@@ -28,7 +29,7 @@ export default function EventsPage() {
   };
   useEffect(() => {
     fetchTotals();
-  }, []);
+  }, [refreshCount]);
   return (
     // <div className="home">
     //   <Sidebar profileId={profileId} />

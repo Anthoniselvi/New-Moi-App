@@ -15,7 +15,7 @@ import { useMediaQuery } from "@mui/material";
 import DialogTitle from "@mui/material/DialogTitle";
 import { DeleteOutlineOutlined } from "@mui/icons-material";
 import DeleteEvent from "./DeleteEvent";
-
+import { useRefreshContext } from "../../RefreshContext";
 // import { RefreshContext } from "./index";
 
 export default function EditEvent({ open, onClose, eventId, eventName }) {
@@ -28,7 +28,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedRowId, setSelectedRowId] = React.useState(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-
+  const { refreshCount, refreshPage } = useRefreshContext();
   // const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   // const navigate = useNavigate();
 
@@ -40,9 +40,6 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
   //   setRefreshCount(refreshCount + 1);
   // };
   //   const { updateRefreshCount = () => {} } = useContext(RefreshContext);
-  function refreshPage() {
-    // updateRefreshCount();
-  }
 
   const handleEditSave = (e) => {
     e.preventDefault();
@@ -57,7 +54,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
         console.log("Updated Event : " + JSON.stringify(response));
       });
     onClose();
-    // refreshPage();
+    refreshPage();
   };
 
   const handleDeleteEvent = (eventId) => {
@@ -81,7 +78,7 @@ export default function EditEvent({ open, onClose, eventId, eventName }) {
   };
   useEffect(() => {
     getSelectedEvent();
-  }, []);
+  }, [refreshCount]);
   return (
     <div>
       <Dialog

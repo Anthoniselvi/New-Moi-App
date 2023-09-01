@@ -12,7 +12,6 @@ import EntriesPage from "../Entries/EntriesPage";
 import { PrintEvent } from "./PrintEvent";
 import EditEvent from "./EditEvent";
 import CreateEntry from "../Entries/CreateEntry";
-import NewEntriesPage from "../Entries/NewEntriesPage";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import EntriesTable from "../Entries/EntriesTable";
@@ -24,6 +23,7 @@ import {
   Document,
   StyleSheet,
 } from "@react-pdf/renderer";
+import { useRefreshContext } from "../../RefreshContext";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
@@ -41,6 +41,7 @@ export default function SingleEventPage() {
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+  const { refreshCount, refreshPage } = useRefreshContext();
 
   const sharePdf = () => {
     const url = `${process.env.REACT_APP_BASE_URL}/pdf/${eventsList.eventId}`;
@@ -120,7 +121,7 @@ export default function SingleEventPage() {
     setLoading(true);
     // setSelectedEntries(entries.filter((entry) => entry.eventId === selectedEvent.eventId));
     setLoading(false);
-  }, []);
+  }, [refreshCount]);
   // }, [entries, selectedEvent]);
 
   return (

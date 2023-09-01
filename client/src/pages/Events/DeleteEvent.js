@@ -8,16 +8,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
-
-// import { RefreshContext } from "./index";
+import { useRefreshContext } from "../../RefreshContext";
 
 export default function DeleteEvent({ eventId, open, onClose, eventName }) {
-  //   const { updateRefreshCount } = useContext(RefreshContext);
-
-  function refreshPage() {
-    // window.location.reload(false);
-    // updateRefreshCount();
-  }
+  const { refreshCount, refreshPage } = useRefreshContext();
   const handleClose = () => {
     onClose();
   };
@@ -29,7 +23,7 @@ export default function DeleteEvent({ eventId, open, onClose, eventName }) {
         console.log("Deleted Parts :" + JSON.stringify(response));
       });
     onClose();
-    // refreshPage();
+    refreshPage();
   };
   return (
     <div>
