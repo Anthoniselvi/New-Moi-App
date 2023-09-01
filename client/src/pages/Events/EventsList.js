@@ -31,6 +31,23 @@ export default function EventsList() {
     setEditModalOpen(true);
     setSelectedRowId(eventId);
   };
+
+  const onUpdateEvent = (updatedEventData) => {
+    // Find the index of the updated event in eventslist
+    const updatedEventIndex = eventslist.findIndex(
+      (event) => event.eventId === updatedEventData.eventId
+    );
+
+    if (updatedEventIndex !== -1) {
+      // Create a new copy of eventslist with the updated event
+      const updatedEventsList = [...eventslist];
+      updatedEventsList[updatedEventIndex] = updatedEventData;
+
+      // Update the state with the new eventslist
+      setEventsList(updatedEventsList);
+    }
+  };
+
   const navigateToSingleEventPage = (eventId) => {
     navigate(`/eventpage?event=${eventId}`);
   };
@@ -244,10 +261,12 @@ export default function EventsList() {
       </Box>
       {editModalOpen ? (
         <EditEvent
-          // eventName={singleEvent.name}
           eventId={selectedRowId}
           open={editModalOpen}
           onClose={() => setEditModalOpen(false)}
+          // onUpdateEvent={onUpdateEvent} // Pass the onUpdateEvent function
+          eventslist={eventslist} // Pass eventslist as a prop
+          setEventsList={setEventsList}
         />
       ) : (
         <></>

@@ -24,6 +24,7 @@ import {
   StyleSheet,
 } from "@react-pdf/renderer";
 import { useRefreshContext } from "../../RefreshContext";
+import EditEventFromEventPage from "./EditEventFromEventPage";
 
 export default function SingleEventPage() {
   const [entries, setEntries] = useState([]);
@@ -449,7 +450,7 @@ export default function SingleEventPage() {
           <></>
         )}
         {editModalOpen ? (
-          <EditEvent
+          <EditEventFromEventPage
             eventName={eventsList.name}
             eventId={eventId}
             open={editModalOpen}
