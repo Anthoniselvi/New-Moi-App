@@ -10,26 +10,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import { useMediaQuery } from "@mui/material";
 import { useRefreshContext } from "../../RefreshContext";
 export default function EventsPage() {
-  const { refreshCount, refreshPage } = useRefreshContext();
-  const navigate = useNavigate();
-  const [eventslist, setEventsList] = useState([]);
-  const [searchParam] = useSearchParams();
-  const profileId = searchParam.get("profile");
   const isMobile = useMediaQuery("(max-width:1000px)");
 
-  const fetchTotals = () => {
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/entries/total/${profileId}`)
-      .then((response) => {
-        // console.log(response);
-
-        console.log("Totals : " + JSON.stringify(response.data));
-        setEventsList(response.data);
-      });
-  };
-  useEffect(() => {
-    fetchTotals();
-  }, [refreshCount]);
   return (
     // <div className="home">
     //   <Sidebar profileId={profileId} />
@@ -56,7 +38,7 @@ export default function EventsPage() {
             paddingTop: "2%",
           }}
         >
-          <EventsList eventslist={eventslist} />
+          <EventsList />
         </Box>
       </Box>
     </div>

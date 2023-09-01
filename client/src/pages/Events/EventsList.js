@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useMediaQuery, Typography, Box } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
@@ -8,8 +8,8 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import EditIcon from "@mui/icons-material/Edit";
 import EditEvent from "./EditEvent";
-
-export default function EventsList({ eventslist }) {
+import { useRefreshContext } from "../../RefreshContext";
+export default function EventsList() {
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate();
   const [searchParam] = useSearchParams();
@@ -19,9 +19,10 @@ export default function EventsList({ eventslist }) {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedRowId, setSelectedRowId] = useState();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const [eventslist, setEventsList] = useState([]);
+
+  const { refreshCount, refreshPage } = useRefreshContext();
+
   const handleEditEvent = (eventId, event) => {
     console.log("edit button clicked");
     event.stopPropagation(); // Stop event propagation to the parent Box
@@ -41,6 +42,19 @@ export default function EventsList({ eventslist }) {
   const handleBoxHover = (index) => {
     setHoveredIndex(index);
   };
+  const fetchTotals = () => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/entries/total/${profileId}`)
+      .then((response) => {
+        // console.log(response);
+
+        console.log("Totals : " + JSON.stringify(response.data));
+        setEventsList(response.data);
+      });
+  };
+  useEffect(() => {
+    fetchTotals();
+  }, [refreshCount]);
 
   return (
     <Box sx={{ width: "100%", minHeight: "100%" }}>
