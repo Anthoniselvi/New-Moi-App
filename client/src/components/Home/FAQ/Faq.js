@@ -32,15 +32,15 @@ const AccordionSummary = styled((props) => (
     theme.palette.mode === "dark"
       ? "rgba(255, 255, 255, .05)"
       : "rgba(0, 0, 0, .03)",
-  flexDirection: "row", // Reverse the direction
+  flexDirection: "row",
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(180deg)", // Rotate back to its original position
-    position: "relative", // Add relative positioning
-    left: "auto", // Move it to the right
-    right: theme.spacing(1), // Adjust the right positioning as needed
+    transform: "rotate(180deg)",
+    position: "relative",
+    left: "auto",
+    right: theme.spacing(1),
   },
   "& .MuiAccordionSummary-content": {
-    marginRight: theme.spacing(1), // Adjust the right margin as needed
+    marginRight: theme.spacing(1),
   },
 }));
 
