@@ -15,10 +15,6 @@
             font-weight: 600;
             font-family: Poppins;
 }
-.accord-container{
-    background-color: yellow ; color: #121212 ;
-   
-}
 
 .MuiAccordion-root.accord-container {
     background-color: #fff;
@@ -28,7 +24,6 @@
     border: none;
     padding: 2% 0%;
     margin: 0;
-    /* border: 1px solid blue; */
   }
 .accord-subhead{
     font-family: Poppins;
@@ -53,7 +48,6 @@
     /* gap:5%; */
     padding: 2% 10%;
     margin: 0;
-    border: 1px solid red;
 }
 @media (max-width: 1000px) {
     .faq-container{
