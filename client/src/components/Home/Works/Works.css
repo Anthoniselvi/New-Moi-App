@@ -75,7 +75,6 @@ width: 40%;
     line-height: 22px;
     font-family: Poppins;
     border-radius: 7px;
-    border: 1px solid #DA344D;
     text-transform: none;   
     padding: 12px 20px;
     gap: 10px;
@@ -107,12 +106,18 @@ width: 40%;
 .works-content-img{
     width: 35px;
     height: 30px;
-    background-color: #DA344D;
-    color: #fff;
+    background-color:#f2b7c0 ;
+    color: #DA344D;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+ 
+}
+.works-content-text{
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 @media (max-width: 1000px) {
     .works-container{
@@ -149,6 +154,7 @@ width: 40%;
         gap: 20px;
     }
     .works-button{
-        width: 100%;
+        /* width: 100%; */
+        display: none;
     }
 }
