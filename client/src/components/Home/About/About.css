@@ -30,9 +30,9 @@ object-fit: cover;
   @media (max-width: 1000px) {
     .about-container{
       background-color: #DA344D;
-      margin-top: -3%;
+      margin-top: -0.5%;
       padding-top: 20%;
-height: 35vh;
+height: 50vh;
 width: 100%;
 border: none;
     }
