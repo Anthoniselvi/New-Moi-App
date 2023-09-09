@@ -38,7 +38,7 @@ export default function SubWorks() {
           </button>
         </Box>
         <Box className="subworks-img-box">
-          <img className="subworks-image" src="/img/ph1.png" />
+          <img className="subworks-image" src="/img/phone.png" />
         </Box>
       </Box>
     </div>

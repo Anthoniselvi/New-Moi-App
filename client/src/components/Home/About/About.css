@@ -22,8 +22,8 @@ object-fit: cover;
   }
   
   .image-container img {  
-    height: 100%;
-    width: 100%;
+    height: 130%;
+    width: 130%;
     object-fit: cover;
    
   }
@@ -31,7 +31,7 @@ object-fit: cover;
     .about-container{
       background-color: #DA344D;
       margin-top: -0.5%;
-      padding-top: 20%;
+      padding-top: 10%;
 height: 50vh;
 width: 100%;
 border: none;
@@ -45,6 +45,8 @@ justify-content: center;
 width: 100%;height: 100%;
     }
     .image-container img{
-      width: 100%;height: 100%;
+   padding: 5%;
+   padding-bottom: 0;
+      width:100%;height: 90%;
     }
   }

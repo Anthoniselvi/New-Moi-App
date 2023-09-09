@@ -18,7 +18,7 @@ export default function Works() {
 
       <Box className="works-inner-box">
         <Box className="works-img-box">
-          <img className="works-img" src="/img/ph1.png" />
+          <img className="works-img" src="/img/phone.png" />
         </Box>
         <Box className="works-text-box">
           <h2 className="works-text-title">
