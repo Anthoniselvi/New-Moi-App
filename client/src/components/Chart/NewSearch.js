@@ -18,13 +18,13 @@ function QuickSearchToolbar() {
           color: "#101a34",
         },
         "& .MuiInput-input": {
-          fontSize: "20px",
+          fontSize: "18px",
           color: "#101a34",
         },
       }}
     >
       <Typography variant="h4" fontWeight="600" color="#101a34">
-        Search by Name
+        Search
       </Typography>
       <GridToolbarQuickFilter sx={{ color: "#101a34" }} />
     </Box>
