@@ -5,7 +5,7 @@ export const postEntry = (req, res) => {
   const personName = req.body.personName;
   const city = req.body.city;
   const presentType = req.body.presentType;
-  const amount = req.body.amount || 0;
+  const amount = req.body.amount || "";
   const gift = req.body.gift || "";
   const eventId = req.body.eventId;
 
