@@ -4,7 +4,8 @@ import SearchOver from "./SearchOver";
 
 const EntriesForSearch = ({ eventsList, searchResult }) => {
   const [searchInput, setSearchInput] = useState("");
-
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   // Filter the searchResult based on the search input
   const filteredResult = searchResult.filter((entry) => {
     const searchQuery = searchInput.toLowerCase();
@@ -22,6 +23,15 @@ const EntriesForSearch = ({ eventsList, searchResult }) => {
     );
   });
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setIsPopoverOpen(true);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setIsPopoverOpen(false);
+  };
   return (
     <Box
       p="2%"
@@ -31,8 +41,14 @@ const EntriesForSearch = ({ eventsList, searchResult }) => {
       flexDirection="column"
       gap="5%"
     >
-      <SearchOver searchInput={searchInput} setSearchInput={setSearchInput} />
-      <Box paddingTop="2%">
+      <SearchOver
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        onPopoverOpen={handleClick}
+        onPopoverClose={handleClose}
+        anchorEl={anchorEl}
+      />
+      <Box paddingTop={isPopoverOpen ? "10%" : "0%"}>
         {filteredResult.length > 0 ? (
           filteredResult.map((entry, index) => (
             <Box
@@ -99,7 +115,14 @@ const EntriesForSearch = ({ eventsList, searchResult }) => {
             </Box>
           ))
         ) : (
-          <Typography variant="body2">No results found.</Typography>
+          <Typography
+            variant="body2"
+            color="#121212"
+            fontSize="20px"
+            padding="2%"
+          >
+            No results found.
+          </Typography>
         )}
       </Box>
     </Box>

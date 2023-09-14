@@ -5,17 +5,13 @@ import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { Box } from "@mui/material";
 
-export default function SearchOver({ searchInput, setSearchInput }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+export default function SearchOver({
+  searchInput,
+  setSearchInput,
+  onPopoverOpen,
+  onPopoverClose,
+  anchorEl,
+}) {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
@@ -32,7 +28,7 @@ export default function SearchOver({ searchInput, setSearchInput }) {
         >
           Search
         </h2>
-        <Button onClick={handleClick}>
+        <Button onClick={onPopoverOpen}>
           <SearchIcon style={{ color: "#121212", fontSize: 22 }} />
         </Button>
       </Box>
@@ -41,9 +37,9 @@ export default function SearchOver({ searchInput, setSearchInput }) {
         id={id}
         open={open}
         anchorEl={anchorEl}
-        onClose={handleClose}
+        onClose={onPopoverClose}
         anchorOrigin={{
-          vertical: "top",
+          vertical: "bottom",
           horizontal: "right",
         }}
         transformOrigin={{
