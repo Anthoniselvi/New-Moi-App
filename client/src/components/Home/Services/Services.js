@@ -39,39 +39,35 @@ const Services = () => {
       title: "Birthday",
       description:
         "Capture and cherish every gift that comes your way on your birthday with GiftBook.",
-      // clickEvent: sliderClick
     },
     {
       image: "/img/wedding.png",
       title: "Wedding",
       description:
         "Preserve the love and generosity of your wedding guests with GiftBook. A timeless keepsake of your cherished gifts.",
-      // clickEvent: sliderClick
     },
     {
       image: "/img/housing.png",
       title: "House Warming",
       description:
         "Remember the love, treasure the gifts. GiftBook helps you honor the generosity of your housewarming guests",
-      // clickEvent: sliderClick
     },
     {
       image: "/img/betrothal.png",
       title: "Baby Shower",
-      description: "This is a fourth description",
-      // clickEvent: sliderClick
+      description: "Welcome a bundle of joy with adorable gifts.",
     },
     {
       image: "/img/house.png",
       title: "Naming Ceremony",
-      description: "This is a fifth description",
-      // clickEvent: sliderClick
+      description:
+        "Mark the beginning of a beautiful name with heartfelt tokens.",
     },
     {
       image: "/img/engage.png",
       title: "Home Function",
-      description: "This is a sixth description",
-      // clickEvent: sliderClick
+      description:
+        "Mark the special occasion for joy, laughter, sharing gifts.",
     },
   ];
 
