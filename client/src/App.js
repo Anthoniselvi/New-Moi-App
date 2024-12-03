@@ -17,6 +17,7 @@ import SingleEventPage from "./pages/Events/SingleEventPage";
 import NewSidebar from "./pages/Sidebar/NewSidebar";
 import ResetPassword from "./components/Login/ResetPassword";
 import VerifyEmail from "./components/Login/VerifyEmail";
+import { TestPage2 } from "./pages/TestPage2";
 
 function App() {
   const auth = useUserAuth();
@@ -42,6 +43,7 @@ function App() {
                   <Route path="/newevent" element={<CreateEvent />} />
                   <Route path="/eventpage" element={<SingleEventPage />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/testpage2" element={<TestPage2 />} />
                 </>
               ) : (
                 <>
